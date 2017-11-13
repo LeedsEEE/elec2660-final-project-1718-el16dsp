@@ -30,17 +30,26 @@
         class_0.MaxHealth = 40;
         class_0.Armour = 0;
         
+        class_0.Button1 = [[class_0_1 alloc] init];
         class_0.Button1.Type = @"W";
         class_0.Button1.Name = @"Pistol";
-        class_0.Button1.ImageName = @"pistol.png"; // TODO Add picture to supoprting files
+        class_0.Button1.ImageName = @"pistol.png"; // TODO Add picture to supporting files
         class_0.Button1.Description = @"A basic weapon for a basic pirate";
+        
+        class_0.Button2 = [[class_0_2 alloc] init];
+        class_0.Button2.Type = @"A";
+        class_0.Button2.Name = @"Grenade";
+        class_0.Button2.ImageName = @"grenade.png"; // TODO Add picture to supporting files
+        class_0.Button2.Description = @"A versatile tool for a versatile pirate";
+        
+        [self.PlayerClassArray addObject:class_0];
     }
     return self;
 }
 
 -(NSInteger) LoadData {
     // Find out how to find class level data and import that
-    // taken from http://www.ios-blog.co.uk/tutorials/read-text-files-in-ios-objective/
+    // Taken from http://www.ios-blog.co.uk/tutorials/read-text-files-in-ios-objective/
     NSString *path = [[NSBundle mainBundle] pathForResource:@"class_levels_data"
                                                      ofType:@"txt"];
     NSLog(@"%@", path);

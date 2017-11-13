@@ -22,7 +22,7 @@
 
 // These values will directly affect gameplay and will be tailored to each player class
 @property (nonatomic) NSInteger Level; // The following values scale up with this. This can be increased by paying a number of coins
-@property (nonatomic) NSInteger LevelsPerUpgrade; // Is used for determining the cost of the upgrade
+@property (nonatomic) float LevelsPerUpgrade; // Is used for determining the cost of the upgrade
 @property (nonatomic) NSInteger DamagePerClick; // How much damage is done per use
 @property (nonatomic) NSInteger ClicksPerClip; // How many clicks can this store
 @property (nonatomic) NSInteger ClickAmount; // A value that, in gameplay, will vary between 0 and ClicksPerClip
@@ -33,5 +33,21 @@
 -(void) UpdateStats;
 -(void) AutoIncrement;
 -(void) ManualIncrement;
+
+@end
+
+#pragma mark class_0_1
+
+@interface class_0_1 : WeaponClass
+
+-(void) UpdateStats;
+
+@end
+
+#pragma mark class_0_2
+
+@interface class_0_2 : WeaponClass
+
+-(void) UpdateStats;
 
 @end

@@ -22,7 +22,7 @@
         self.Description = @"This should be updated";
         
         self.Level = 0;
-        self.LevelsPerUpgrade = 0;
+        self.LevelsPerUpgrade = 0.0;
         self.DamagePerClick = 0;
         self.ClicksPerClip = 0;
         self.StunDuration = 0;
@@ -57,6 +57,7 @@
     level = self.Level;
     
     // Needs to be updated and overridden for each player class ability
+    self.LevelsPerUpgrade = 0.0;
     self.DamagePerClick = 1;
     self.ClicksPerClip = 1;
     self.StunDuration = 1;
@@ -78,25 +79,44 @@
 
 @end
 
-@interface class_0_1 : WeaponClass {
-    
-}
-
-@end
-
 @implementation class_0_1
 
 -(void) UpdateStats {
+    // Class 0 is Cutter
+    // Slot 1 is the pistol
     NSInteger level;
     
     level = self.Level;
     
     // Needs to be updated and overridden for each player class ability
+    self.LevelsPerUpgrade = 1.2;
     self.DamagePerClick = 1*level;
     self.ClicksPerClip = 10;
     self.StunDuration = 0;
-    self.AutoClickLoadRate = 0+(;
+    self.AutoClickLoadRate = 0+(level/5);
     self.ClickAmount = self.ClicksPerClip;
 }
 
 @end
+
+@implementation class_0_2
+
+-(void) UpdateStats {
+    // Class 0 is Cutter
+    // Slot 2 is grenade
+    NSInteger level;
+    
+    level = self.Level;
+    
+    // Needs to be updated and overridden for each player class ability
+    self.LevelsPerUpgrade = 2.0;
+    self.DamagePerClick = 2 + level;
+    self.ClicksPerClip = 10;
+    self.StunDuration = 4 + level;
+    self.AutoClickLoadRate = 0;
+    self.ClickAmount = self.ClicksPerClip;
+}
+
+@end
+
+
