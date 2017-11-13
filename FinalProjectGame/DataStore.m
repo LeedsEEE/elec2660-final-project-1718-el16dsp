@@ -10,4 +10,22 @@
 
 @implementation DataStore
 
+- (instancetype)init
+{
+    self = [super init];
+    if (self) {
+        self.PlayerClassArray = [[NSMutableArray alloc] init];
+    }
+    return self;
+}
+
+-(NSInteger) LoadData {
+    // Find out how to find class level data and import that
+    return 0;
+}
+
+-(NSInteger) SaveData {
+    // Save class levels into txt file 
+}
+
 @end

@@ -10,4 +10,9 @@
 
 @interface DataStore : NSObject
 
+@property (strong, nonatomic) NSMutableArray *PlayerClassArray;
+
+-(NSInteger) LoadData;
+-(NSInteger) SaveData;
+
 @end
