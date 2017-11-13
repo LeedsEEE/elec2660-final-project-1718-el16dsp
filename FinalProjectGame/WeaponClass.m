@@ -74,4 +74,29 @@
     self.ClickAmount += 1;
 }
 
+#pragma mark Class 0 - Cutter - Weapon 1
+
+@end
+
+@interface class_0_1 : WeaponClass {
+    
+}
+
+@end
+
+@implementation class_0_1
+
+-(void) UpdateStats {
+    NSInteger level;
+    
+    level = self.Level;
+    
+    // Needs to be updated and overridden for each player class ability
+    self.DamagePerClick = 1*level;
+    self.ClicksPerClip = 10;
+    self.StunDuration = 0;
+    self.AutoClickLoadRate = 0+(;
+    self.ClickAmount = self.ClicksPerClip;
+}
+
 @end
