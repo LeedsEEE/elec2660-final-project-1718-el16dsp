@@ -26,4 +26,12 @@
 }
 
 
+- (IBAction)Button1Pressed:(id)sender {
+}
+
+- (IBAction)Button2Pressed:(id)sender {
+}
+
+- (IBAction)CentralButtonPressed:(id)sender {
+}
 @end

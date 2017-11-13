@@ -10,6 +10,17 @@
 
 @interface ViewController : UIViewController
 
+@property (weak, nonatomic) IBOutlet UIButton *Button1Outlet;
+@property (weak, nonatomic) IBOutlet UIButton *Button2Outlet;
+@property (weak, nonatomic) IBOutlet UILabel *HealthLabelOutlet;
+@property (weak, nonatomic) IBOutlet UILabel *Button2LabelOutlet;
+@property (weak, nonatomic) IBOutlet UILabel *Button1LabelOutlet;
+@property (weak, nonatomic) IBOutlet UIImageView *PlayerImageOutlet;
+@property (weak, nonatomic) IBOutlet UILabel *CoinsLabelOutlet;
+
+- (IBAction)Button1Pressed:(id)sender;
+- (IBAction)Button2Pressed:(id)sender;
+- (IBAction)CentralButtonPressed:(id)sender;
 
 @end
 
