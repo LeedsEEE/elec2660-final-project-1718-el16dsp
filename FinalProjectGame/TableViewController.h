@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "DataStore.h"
 
 @interface TableViewController : UITableViewController
+
+@property (strong, nonatomic) DataStore *Data;
 
 @end

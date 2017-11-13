@@ -7,6 +7,8 @@
 //
 
 #import "TableViewController.h"
+#import "DataStore.h"
+#import "PlayerClass.h"
 
 @interface TableViewController ()
 
@@ -22,6 +24,8 @@
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    
+    self.Data = [[DataStore alloc] init];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -32,24 +36,35 @@
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-#warning Incomplete implementation, return the number of sections
-    return 0;
+    NSInteger PlayerClasses;
+    
+    PlayerClasses = self.Data.PlayerClassArray.count;
+    
+    return PlayerClasses;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-#warning Incomplete implementation, return the number of rows
-    return 0;
+    
+    return 3;
 }
 
-/*
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"MenuButton" forIndexPath:indexPath];
     
     // Configure the cell...
+    if (indexPath.section == 0) {
+        PlayerClass *temp = [self.Data.PlayerClassArray objectAtIndex:indexPath.section];
+        if (indexPath.row == 0) {
+            cell.textLabel.text = [NSString stringWithFormat:@"Play as %@", temp.Name];
+        } else if (indexPath.row == 1) {
+            cell.textLabel.text = [NSString stringWithFormat:@"Inspect primary"];
+        } else if (indexPath.row == 2) {
+            cell.textLabel.text = [NSString stringWithFormat:@"Inspect secondary"];
+        }
+    }
     
     return cell;
 }
-*/
 
 /*
 // Override to support conditional editing of the table view.
@@ -85,7 +100,6 @@
 }
 */
 
-/*
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -93,6 +107,5 @@
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
 }
-*/
 
 @end
