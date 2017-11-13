@@ -14,7 +14,19 @@
 {
     self = [super init];
     if (self) {
+        // Puts in placeholder values
+        self.Type = @"W";
         
+        self.Name = @"Placeholder";
+        self.ImageName = @"placeholder.png";
+        self.Description = @"This should be updated";
+        
+        self.Level = 0;
+        self.LevelsPerUpgrade = 0;
+        self.DamagePerClick = 0;
+        self.ClicksPerClip = 0;
+        self.StunDuration = 0;
+        self.AutoClickLoadRate = 0;
     }
     return self;
 }
