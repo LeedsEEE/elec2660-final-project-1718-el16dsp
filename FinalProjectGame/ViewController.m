@@ -27,6 +27,9 @@
 
 
 - (IBAction)Button1Pressed:(id)sender {
+    // Start events on any button press
+    // Load weapon if type is a weapon
+    // Charge (and fire) if type is an ability
 }
 
 - (IBAction)Button2Pressed:(id)sender {

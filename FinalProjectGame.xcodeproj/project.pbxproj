@@ -20,6 +20,7 @@
 		53572C151FB2060400E11BDB /* FinalProjectGameTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 53572C141FB2060400E11BDB /* FinalProjectGameTests.m */; };
 		53572C201FB2060400E11BDB /* FinalProjectGameUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 53572C1F1FB2060400E11BDB /* FinalProjectGameUITests.m */; };
 		5385983C1FB9D19C00DBA7CB /* class_levels_data.txt in Resources */ = {isa = PBXBuildFile; fileRef = 5385983B1FB9D19C00DBA7CB /* class_levels_data.txt */; };
+		5385983F1FB9D46800DBA7CB /* TableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5385983E1FB9D46800DBA7CB /* TableViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +66,8 @@
 		53572C1F1FB2060400E11BDB /* FinalProjectGameUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FinalProjectGameUITests.m; sourceTree = "<group>"; };
 		53572C211FB2060400E11BDB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5385983B1FB9D19C00DBA7CB /* class_levels_data.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = class_levels_data.txt; sourceTree = "<group>"; };
+		5385983D1FB9D46800DBA7CB /* TableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableViewController.h; sourceTree = "<group>"; };
+		5385983E1FB9D46800DBA7CB /* TableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,6 +122,8 @@
 				53572BFE1FB2060300E11BDB /* AppDelegate.m */,
 				53572C001FB2060300E11BDB /* ViewController.h */,
 				53572C011FB2060300E11BDB /* ViewController.m */,
+				5385983D1FB9D46800DBA7CB /* TableViewController.h */,
+				5385983E1FB9D46800DBA7CB /* TableViewController.m */,
 				53572C031FB2060300E11BDB /* Main.storyboard */,
 				530362B41FB9AFED00BEE30F /* ObstacleClass.h */,
 				530362B51FB9AFED00BEE30F /* ObstacleClass.m */,
@@ -304,6 +309,7 @@
 				53572BFF1FB2060300E11BDB /* AppDelegate.m in Sources */,
 				53572BFC1FB2060300E11BDB /* main.m in Sources */,
 				530362B31FB9A21E00BEE30F /* PlayerClass.m in Sources */,
+				5385983F1FB9D46800DBA7CB /* TableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
