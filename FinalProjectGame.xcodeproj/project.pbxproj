@@ -19,6 +19,7 @@
 		53572C0A1FB2060300E11BDB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 53572C081FB2060300E11BDB /* LaunchScreen.storyboard */; };
 		53572C151FB2060400E11BDB /* FinalProjectGameTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 53572C141FB2060400E11BDB /* FinalProjectGameTests.m */; };
 		53572C201FB2060400E11BDB /* FinalProjectGameUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 53572C1F1FB2060400E11BDB /* FinalProjectGameUITests.m */; };
+		5385983C1FB9D19C00DBA7CB /* class_levels_data.txt in Resources */ = {isa = PBXBuildFile; fileRef = 5385983B1FB9D19C00DBA7CB /* class_levels_data.txt */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +64,7 @@
 		53572C1B1FB2060400E11BDB /* FinalProjectGameUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FinalProjectGameUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		53572C1F1FB2060400E11BDB /* FinalProjectGameUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FinalProjectGameUITests.m; sourceTree = "<group>"; };
 		53572C211FB2060400E11BDB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5385983B1FB9D19C00DBA7CB /* class_levels_data.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = class_levels_data.txt; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -138,6 +140,7 @@
 			isa = PBXGroup;
 			children = (
 				53572BFB1FB2060300E11BDB /* main.m */,
+				5385983B1FB9D19C00DBA7CB /* class_levels_data.txt */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -266,6 +269,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5385983C1FB9D19C00DBA7CB /* class_levels_data.txt in Resources */,
 				53572C0A1FB2060300E11BDB /* LaunchScreen.storyboard in Resources */,
 				53572C071FB2060300E11BDB /* Assets.xcassets in Resources */,
 				53572C051FB2060300E11BDB /* Main.storyboard in Resources */,
