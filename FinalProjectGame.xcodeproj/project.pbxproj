@@ -10,6 +10,7 @@
 		530362B01FB999C400BEE30F /* WeaponClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 530362AF1FB999C400BEE30F /* WeaponClass.m */; };
 		530362B31FB9A21E00BEE30F /* PlayerClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 530362B21FB9A21E00BEE30F /* PlayerClass.m */; };
 		530362B61FB9AFED00BEE30F /* ObstacleClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 530362B51FB9AFED00BEE30F /* ObstacleClass.m */; };
+		530362B91FB9BF6300BEE30F /* DataStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 530362B81FB9BF6300BEE30F /* DataStore.m */; };
 		53572BFC1FB2060300E11BDB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 53572BFB1FB2060300E11BDB /* main.m */; };
 		53572BFF1FB2060300E11BDB /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 53572BFE1FB2060300E11BDB /* AppDelegate.m */; };
 		53572C021FB2060300E11BDB /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 53572C011FB2060300E11BDB /* ViewController.m */; };
@@ -44,6 +45,8 @@
 		530362B21FB9A21E00BEE30F /* PlayerClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerClass.m; sourceTree = "<group>"; };
 		530362B41FB9AFED00BEE30F /* ObstacleClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ObstacleClass.h; sourceTree = "<group>"; };
 		530362B51FB9AFED00BEE30F /* ObstacleClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ObstacleClass.m; sourceTree = "<group>"; };
+		530362B71FB9BF6300BEE30F /* DataStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataStore.h; sourceTree = "<group>"; };
+		530362B81FB9BF6300BEE30F /* DataStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataStore.m; sourceTree = "<group>"; };
 		53572BF71FB2060300E11BDB /* FinalProjectGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FinalProjectGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		53572BFB1FB2060300E11BDB /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		53572BFD1FB2060300E11BDB /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -117,6 +120,8 @@
 				53572C031FB2060300E11BDB /* Main.storyboard */,
 				530362B41FB9AFED00BEE30F /* ObstacleClass.h */,
 				530362B51FB9AFED00BEE30F /* ObstacleClass.m */,
+				530362B71FB9BF6300BEE30F /* DataStore.h */,
+				530362B81FB9BF6300BEE30F /* DataStore.m */,
 				530362AE1FB999C400BEE30F /* WeaponClass.h */,
 				530362AF1FB999C400BEE30F /* WeaponClass.m */,
 				530362B11FB9A21E00BEE30F /* PlayerClass.h */,
@@ -288,6 +293,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				530362B91FB9BF6300BEE30F /* DataStore.m in Sources */,
 				530362B01FB999C400BEE30F /* WeaponClass.m in Sources */,
 				530362B61FB9AFED00BEE30F /* ObstacleClass.m in Sources */,
 				53572C021FB2060300E11BDB /* ViewController.m in Sources */,
