@@ -70,13 +70,13 @@
                                     <action selector="CentralButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="2SG-0E-zzB"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cxl-ZV-xhp">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Coins" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cxl-ZV-xhp">
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.78663374352331605" green="0.78663374352331605" blue="0.78663374352331605" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="DBa-NE-WZI" firstAttribute="top" secondItem="yDj-7P-VIC" secondAttribute="bottom" constant="15" id="0db-sr-qyI"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="FL1-Ze-Hat" secondAttribute="bottom" id="39s-Ui-nR5"/>
