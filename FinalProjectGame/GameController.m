@@ -26,7 +26,7 @@
         self.ClicksPressed = 0;
         self.ObstacleArray = [NSMutableArray array];
         self.RoomInteger = 0;
-        self.CurrentRoomObstacle = 0;
+        self.CurrentObstacle = 0;
         [self GenerateObstacleArray];
     }
     return self;
@@ -73,12 +73,16 @@
 -(void)OnAnyTick {
     NSLog(@"OnAnyTick called from GameController");
     // Auto load obstacle ability amount
+    [self.ObstacleArray objectAtIndex:self.CurrentObstacle]; // TODO
     // Call weapon 1 AutoIncrement
+    [self.Player.Button1 AutoIncrement];
     // Call weapon 2 AutoIncrement
+    [self.Player.Button2 AutoIncrement];
     // IF obstacle amount amount is full, fire
     // IF player ability 1 is an ability, call weapon 1 DamageDealtOnClick
     // IF player ability 2 is an ability, call weapon 2 DamageDealtOnClick
     // Update images and labels
+    // TODO modify labels so that their size can be changed
 }
 
 -(void)OnObstacleClick {

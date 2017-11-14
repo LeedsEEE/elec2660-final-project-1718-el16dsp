@@ -16,7 +16,7 @@
 @property (nonatomic) NSInteger ClicksPressed; // Stores the number of buttons pressed in this runthrough
 @property (strong, nonatomic) NSMutableArray *ObstacleArray; // Stores the obstacles that the player has to overcome. Is regenerated upon overcoming the last one
 @property (nonatomic) NSInteger RoomInteger;
-@property (nonatomic) NSInteger CurrentRoomObstacle;
+@property (nonatomic) NSInteger CurrentObstacle;
 
 -(NSInteger)GenerateObstacleArray; // (Re)creates the ObstacleArray to have a number of encounters equal to the tick counter % a constant. Last encounter is always a door
 -(void)OnAnyTick; // Does stuff like auto-loads obstacle and player abilities. If any of those abilities are at full charge, damage is done.
