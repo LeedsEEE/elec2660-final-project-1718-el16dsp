@@ -34,8 +34,11 @@
 }
 
 - (IBAction)Button2Pressed:(id)sender {
+    // Functionally the same as Button1Pressed but for a different ability
 }
 
 - (IBAction)CentralButtonPressed:(id)sender {
+    // Start events on any button press
+    // Do damage from weapons
 }
 @end

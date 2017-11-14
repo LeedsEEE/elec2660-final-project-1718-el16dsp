@@ -76,6 +76,15 @@
     return cell;
 }
 
+-(NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
+    NSString *cell;
+    
+    PlayerClass *temp = [self.Data.PlayerClassArray objectAtIndex:section];
+    cell = temp.Name;
+    
+    return cell;
+}
+
 /*
 // Override to support conditional editing of the table view.
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {

@@ -13,4 +13,6 @@
 
 @property (strong, nonatomic) DataStore *Data;
 
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section; // Taken from https://stackoverflow.com/questions/5752930/how-to-set-group-tables-section-header-text on 2017-NOV-14
+
 @end
