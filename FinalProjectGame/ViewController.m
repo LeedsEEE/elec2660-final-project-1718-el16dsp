@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 #import "GameController.h"
+#import "DataStore.h"
 
 @interface ViewController ()
 
@@ -18,9 +19,13 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     NSLog(@"ViewController Loaded");
-    //self.GameHandler = [[GameController alloc] init];
-    NSLog(@"Class %@ loaded with %@ and %@", self.GameHandler.Player.Name, self.GameHandler.Player.Button1.Name, self.GameHandler.Player.Button2.Name);
+    self.GameHandler = [[GameController alloc] init];
+    NSLog(@"Class %ld selected in ViewController", self.ClassSelected);
     NSLog(@"GameHandler loaded");
+    
+    self.GameHandler.Player = [[[DataStore alloc] init].PlayerClassArray objectAtIndex:self.ClassSelected];
+    NSLog(@"Class %ld %@ loaded with %@ and %@", self.ClassSelected, self.GameHandler.Player.Name, self.GameHandler.Player.Button1.Name, self.GameHandler.Player.Button2.Name);
+    
     // Do any additional setup after loading the view, typically from a nib.
 }
 

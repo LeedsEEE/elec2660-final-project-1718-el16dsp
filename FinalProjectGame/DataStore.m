@@ -21,11 +21,10 @@
         
         self.PlayerClassArray = [NSMutableArray array];
         
+        self.StoredData = [self LoadData];
+        
         // Make placeholder classes here
         PlayerClass *class_0 = [[PlayerClass alloc] init];
-        //PlayerClass *class_1 = [[PlayerClass alloc] init];
-        
-        self.StoredData = [self LoadData];
         
         // Fill in classes here
         // As it turns out, each class will need it's own weapon subclasses to override them.

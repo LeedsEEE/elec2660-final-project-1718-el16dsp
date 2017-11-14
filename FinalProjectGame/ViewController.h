@@ -18,7 +18,9 @@
 @property (weak, nonatomic) IBOutlet UILabel *Button1LabelOutlet;
 @property (weak, nonatomic) IBOutlet UIImageView *PlayerImageOutlet;
 @property (weak, nonatomic) IBOutlet UILabel *CoinsLabelOutlet;
+
 @property (strong, nonatomic) GameController *GameHandler;
+@property (nonatomic) NSInteger ClassSelected;
 
 - (IBAction)Button1Pressed:(id)sender;
 - (IBAction)Button2Pressed:(id)sender;

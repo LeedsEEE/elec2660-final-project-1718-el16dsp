@@ -22,7 +22,6 @@
 {
     self = [super init];
     if (self) {
-        self.Player = [[PlayerClass alloc] init];
         self.Coins = 0;
         self.ClicksPressed = 0;
         self.ObstacleArray = [NSMutableArray array];
@@ -71,6 +70,7 @@
 }
 
 -(void)OnAnyTick {
+    NSLog(@"OnAnyTick called from GameController");
     // Auto load obstacle ability amount
     // Call weapon 1 AutoIncrement
     // Call weapon 2 AutoIncrement
@@ -81,6 +81,7 @@
 }
 
 -(void)OnObstacleClick {
+    NSLog(@"ObstacleClicked from GameController");
     [self OnAnyTick];
     // IF player ability 1 is a weapon, call weapon 1 DamageDealtOnClick
     // IF player ability 2 is a weapon, call weapon 2 DamageDealtOnClick
