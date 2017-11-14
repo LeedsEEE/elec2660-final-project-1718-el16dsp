@@ -77,18 +77,22 @@
     // IF obstacle amount amount is full, fire
     // IF player ability 1 is an ability, call weapon 1 DamageDealtOnClick
     // IF player ability 2 is an ability, call weapon 2 DamageDealtOnClick
+    // Update images and labels
 }
 
 -(void)OnObstacleClick {
+    [self OnAnyTick];
     // IF player ability 1 is a weapon, call weapon 1 DamageDealtOnClick
     // IF player ability 2 is a weapon, call weapon 2 DamageDealtOnClick
 }
 
 -(void)OnButton1Click {
+    [self OnAnyTick];
     // Call weapon 1 manual increment method
 }
 
 -(void)OnButton2Click {
+    [self OnAnyTick];
     // Call weapon 2 manual increment method
 }
 
