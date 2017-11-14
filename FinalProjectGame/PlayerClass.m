@@ -15,6 +15,8 @@
     self = [super init];
     if (self) {
         // Put placeholder's here
+        NSLog(@"Playerclass init called");
+        
         self.Name = @"PlaceholderClass";
         self.ImageBasis = @"class_placeholder";
         self.MaxHealth = 0;

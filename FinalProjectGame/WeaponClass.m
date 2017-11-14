@@ -15,6 +15,9 @@
     self = [super init];
     if (self) {
         // Puts in placeholder values
+        
+        NSLog(@"WeaponClass init called");
+        
         self.Type = @"W";
         
         self.Name = @"Placeholder";

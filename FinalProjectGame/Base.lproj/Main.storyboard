@@ -122,7 +122,7 @@
         <!--Root View Controller-->
         <scene sceneID="Fii-St-mDs">
             <objects>
-                <tableViewController id="ePD-Ps-i2D" sceneMemberID="viewController">
+                <tableViewController id="ePD-Ps-i2D" customClass="TableViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="Szz-iq-Bro">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

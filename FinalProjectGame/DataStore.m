@@ -15,6 +15,9 @@
 {
     self = [super init];
     if (self) {
+        
+        NSLog(@"DataStore init called");
+        
         self.PlayerClassArray = [NSMutableArray array];
         
         // Make placeholder classes here
