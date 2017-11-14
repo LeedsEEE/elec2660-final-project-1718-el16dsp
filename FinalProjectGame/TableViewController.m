@@ -126,6 +126,17 @@
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
     
+    NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+    if (indexPath.row == 0) { // Play game one
+        if ([[segue identifier] isEqualToString:@"ShowGame"]) {
+            ViewController *destination = [segue destinationViewController];
+            
+            PlayerClass *Temp = [self.Data.PlayerClassArray objectAtIndex:indexPath.section];
+            destination.GameHandler.Player = Temp;
+        }
+    } else if (indexPath.row == 1 || indexPath.row == 2) { // Inspection view
+        
+    }
 }
 
 @end

@@ -25,7 +25,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="BYZ-38-t0r" kind="show" id="g0l-kt-7ks"/>
+                                    <segue destination="BYZ-38-t0r" kind="show" identifier="ShowGame" id="g0l-kt-7ks"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>

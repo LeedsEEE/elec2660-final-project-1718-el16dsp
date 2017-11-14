@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "DataStore.h"
+#import "ViewController.h"
 
 @interface TableViewController : UITableViewController
 
