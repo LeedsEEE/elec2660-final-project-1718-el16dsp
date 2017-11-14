@@ -40,12 +40,20 @@
     
     PlayerClasses = self.Data.PlayerClassArray.count;
     
+    NSLog(@"%@", [NSString stringWithFormat:@"%ld PlayerClasses loaded", PlayerClasses]);
+    
     return PlayerClasses;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     
-    return 3;
+    NSInteger NumberOfRows;
+    
+    if (section == 0) {
+        NumberOfRows = 3;
+    }
+    
+    return NumberOfRows;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
