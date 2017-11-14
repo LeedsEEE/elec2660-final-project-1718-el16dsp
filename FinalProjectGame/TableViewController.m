@@ -137,9 +137,6 @@
             ViewController *destination = [segue destinationViewController];
             NSLog(@"%@", [NSString stringWithFormat:@"Class %ld selected", indexPath.section]);
             NSInteger TempInt = indexPath.section;
-            PlayerClass *Temp = [self.Data.PlayerClassArray objectAtIndex:indexPath.section];
-            NSLog(@"Class selected was %@", Temp.Name);
-            destination.GameHandler.Player = Temp;
             destination.ClassSelected = TempInt;
         }
     } else if (indexPath.row == 1 || indexPath.row == 2) { // Inspection view
