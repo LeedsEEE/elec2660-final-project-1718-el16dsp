@@ -38,7 +38,9 @@
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    
     NSInteger PlayerClasses;
+    NSLog(@"Making main menu sections...");
     
     PlayerClasses = self.Data.PlayerClassArray.count;
     
@@ -50,7 +52,7 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     
     NSInteger NumberOfRows;
-    
+    NSLog(@"Making section %ld", section);
     if (section == 0) {
         NumberOfRows = 3;
     }
@@ -126,16 +128,20 @@
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
     
+    
+    // Taken and modified from the VLE
     NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-    if (indexPath.row == 0) { // Play game one
+    if (indexPath.row == 0) { // Play game row
+        NSLog(@"Row 0 pressed");
         if ([[segue identifier] isEqualToString:@"ShowGame"]) {
             ViewController *destination = [segue destinationViewController];
-            
+            NSLog(@"%@", [NSString stringWithFormat:@"Class %ld selected", indexPath.section]);
             PlayerClass *Temp = [self.Data.PlayerClassArray objectAtIndex:indexPath.section];
+            NSLog(@"Class selected was %@", Temp.Name);
             destination.GameHandler.Player = Temp;
         }
     } else if (indexPath.row == 1 || indexPath.row == 2) { // Inspection view
-        
+        NSLog(@"Row 1 or 2 pressed");
     }
 }
 

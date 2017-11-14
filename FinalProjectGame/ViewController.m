@@ -18,7 +18,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     NSLog(@"ViewController Loaded");
-    self.GameHandler = [[GameController alloc] init];
+    //self.GameHandler = [[GameController alloc] init];
+    NSLog(@"Class %@ loaded with %@ and %@", self.GameHandler.Player.Name, self.GameHandler.Player.Button1.Name, self.GameHandler.Player.Button2.Name);
     NSLog(@"GameHandler loaded");
     // Do any additional setup after loading the view, typically from a nib.
 }

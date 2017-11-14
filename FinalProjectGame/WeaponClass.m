@@ -78,9 +78,9 @@
     self.ClickAmount += 1;
 }
 
-#pragma mark Class 0 - Cutter - Weapon 1
-
 @end
+
+#pragma mark Class 0 - Cutter - Weapon 1 - Pistol
 
 @implementation class_0_1
 
@@ -102,11 +102,13 @@
 
 @end
 
+#pragma mark Class 0 - Cutter - Ability 2 - Grenade
+
 @implementation class_0_2
 
 -(void) UpdateStats {
     // Class 0 is Cutter
-    // Slot 2 is grenade
+    // Slot 2 is the grenade
     NSInteger level;
     
     level = self.Level;
