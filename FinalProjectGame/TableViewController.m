@@ -134,8 +134,11 @@
     if (indexPath.row == 0) { // Play game row
         NSLog(@"Row 0 pressed");
         if ([[segue identifier] isEqualToString:@"ShowGame"]) {
+            // Get destination
             ViewController *destination = [segue destinationViewController];
+            // Show which class was selected
             NSLog(@"%@", [NSString stringWithFormat:@"Class %ld selected", indexPath.section]);
+            // Get class integer and push it to the new view
             NSInteger TempInt = indexPath.section;
             destination.ClassSelected = TempInt;
         }
