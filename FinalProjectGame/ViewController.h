@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "GameController.h"
 
 @interface ViewController : UIViewController
 
@@ -17,6 +18,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *Button1LabelOutlet;
 @property (weak, nonatomic) IBOutlet UIImageView *PlayerImageOutlet;
 @property (weak, nonatomic) IBOutlet UILabel *CoinsLabelOutlet;
+@property (strong, nonatomic) GameController *GameHandler;
 
 - (IBAction)Button1Pressed:(id)sender;
 - (IBAction)Button2Pressed:(id)sender;

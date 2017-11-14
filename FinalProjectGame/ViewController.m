@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import "GameController.h"
 
 @interface ViewController ()
 
@@ -17,6 +18,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     NSLog(@"ViewController Loaded");
+    self.GameHandler = [[GameController alloc] init];
+    NSLog(@"GameHandler loaded");
     // Do any additional setup after loading the view, typically from a nib.
 }
 
@@ -28,16 +31,19 @@
 
 
 - (IBAction)Button1Pressed:(id)sender {
+    NSLog(@"Button 1 pressed");
     // Start events on any button press
     // Load weapon if type is a weapon
     // Charge (and fire) if type is an ability
 }
 
 - (IBAction)Button2Pressed:(id)sender {
+    NSLog(@"Button 2 pressed");
     // Functionally the same as Button1Pressed but for a different ability
 }
 
 - (IBAction)CentralButtonPressed:(id)sender {
+    NSLog(@"Central button pressed");
     // Start events on any button press
     // Do damage from weapons
 }
