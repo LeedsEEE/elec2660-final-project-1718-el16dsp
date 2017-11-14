@@ -11,8 +11,9 @@
 @interface DataStore : NSObject
 
 @property (strong, nonatomic) NSMutableArray *PlayerClassArray;
+@property (strong, nonatomic) NSString *StoredData;
 
--(NSInteger) LoadData;
+-(NSString *) LoadData; // String returning methods taken from https://stackoverflow.com/questions/2975367/how-to-define-a-function-that-returns-a-string-in-objective-c-iphone-sdk on 2017-NOV-14
 -(NSInteger) SaveData;
 
 @end

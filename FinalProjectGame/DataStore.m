@@ -21,7 +21,7 @@
         PlayerClass *class_0 = [[PlayerClass alloc] init];
         PlayerClass *class_1 = [[PlayerClass alloc] init];
         
-        [self LoadData];
+        self.StoredData = [self LoadData];
         
         // Fill in classes here
         // As it turns out, each class will need it's own weapon subclasses to override them.
@@ -47,9 +47,9 @@
     return self;
 }
 
--(NSInteger) LoadData {
+-(NSString *) LoadData {
     // Find out how to find class level data and import that
-    // Taken from http://www.ios-blog.co.uk/tutorials/read-text-files-in-ios-objective/
+    // Taken from http://www.ios-blog.co.uk/tutorials/read-text-files-in-ios-objective/ on 2017-NOV-13
     NSString *path = [[NSBundle mainBundle] pathForResource:@"class_levels_data"
                                                      ofType:@"txt"];
     NSLog(@"%@", path);
@@ -57,7 +57,7 @@
                                                   encoding:NSUTF8StringEncoding
                                                      error:NULL];
     NSLog(@"%@", content);
-    return 0;
+    return content;
 }
 
 -(NSInteger) SaveData {
