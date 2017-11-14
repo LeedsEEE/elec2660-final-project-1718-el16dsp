@@ -45,6 +45,8 @@
     self.Armour = 0;
     self.Reward = (10+(arc4random() % 5))*self.Level; // (11 to 20) * level
     
+    self.Ability = [[WeaponClass alloc] init];
+    self.Ability.Type = @"A";
     self.Ability.DamagePerClick = 0;
     self.Ability.AutoClickLoadRate = 0;
 }
@@ -58,6 +60,8 @@
     self.Armour = 0;
     self.Reward = ((arc4random() % 5) + 1)*self.Level; // (1 to 5) * level
     
+    self.Ability = [[WeaponClass alloc] init];
+    self.Ability.Type = @"A";
     self.Ability.DamagePerClick = 0;
     self.Ability.AutoClickLoadRate = 0;
 }
@@ -71,8 +75,10 @@
     self.Armour = arc4random() % self.Level; // (0 to level)
     self.Reward = ((arc4random() % 5) + 1)*self.Level; // (1 to 5) * level
     
+    self.Ability = [[WeaponClass alloc] init];
     self.Ability.Level = DesiredLevel;
-    self.Ability.ClicksPerClip = roundf((float)(self.Level / ((arc4random() % self.Level) + 1)));
+    self.Ability.Type = @"A";
+    self.Ability.ClicksPerClip = 1 + ((float)self.Level / ((arc4random() % self.Level) + 1));
     self.Ability.DamagePerClick = roundf((float)(self.Level / ((arc4random() % self.Level) + 1)));
     self.Ability.ClickAmount = arc4random() % self.Ability.ClicksPerClip; // Random amount of readiness
     self.Ability.StunDuration = 0;

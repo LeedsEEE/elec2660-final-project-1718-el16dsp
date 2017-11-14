@@ -27,6 +27,7 @@
         self.ObstacleArray = [NSMutableArray array];
         self.RoomInteger = 0;
         self.CurrentRoomObstacle = 0;
+        [self GenerateObstacleArray];
     }
     return self;
 }
@@ -88,11 +89,13 @@
 }
 
 -(void)OnButton1Click {
+    NSLog(@"Button 1 clicked from GameController");
     [self OnAnyTick];
     // Call weapon 1 manual increment method
 }
 
 -(void)OnButton2Click {
+    NSLog(@"Button 2 clicked from GameController");
     [self OnAnyTick];
     // Call weapon 2 manual increment method
 }
