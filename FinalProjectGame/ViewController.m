@@ -46,7 +46,9 @@
 - (IBAction)Button2Pressed:(id)sender {
     NSLog(@"Button 2 pressed");
     [self.GameHandler OnButton2Click];
-    // Functionally the same as Button1Pressed but for a different ability
+    // Start events on any button press
+    // Load weapon if type is a weapon
+    // Charge (and fire) if type is an ability
 }
 
 - (IBAction)CentralButtonPressed:(id)sender {
@@ -80,12 +82,13 @@
     float Button2LabelProportion = (float)CurrentCount2/MaxCount2;
     NSLog(@"Button 2 proportion is %f %ld/%ld", Button2LabelProportion, CurrentCount2, MaxCount2);
     
-    // Do stuff with labels
-        // Update label text
+    
+    // Update label text
     self.HealthLabelOutlet.text = HealthLabel; // Full screen width
     self.Button1LabelOutlet.text = Button1Label; // Half screen width
     self.Button2LabelOutlet.text = Button2Label; // Half screen width
     
+    // Update label frames
     // Taken from https://stackoverflow.com/questions/13306604/how-to-change-the-width-of-label-once-after-its-frame-has-been-set-and-to-get-t on 2017-NOV-15
     CGRect HealthLabelFrame = [self.HealthLabelOutlet frame];
     HealthLabelFrame.size.width = HealthLabelProportion * ScreenWidth;

@@ -27,4 +27,13 @@
 -(void)ObstacleImageUpdate: (NSString *)NewImageName; // Change obstacle image with the image that has the same name as NewImageName
 -(void)PlayerImageUpdate: (NSString *)NewImageName; // Same as above but for the player image
 
+/*
+ Stuff to send back to the view controller:
+   * String of Player Health values (@"%ld/%ld", Current, Max)
+   * String of Button1 values (@"%ld/%ld", Current, Max)
+   * String of Button2 values (@"%ld/%ld", Current, Max)
+   * String of Player image names
+   * String of Obstacle image names
+ */
+
 @end
