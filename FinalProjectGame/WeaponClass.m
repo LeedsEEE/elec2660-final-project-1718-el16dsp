@@ -72,7 +72,7 @@
     // Called on any button press in the game
     NSLog(@"AutoIncrement Called");
     NSLog(@"Old ClickAmount = %ld", self.ClickAmount);
-    self.ClickAmount += self.AutoClickLoadRate;
+    self.ClickAmount = self.AutoClickLoadRate + self.ClickAmount;
     NSLog(@"New ClickAmount = %ld", self.ClickAmount);
 }
 
@@ -80,7 +80,7 @@
     // Called on the corresponding weapon or ability button press
     NSLog(@"ManualIncrement Called");
     NSLog(@"Old ClickAmount = %ld", self.ClickAmount);
-    self.ClickAmount += 1;
+    self.ClickAmount = self.ClickAmount + 1;
     NSLog(@"New ClickAmount = %ld", self.ClickAmount);
 }
 

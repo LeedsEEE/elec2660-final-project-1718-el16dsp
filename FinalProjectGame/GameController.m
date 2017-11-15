@@ -96,12 +96,14 @@
     NSLog(@"Button 1 clicked from GameController");
     [self OnAnyTick];
     // Call weapon 1 manual increment method
+    [self.Player.Button1 ManualIncrement];
 }
 
 -(void)OnButton2Click {
     NSLog(@"Button 2 clicked from GameController");
     [self OnAnyTick];
     // Call weapon 2 manual increment method
+    [self.Player.Button2 ManualIncrement];
 }
 
 -(void)ObstacleImageUpdate:(NSString *)NewImageName {
