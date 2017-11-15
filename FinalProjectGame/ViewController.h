@@ -26,5 +26,9 @@
 - (IBAction)Button2Pressed:(id)sender;
 - (IBAction)CentralButtonPressed:(id)sender;
 
+-(void) UpdateLabels:(NSString *)HealthLabel // Strings are of form @"16/20"
+                    :(NSString *)Button1Label
+                    :(NSString *)Button2Label;
+
 @end
 
