@@ -29,7 +29,7 @@
 @property (nonatomic) NSInteger StunDuration; // Affects the obstacle only and stops it from attacking
 @property (nonatomic) NSInteger AutoClickLoadRate; // On any click, this will add it's value to ClickAmount
 
--(NSInteger) DamageDealtOnClick;
+-(NSMutableArray *) DamageDealtOnClick;
 -(void) UpdateStats;
 -(NSString *) AutoIncrement;
 -(NSString *) ManualIncrement;

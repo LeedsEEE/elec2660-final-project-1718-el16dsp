@@ -34,23 +34,26 @@
     return self;
 }
 
--(NSInteger) DamageDealtOnClick {
+-(NSMutableArray *) DamageDealtOnClick {
     // Called on any button press:
         // Called on obstacle button press if weapon. Ability won't do anything unless charged
         // Called on both ability button presses
         // Any weapon buttons need a catchout to stop this from activating if manual increment occurs
+    NSMutableArray *ReturnValues = [NSMutableArray arrayWithCapacity:2];
+    [ReturnValues addObject:[NSNumber numberWithInt:self.DamagePerClick]];
+    [ReturnValues addObject:[NSNumber numberWithInt:self.StunDuration]];
     if ([self.Type isEqualToString:@"W"]) {
         if (self.ClickAmount>0) {
             self.ClickAmount -= 1;
-            return (self.DamagePerClick, self.StunDuration);
+            //return (self.DamagePerClick, self.StunDuration);
         }
     } else if ([self.Type isEqualToString:@"A"]) {
         if (self.ClickAmount == self.ClicksPerClip) {
             self.ClickAmount = 0;
-            return (self.DamagePerClick, self.StunDuration);
+            //return (self.DamagePerClick, self.StunDuration);
         }
     }
-    return (0, 0);
+    return ReturnValues;
 }
 
 -(void) UpdateStats {
@@ -70,6 +73,7 @@
 
 -(NSString *) AutoIncrement {
     // Called on any button press in the game
+    NSString *Label;
     NSLog(@"AutoIncrement Called");
     NSLog(@"Old ClickAmount = %ld", self.ClickAmount);
     if (self.ClickAmount < self.ClicksPerClip) {
@@ -78,11 +82,14 @@
     } else {
         NSLog(@"Max clip reached");
     }
-    return [NSString stringWithFormat:@"%ld/%ld", self.ClickAmount, self.ClicksPerClip];
+    Label = [NSString stringWithFormat:@"%ld/%ld", self.ClickAmount, self.ClicksPerClip];
+    NSLog(@"Auto label is %@", Label);
+    return Label;
 }
 
 -(NSString *) ManualIncrement {
     // Called on the corresponding weapon or ability button press
+    NSString *Label = @"00/00";
     NSLog(@"ManualIncrement Called");
     NSLog(@"Old ClickAmount = %ld", self.ClickAmount);
     if (self.ClickAmount < self.ClicksPerClip) {
@@ -91,7 +98,9 @@
     } else {
         NSLog(@"Max clip reached");
     }
-    return [NSString stringWithFormat:@"%ld/%ld", self.ClickAmount, self.ClicksPerClip];
+    Label = [NSString stringWithFormat:@"%ld/%ld", self.ClickAmount, self.ClicksPerClip];
+    NSLog(@"Manual label is %@", Label);
+    return Label;
 }
 
 @end

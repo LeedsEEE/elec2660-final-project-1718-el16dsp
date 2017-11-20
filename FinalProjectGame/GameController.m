@@ -48,6 +48,7 @@
     for (Index = 0; Index < Encounters; Index++) {
         // Makes a temporary obstacle
         ObstacleClass *Temp = [[ObstacleClass alloc] init];
+        
         // Picks a random number between 0 and ENCOUNTER_TOTAL
         RandomInt = arc4random() % ENCOUNTER_TOTAL;
         
@@ -70,40 +71,72 @@
     return Encounters;
 }
 
--(void)OnAnyTick {
+-(NSMutableArray *)OnAnyTick {
     NSLog(@"OnAnyTick called from GameController");
     // Auto load obstacle ability amount
+    NSString *HealthLabel = @"00/00";
+    NSString *Button1Label = @"00/00";
+    NSString *Button2Label = @"00/00";
+    NSMutableArray *ReturnValues = [NSMutableArray arrayWithCapacity:3];
+    
     [self.ObstacleArray objectAtIndex:self.CurrentObstacle]; // TODO
+    
+    
     // Call weapon 1 AutoIncrement
-    [self.Player.Button1 AutoIncrement];
+    Button1Label = [self.Player.Button1 AutoIncrement];
+    NSLog(@"Button 1 label is %@", Button1Label);
+    
     // Call weapon 2 AutoIncrement
-    [self.Player.Button2 AutoIncrement];
+    Button2Label = [self.Player.Button2 AutoIncrement];
+    NSLog(@"Button 2 label is %@", Button2Label);
+    
     // IF obstacle amount amount is full, fire
     // IF player ability 1 is an ability, call weapon 1 DamageDealtOnClick
     // IF player ability 2 is an ability, call weapon 2 DamageDealtOnClick
     // Update images and labels
     // TODO modify labels so that their size can be changed
+    
+    NSLog(@"HealthLabel %@ Button1Label %@ Button2Label %@", HealthLabel, Button1Label, Button2Label);
+    [ReturnValues addObject:HealthLabel];
+    [ReturnValues addObject:Button1Label];
+    [ReturnValues addObject:Button2Label];
+    return ReturnValues;
 }
 
--(void)OnObstacleClick {
+-(NSMutableArray *)OnObstacleClick {
     NSLog(@"ObstacleClicked from GameController");
-    [self OnAnyTick];
+    
+    NSMutableArray *ReturnValues = [NSMutableArray arrayWithCapacity:3];
+    
+    ReturnValues = [self OnAnyTick];
     // IF player ability 1 is a weapon, call weapon 1 DamageDealtOnClick
     // IF player ability 2 is a weapon, call weapon 2 DamageDealtOnClick
+    NSLog(@"HealthLabel %@ Button1Label %@ Button2Label %@", [ReturnValues objectAtIndex:0], [ReturnValues objectAtIndex:1], [ReturnValues objectAtIndex:2]);
+    return ReturnValues;
 }
 
--(void)OnButton1Click {
+-(NSMutableArray *)OnButton1Click {
     NSLog(@"Button 1 clicked from GameController");
-    [self OnAnyTick];
+    
+    NSMutableArray *ReturnValues = [NSMutableArray arrayWithCapacity:3];
+    
+    ReturnValues = [self OnAnyTick];
     // Call weapon 1 manual increment method
-    [self.Player.Button1 ManualIncrement];
+    [ReturnValues replaceObjectAtIndex:1 withObject:[self.Player.Button1 ManualIncrement]];
+    NSLog(@"HealthLabel %@ Button1Label %@ Button2Label %@", [ReturnValues objectAtIndex:0], [ReturnValues objectAtIndex:1], [ReturnValues objectAtIndex:2]);
+    return ReturnValues;
 }
 
--(void)OnButton2Click {
+-(NSMutableArray *)OnButton2Click {
     NSLog(@"Button 2 clicked from GameController");
-    [self OnAnyTick];
+    
+    NSMutableArray *ReturnValues = [NSMutableArray arrayWithCapacity:3];
+    
+    ReturnValues = [self OnAnyTick];
     // Call weapon 2 manual increment method
-    [self.Player.Button2 ManualIncrement];
+    [ReturnValues replaceObjectAtIndex:2 withObject:[self.Player.Button2 ManualIncrement]];
+    NSLog(@"HealthLabel %@ Button1Label %@ Button2Label %@", [ReturnValues objectAtIndex:0], [ReturnValues objectAtIndex:1], [ReturnValues objectAtIndex:2]);
+    return ReturnValues;
 }
 
 -(void)ObstacleImageUpdate:(NSString *)NewImageName {

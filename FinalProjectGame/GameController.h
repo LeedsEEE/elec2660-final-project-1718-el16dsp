@@ -19,11 +19,11 @@
 @property (nonatomic) NSInteger CurrentObstacle;
 
 -(NSInteger)GenerateObstacleArray; // (Re)creates the ObstacleArray to have a number of encounters equal to the tick counter % a constant. Last encounter is always a door
--(void)OnAnyTick; // Does stuff like auto-loads obstacle and player abilities. If any of those abilities are at full charge, damage is done.
+-(NSMutableArray *)OnAnyTick; // Does stuff like auto-loads obstacle and player abilities. If any of those abilities are at full charge, damage is done.
 
--(void)OnObstacleClick; // If player has a weapon, it will do damage
--(void)OnButton1Click; // Player ability amount will be incremented and label updated
--(void)OnButton2Click; // Same as above
+-(NSMutableArray *)OnObstacleClick; // If player has a weapon, it will do damage
+-(NSMutableArray *)OnButton1Click; // Player ability amount will be incremented and label updated
+-(NSMutableArray *)OnButton2Click; // Same as above
 -(void)ObstacleImageUpdate: (NSString *)NewImageName; // Change obstacle image with the image that has the same name as NewImageName
 -(void)PlayerImageUpdate: (NSString *)NewImageName; // Same as above but for the player image
 

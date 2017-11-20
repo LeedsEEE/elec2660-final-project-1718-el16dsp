@@ -65,6 +65,7 @@
         // Show inspect stuff
     }
     // Do any additional setup after loading the view, typically from a nib.
+    //[self UpdateLabels:<#(NSString *)#> :<#(NSString *)#> :<#(NSString *)#>];
 }
 
 
@@ -75,25 +76,40 @@
 
 - (IBAction)Button1Pressed:(id)sender {
     NSLog(@"Button 1 pressed");
-    [self.GameHandler OnButton1Click];
+    
+    NSMutableArray *ReturnValues = [NSMutableArray arrayWithCapacity:3];
+    
+    ReturnValues = [self.GameHandler OnButton1Click];
     // Start events on any button press
     // Load weapon if type is a weapon
     // Charge (and fire) if type is an ability
+    NSLog(@"HealthLabel %@ Button1Label %@ Button2Label %@", [ReturnValues objectAtIndex:0], [ReturnValues objectAtIndex:1], [ReturnValues objectAtIndex:2]);
+    [self UpdateLabels:[ReturnValues objectAtIndex:0] :[ReturnValues objectAtIndex:1] :[ReturnValues objectAtIndex:2]];
 }
 
 - (IBAction)Button2Pressed:(id)sender {
     NSLog(@"Button 2 pressed");
-    [self.GameHandler OnButton2Click];
+    
+    NSMutableArray *ReturnValues = [NSMutableArray arrayWithCapacity:3];
+    
+    ReturnValues = [self.GameHandler OnButton2Click];
     // Start events on any button press
     // Load weapon if type is a weapon
     // Charge (and fire) if type is an ability
+    NSLog(@"HealthLabel %@ Button1Label %@ Button2Label %@", [ReturnValues objectAtIndex:0], [ReturnValues objectAtIndex:1], [ReturnValues objectAtIndex:2]);
+    [self UpdateLabels:[ReturnValues objectAtIndex:0] :[ReturnValues objectAtIndex:1] :[ReturnValues objectAtIndex:2]];
 }
 
 - (IBAction)CentralButtonPressed:(id)sender {
     NSLog(@"Central button pressed");
-    [self.GameHandler OnObstacleClick];
+    
+    NSMutableArray *ReturnValues = [NSMutableArray arrayWithCapacity:3];
+    
+    ReturnValues = [self.GameHandler OnObstacleClick];
     // Start events on any button press
     // Do damage from weapons
+    NSLog(@"HealthLabel %@ Button1Label %@ Button2Label %@", [ReturnValues objectAtIndex:0], [ReturnValues objectAtIndex:1], [ReturnValues objectAtIndex:2]);
+    [self UpdateLabels:[ReturnValues objectAtIndex:0] :[ReturnValues objectAtIndex:1] :[ReturnValues objectAtIndex:2]];
 }
 
 -(void) UpdateLabels: (NSString *)HealthLabel // Strings are of form @"16/20"
@@ -107,16 +123,46 @@
     // Pull integers from the strings and find the ratio betwen them
     NSInteger MaxHealth = [[[HealthLabel componentsSeparatedByString:@"/"] objectAtIndex:1] intValue];
     NSInteger CurrentHealth = [[[HealthLabel componentsSeparatedByString:@"/"] objectAtIndex:0] intValue];
+    
+    NSLog(@"Old Health Values: %ld/%ld", CurrentHealth, MaxHealth);
+    if (MaxHealth == 0) { // Added to deal with 'Not a Number' errors
+        MaxHealth = 1;
+    }
+    if (CurrentHealth == 0) {
+        CurrentHealth = 1;
+    }
+    NSLog(@"New Health Values: %ld/%ld", CurrentHealth, MaxHealth);
+    
     float HealthLabelProportion = (float)CurrentHealth/MaxHealth;
     NSLog(@"Health proportion is %f %ld/%ld", HealthLabelProportion, CurrentHealth, MaxHealth);
     
     NSInteger MaxCount1 = [[[Button1Label componentsSeparatedByString:@"/"] objectAtIndex:1] intValue];
     NSInteger CurrentCount1 = [[[Button1Label componentsSeparatedByString:@"/"] objectAtIndex:0] intValue];
+    
+    NSLog(@"Old Count1 Values: %ld/%ld", CurrentCount1, MaxCount1);
+    if (MaxCount1 == 0) { // Added to deal with 'Not a Number' errors
+        MaxCount1 = 1;
+    }
+    if (CurrentCount1 == 0) {
+        CurrentCount1 = 1;
+    }
+    NSLog(@"New Count1 Values: %ld/%ld", CurrentCount1, MaxCount1);
+    
     float Button1LabelProportion = (float)CurrentCount1/MaxCount1;
     NSLog(@"Button 1 proportion is %f %ld/%ld", Button1LabelProportion, CurrentCount1, MaxCount1);
     
     NSInteger MaxCount2 = [[[Button2Label componentsSeparatedByString:@"/"] objectAtIndex:1] intValue];
     NSInteger CurrentCount2 = [[[Button2Label componentsSeparatedByString:@"/"] objectAtIndex:0] intValue];
+    
+    NSLog(@"Old Count2 Values: %ld/%ld", CurrentCount2, MaxCount2);
+    if (MaxCount2 == 0) { // Added to deal with 'Not a Number' errors
+        MaxCount2 = 1;
+    }
+    if (CurrentCount2 == 0) {
+        CurrentCount2 = 1;
+    }
+    NSLog(@"New Count2 Values: %ld/%ld", CurrentCount2, MaxCount2);
+    
     float Button2LabelProportion = (float)CurrentCount2/MaxCount2;
     NSLog(@"Button 2 proportion is %f %ld/%ld", Button2LabelProportion, CurrentCount2, MaxCount2);
     
