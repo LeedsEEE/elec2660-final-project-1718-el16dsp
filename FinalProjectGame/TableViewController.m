@@ -131,19 +131,16 @@
     
     // Taken and modified from the VLE
     NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-    if (indexPath.row == 0) { // Play game row
-        NSLog(@"Row 0 pressed");
-        if ([[segue identifier] isEqualToString:@"ShowGame"]) {
-            // Get destination
-            ViewController *destination = [segue destinationViewController];
-            // Show which class was selected
-            NSLog(@"%@", [NSString stringWithFormat:@"Class %ld selected", indexPath.section]);
-            // Get class integer and push it to the new view
-            NSInteger TempInt = indexPath.section;
-            destination.ClassSelected = TempInt;
-        }
-    } else if (indexPath.row == 1 || indexPath.row == 2) { // Inspection view
-        NSLog(@"Row 1 or 2 pressed");
+    NSLog(@"Row %ld pressed", indexPath.row);
+    if ([[segue identifier] isEqualToString:@"ShowGame"]) {
+        // Get destination
+        ViewController *destination = [segue destinationViewController];
+        // Show which class was selected
+        NSLog(@"%@", [NSString stringWithFormat:@"Class %ld selected", indexPath.section]);
+        // Get class integer and push it to the new view
+        NSInteger TempClassIndex = indexPath.section;
+        destination.ClassSelected = TempClassIndex;
+        destination.RowSelected = indexPath.row;
     }
 }
 

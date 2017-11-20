@@ -25,7 +25,7 @@
         
         // Make placeholder classes here
         PlayerClass *class_0 = [[PlayerClass alloc] init];
-        
+        NSLog(@"Defining player classes");
         // Fill in classes here
         // As it turns out, each class will need it's own weapon subclasses to override them.
         class_0.Name = @"Cutter";
@@ -36,6 +36,7 @@
         class_0.Button1 = [[class_0_1 alloc] init];
         class_0.Button1.Level = [[[self.StoredData componentsSeparatedByString:DATA_STORE_STRING_SPLITTER] objectAtIndex:0] intValue];
         NSLog(@"Button1 level is %ld", class_0.Button1.Level);
+        [class_0.Button1 UpdateStats];
         class_0.Button1.Type = @"W";
         class_0.Button1.Name = @"Pistol";
         class_0.Button1.ImageName = @"pistol.png"; // TODO Add picture to supporting files
@@ -45,9 +46,10 @@
         class_0.Button2 = [[class_0_2 alloc] init];
         class_0.Button2.Level = [[[self.StoredData componentsSeparatedByString:DATA_STORE_STRING_SPLITTER] objectAtIndex:1] intValue];
         NSLog(@"Button2 level is %ld", class_0.Button2.Level);
+        [class_0.Button2 UpdateStats];
         class_0.Button2.Type = @"A";
-        class_0.Button2.Name = @"Grenade";
-        class_0.Button2.ImageName = @"grenade.png"; // TODO Add picture to supporting files
+        class_0.Button2.Name = @"Blowtorch";
+        class_0.Button2.ImageName = @"blowtorch.png"; // TODO Add picture to supporting files
         class_0.Button2.Description = @"A versatile tool for a versatile pirate";
         NSLog(@"Button2 new name is %@", class_0.Button2.Name);
         

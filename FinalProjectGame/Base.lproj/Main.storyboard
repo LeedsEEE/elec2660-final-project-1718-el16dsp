@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="ISa-PG-jK9">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="ISa-PG-jK9">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
@@ -139,6 +139,7 @@
                         <outlet property="Button1Outlet" destination="FL1-Ze-Hat" id="nU5-Fo-IqB"/>
                         <outlet property="Button2LabelOutlet" destination="GbB-Gz-Sby" id="GU1-8O-drO"/>
                         <outlet property="Button2Outlet" destination="oGp-9w-QV9" id="YZo-gq-VMW"/>
+                        <outlet property="CentralButtonOutlet" destination="yDj-7P-VIC" id="pMm-LO-045"/>
                         <outlet property="CoinsLabelOutlet" destination="cxl-ZV-xhp" id="mWd-eM-s5o"/>
                         <outlet property="HealthLabelOutlet" destination="z74-L6-mG9" id="hh6-si-sdr"/>
                         <outlet property="PlayerImageOutlet" destination="DBa-NE-WZI" id="L6v-y9-d57"/>

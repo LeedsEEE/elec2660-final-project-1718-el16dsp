@@ -19,13 +19,51 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     NSLog(@"ViewController Loaded");
-    self.GameHandler = [[GameController alloc] init];
-    NSLog(@"Class %ld selected in ViewController", self.ClassSelected);
-    NSLog(@"GameHandler loaded");
+    if (self.RowSelected == 0) {
+        NSLog(@"Game selected");
+        self.GameHandler = [[GameController alloc] init];
+        NSLog(@"Class %ld selected in ViewController", self.ClassSelected);
+        NSLog(@"GameHandler loaded");
     
-    self.GameHandler.Player = [[[DataStore alloc] init].PlayerClassArray objectAtIndex:self.ClassSelected];
-    NSLog(@"Class %ld %@ loaded with %@ and %@", self.ClassSelected, self.GameHandler.Player.Name, self.GameHandler.Player.Button1.Name, self.GameHandler.Player.Button2.Name);
-    
+        self.GameHandler.Player = [[[DataStore alloc] init].PlayerClassArray objectAtIndex:self.ClassSelected];
+        NSLog(@"Class %ld %@ loaded with %@ and %@", self.ClassSelected, self.GameHandler.Player.Name, self.GameHandler.Player.Button1.Name, self.GameHandler.Player.Button2.Name);
+        // Hide inspect stuff
+        // Show game stuff
+        self.CentralButtonOutlet.hidden = NO;
+        self.Button1Outlet.hidden = NO;
+        self.Button2Outlet.hidden = NO;
+        self.HealthLabelOutlet.hidden = NO;
+        self.Button1LabelOutlet.hidden = NO;
+        self.Button2LabelOutlet.hidden = NO;
+        self.PlayerImageOutlet.hidden = NO;
+        self.CoinsLabelOutlet.hidden = NO;
+    }
+    else if (self.RowSelected == 1) {
+        NSLog(@"Inspect button 1");
+        // Hide game stuff
+        self.CentralButtonOutlet.hidden = YES;
+        self.Button1Outlet.hidden = YES;
+        self.Button2Outlet.hidden = YES;
+        self.HealthLabelOutlet.hidden = YES;
+        self.Button1LabelOutlet.hidden = YES;
+        self.Button2LabelOutlet.hidden = YES;
+        self.PlayerImageOutlet.hidden = YES;
+        self.CoinsLabelOutlet.hidden = YES;
+        // Show inspect stuff
+    }
+    else if (self.RowSelected == 2) {
+        NSLog(@"Inspect button 2");
+        // Hide game stuff
+        self.CentralButtonOutlet.hidden = YES;
+        self.Button1Outlet.hidden = YES;
+        self.Button2Outlet.hidden = YES;
+        self.HealthLabelOutlet.hidden = YES;
+        self.Button1LabelOutlet.hidden = YES;
+        self.Button2LabelOutlet.hidden = YES;
+        self.PlayerImageOutlet.hidden = YES;
+        self.CoinsLabelOutlet.hidden = YES;
+        // Show inspect stuff
+    }
     // Do any additional setup after loading the view, typically from a nib.
 }
 
