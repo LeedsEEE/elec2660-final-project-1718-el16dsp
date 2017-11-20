@@ -168,6 +168,7 @@
     
     
     // Update label text
+    NSLog(@"Updating labels with: Health %@, Button1 %@, Button2 %@", HealthLabel, Button1Label, Button2Label);
     self.HealthLabelOutlet.text = HealthLabel; // Full screen width
     self.Button1LabelOutlet.text = Button1Label; // Half screen width
     self.Button2LabelOutlet.text = Button2Label; // Half screen width
@@ -176,14 +177,20 @@
     // Taken from https://stackoverflow.com/questions/13306604/how-to-change-the-width-of-label-once-after-its-frame-has-been-set-and-to-get-t on 2017-NOV-15
     CGRect HealthLabelFrame = [self.HealthLabelOutlet frame];
     HealthLabelFrame.size.width = HealthLabelProportion * ScreenWidth;
+    NSLog(@"New Health width %f", HealthLabelFrame.size.width);
+    HealthLabelFrame.origin.x = ((1.0 - HealthLabelProportion) * ScreenWidth)/2.0;
     [self.HealthLabelOutlet setFrame:HealthLabelFrame];
+    // TODO Make sure that the width changes on update rather than on the next update
     
     CGRect Button1LabelFrame = [self.Button1LabelOutlet frame];
-    Button1LabelFrame.size.width = 0.5 * Button1LabelProportion * ScreenWidth;
+    Button1LabelFrame.size.width = 0.5 * Button1LabelProportion * ScreenWidth - 5.0; // 5 removed due to the margin offset. Originally thought to be 15 but this works better
+    NSLog(@"New Button1 width %f", Button1LabelFrame.size.width);
     [self.Button1LabelOutlet setFrame:Button1LabelFrame];
     
     CGRect Button2LabelFrame = [self.Button2LabelOutlet frame];
-    Button2LabelFrame.size.width = 0.5 * Button2LabelProportion * ScreenWidth;
+    Button2LabelFrame.size.width = 0.5 * Button2LabelProportion * ScreenWidth - 5.0; // 5 removed due to the margin offset. Originally thought to be 15 but this works better
+    Button2LabelFrame.origin.x = ScreenWidth - 0.5 * Button2LabelProportion * ScreenWidth;
+    NSLog(@"New Button2 width %f", Button2LabelFrame.size.width);
     [self.Button2LabelOutlet setFrame:Button2LabelFrame];
 }
 
