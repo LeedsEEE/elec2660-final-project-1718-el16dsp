@@ -68,7 +68,7 @@
     self.ClickAmount = self.ClicksPerClip;
 }
 
--(void) AutoIncrement {
+-(NSString *) AutoIncrement {
     // Called on any button press in the game
     NSLog(@"AutoIncrement Called");
     NSLog(@"Old ClickAmount = %ld", self.ClickAmount);
@@ -78,9 +78,10 @@
     } else {
         NSLog(@"Max clip reached");
     }
+    return [NSString stringWithFormat:@"%ld/%ld", self.ClickAmount, self.ClicksPerClip];
 }
 
--(void) ManualIncrement {
+-(NSString *) ManualIncrement {
     // Called on the corresponding weapon or ability button press
     NSLog(@"ManualIncrement Called");
     NSLog(@"Old ClickAmount = %ld", self.ClickAmount);
@@ -90,6 +91,7 @@
     } else {
         NSLog(@"Max clip reached");
     }
+    return [NSString stringWithFormat:@"%ld/%ld", self.ClickAmount, self.ClicksPerClip];
 }
 
 @end

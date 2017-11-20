@@ -31,8 +31,8 @@
 
 -(NSInteger) DamageDealtOnClick;
 -(void) UpdateStats;
--(void) AutoIncrement;
--(void) ManualIncrement;
+-(NSString *) AutoIncrement;
+-(NSString *) ManualIncrement;
 
 @end
 
