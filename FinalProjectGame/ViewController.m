@@ -40,6 +40,7 @@
         self.PlayerImageOutlet.hidden = NO;
         self.CoinsLabelOutlet.hidden = NO;
         self.BackgroundImageOutlet.hidden = NO;
+        // TODO Add button images/frames
         
         [self UpdateLabels:[NSString stringWithFormat:@"%ld/%ld", self.GameHandler.Player.CurrentHealth, self.GameHandler.Player.MaxHealth]
                           :[NSString stringWithFormat:@"%ld/%ld", self.GameHandler.Player.Button1.ClickAmount, self.GameHandler.Player.Button1.ClicksPerClip]
@@ -190,12 +191,12 @@
     [self.HealthLabelOutlet setFrame:HealthLabelFrame];
     
     CGRect Button1LabelFrame = [self.Button1LabelOutlet frame];
-    Button1LabelFrame.size.width = 0.5 * Button1LabelProportion * ScreenWidth - 5.0; // 5 removed due to the margin offset. Originally thought to be 15 but this works better
+    Button1LabelFrame.size.width = 0.5 * Button1LabelProportion * ScreenWidth; // 5 removed due to the margin offset. Originally thought to be 15 but this works better
     NSLog(@"New Button1 width %f", Button1LabelFrame.size.width);
     [self.Button1LabelOutlet setFrame:Button1LabelFrame];
     
     CGRect Button2LabelFrame = [self.Button2LabelOutlet frame];
-    Button2LabelFrame.size.width = 0.5 * Button2LabelProportion * ScreenWidth - 5.0; // 5 removed due to the margin offset. Originally thought to be 15 but this works better
+    Button2LabelFrame.size.width = 0.5 * Button2LabelProportion * ScreenWidth; // 5 removed due to the margin offset. Originally thought to be 15 but this works better
     Button2LabelFrame.origin.x = ScreenWidth - 0.5 * Button2LabelProportion * ScreenWidth;
     NSLog(@"New Button2 width %f", Button2LabelFrame.size.width);
     [self.Button2LabelOutlet setFrame:Button2LabelFrame];
@@ -207,7 +208,7 @@
     [self.Button2LabelOutlet setText:Button2Label]; // Half screen width
     
     // TODO Make sure that the width changes on update rather than on the next update
-    
+    // System seems to redraw in the idle time between button presses
 }
 
 @end

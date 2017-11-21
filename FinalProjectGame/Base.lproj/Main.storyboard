@@ -122,20 +122,20 @@
                         <color key="backgroundColor" red="0.78663374352331605" green="0.78663374352331605" blue="0.78663374352331605" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="FL1-Ze-Hat" secondAttribute="bottom" id="39s-Ui-nR5"/>
-                            <constraint firstItem="R9J-ut-iwX" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-15" id="4rm-AU-XQA"/>
+                            <constraint firstItem="R9J-ut-iwX" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="4rm-AU-XQA"/>
                             <constraint firstItem="gdB-9T-wPs" firstAttribute="top" secondItem="DBa-NE-WZI" secondAttribute="bottom" id="5wc-v4-R0E"/>
                             <constraint firstItem="oGp-9w-QV9" firstAttribute="top" secondItem="GbB-Gz-Sby" secondAttribute="bottom" id="7m5-5z-8P7"/>
                             <constraint firstItem="z74-L6-mG9" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="HFr-bw-vp9"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="oGp-9w-QV9" secondAttribute="bottom" id="ILe-5F-7Yq"/>
                             <constraint firstItem="oGp-9w-QV9" firstAttribute="height" secondItem="FL1-Ze-Hat" secondAttribute="height" id="J29-ri-On4"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="oGp-9w-QV9" secondAttribute="trailing" constant="-15" id="L5K-mb-FCS"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="oGp-9w-QV9" secondAttribute="trailing" constant="-20" id="L5K-mb-FCS"/>
                             <constraint firstItem="oGp-9w-QV9" firstAttribute="width" secondItem="FL1-Ze-Hat" secondAttribute="width" id="MSe-xG-w7L"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="GbB-Gz-Sby" secondAttribute="trailing" constant="-15" id="TX8-gs-L5p"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="GbB-Gz-Sby" secondAttribute="trailing" constant="-20" id="TX8-gs-L5p"/>
                             <constraint firstItem="cxl-ZV-xhp" firstAttribute="top" secondItem="z74-L6-mG9" secondAttribute="bottom" constant="5" id="Ufc-M2-5Fo"/>
-                            <constraint firstItem="gdB-9T-wPs" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-15" id="WHs-iv-aF9"/>
+                            <constraint firstItem="gdB-9T-wPs" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="WHs-iv-aF9"/>
                             <constraint firstItem="DBa-NE-WZI" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-15" id="XCk-oI-VIr"/>
                             <constraint firstItem="yDj-7P-VIC" firstAttribute="top" secondItem="cxl-ZV-xhp" secondAttribute="bottom" constant="15" id="ZKW-fe-U0V"/>
-                            <constraint firstItem="FL1-Ze-Hat" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-15" id="ct5-QP-OcI"/>
+                            <constraint firstItem="FL1-Ze-Hat" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="ct5-QP-OcI"/>
                             <constraint firstItem="yDj-7P-VIC" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="15" id="d1l-6N-DNQ"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="R9J-ut-iwX" secondAttribute="bottom" id="hIN-ds-I1G"/>
                             <constraint firstItem="oGp-9w-QV9" firstAttribute="leading" secondItem="FL1-Ze-Hat" secondAttribute="trailing" id="hts-Hm-L5i"/>
@@ -144,7 +144,7 @@
                             <constraint firstItem="DBa-NE-WZI" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="1:3" id="kCw-gn-WCj"/>
                             <constraint firstItem="R9J-ut-iwX" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="lzH-9R-WmL"/>
                             <constraint firstItem="FL1-Ze-Hat" firstAttribute="top" secondItem="gdB-9T-wPs" secondAttribute="bottom" id="oDd-k3-elW"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="R9J-ut-iwX" secondAttribute="trailing" constant="-15" id="s8o-MR-eYU"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="R9J-ut-iwX" secondAttribute="trailing" constant="-20" id="s8o-MR-eYU"/>
                             <constraint firstAttribute="leadingMargin" secondItem="cxl-ZV-xhp" secondAttribute="leading" id="xV4-g0-unl"/>
                         </constraints>
                     </view>
