@@ -10,6 +10,7 @@
 #import "GameController.h"
 #import "DataStore.h"
 #define HEALTH_COLOUR_CHANGE_LIMIT 0.25
+#define MODULE @"ELEC2660"
 
 @interface ViewController ()
 
@@ -198,6 +199,6 @@
     [self.PlayerImageOutlet setImage:PlayerImage];
     
     UIImage *ObstacleImage = [UIImage imageNamed:ObstacleImageTitle];
-    [self.CentralButtonOutlet setImage:PlayerImage forState:UIControlStateNormal];
+    [self.CentralButtonOutlet setImage:ObstacleImage forState:UIControlStateNormal];
 }
 @end
