@@ -169,7 +169,39 @@
 -(NSString *)GetObstacleName {
     ObstacleClass *Temp = [self.ObstacleArray objectAtIndex:self.CurrentObstacle];
     NSString *Name = Temp.Name;
-    NSLog(@"Returning name %@", Name);
+    NSLog(@"Returning obstacle name %@", Name);
+    return Name;
+}
+
+-(NSString *)GetPlayerName {
+    NSString *Name = self.Player.Name;
+    NSLog(@"Returning player name %@", Name);
+    return Name;
+}
+
+-(NSString *)GetWeapon1Name {
+    NSString *Name = self.Player.Button1.Name;
+    NSLog(@"Returning weapon 1 name %@", Name);
+    return Name;
+}
+
+
+-(NSString *)GetWeapon1Type {
+    NSString *Name = self.Player.Button1.Type;
+    NSLog(@"Returning weapon 1 type %@", Name);
+    return Name;
+}
+
+-(NSString *)GetWeapon2Name {
+    NSString *Name = self.Player.Button2.Name;
+    NSLog(@"Returning weapon 2 name %@", Name);
+    return Name;
+}
+
+
+-(NSString *)GetWeapon2Type {
+    NSString *Name = self.Player.Button2.Type;
+    NSLog(@"Returning weapon 2 type %@", Name);
     return Name;
 }
 

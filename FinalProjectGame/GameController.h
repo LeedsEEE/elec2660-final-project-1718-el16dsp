@@ -25,6 +25,11 @@
 -(NSMutableArray *)OnButton1Click; // Player ability amount will be incremented and label updated
 -(NSMutableArray *)OnButton2Click; // Same as above
 -(NSString *)GetObstacleName;
+-(NSString *)GetPlayerName;
+-(NSString *)GetWeapon1Name;
+-(NSString *)GetWeapon1Type;
+-(NSString *)GetWeapon2Name;
+-(NSString *)GetWeapon2Type;
 
 /*
  Stuff to send back to the view controller:
