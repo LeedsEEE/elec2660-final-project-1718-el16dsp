@@ -121,9 +121,9 @@
     [self UpdateLabels:[ReturnValues objectAtIndex:0] :[ReturnValues objectAtIndex:1] :[ReturnValues objectAtIndex:2]];
 }
 
--(void) UpdateLabels: (NSString *)HealthLabel // Strings are of form @"16/20"
+-(void) UpdateLabels:(NSString *)HealthLabel // Strings are of form @"16/20"
                     :(NSString *)Button1Label
-                    :(NSString *)Button2Label {
+                    :(NSString *)Button2Label { // Need to add the coins label
     // Taken from https://stackoverflow.com/questions/3655104/iphone-ipad-how-to-get-screen-width-programmatically on 2017-NOV-15
     CGRect Screen = [[UIScreen mainScreen] bounds];
     CGFloat ScreenWidth = CGRectGetWidth(Screen);
@@ -172,6 +172,7 @@
     
     // TODO Make sure that the width changes on update rather than on the next update
     // System seems to redraw in the idle time between button presses
+    [self.view setNeedsDisplay];
 }
 
 -(float) CalcRatio:(NSString *)RatioString {
@@ -188,5 +189,15 @@
     NSLog(@"New Values: %ld/%ld", Numerator, Denominator);
     float Ratio = (float)Numerator/Denominator;
     return Ratio;
+}
+
+-(void) UpdateImages:(NSString *)PlayerImageTitle
+                    :(NSString *)ObstacleImageTitle {
+    // Taken from https://stackoverflow.com/questions/1469474/setting-an-image-for-a-uibutton-in-code on 21-NOV-2017
+    UIImage *PlayerImage = [UIImage imageNamed:PlayerImageTitle];
+    [self.PlayerImageOutlet setImage:PlayerImage];
+    
+    UIImage *ObstacleImage = [UIImage imageNamed:ObstacleImageTitle];
+    [self.CentralButtonOutlet setImage:PlayerImage forState:UIControlStateNormal];
 }
 @end

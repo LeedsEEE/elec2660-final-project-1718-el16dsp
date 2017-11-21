@@ -79,7 +79,7 @@
     NSString *Button2Label = @"00/00";
     NSMutableArray *ReturnValues = [NSMutableArray arrayWithCapacity:3];
     
-    [self.ObstacleArray objectAtIndex:self.CurrentObstacle]; // TODO
+    [self.ObstacleArray objectAtIndex:self.CurrentObstacle]; // TODO Add combat stuff
     
     
     // Call weapon 1 AutoIncrement
@@ -93,13 +93,16 @@
     // IF obstacle amount amount is full, fire
     // IF player ability 1 is an ability, call weapon 1 DamageDealtOnClick
     // IF player ability 2 is an ability, call weapon 2 DamageDealtOnClick
-    // Update images and labels
-    // TODO modify labels so that their size can be changed
     
+    // Update images and labels
     NSLog(@"HealthLabel %@ Button1Label %@ Button2Label %@", HealthLabel, Button1Label, Button2Label);
     [ReturnValues addObject:HealthLabel];
     [ReturnValues addObject:Button1Label];
     [ReturnValues addObject:Button2Label];
+    // TODO
+    //[ReturnValues addObject:CoinsLabel];
+    //[ReturnValues addObject:PlayerImageTitle];
+    //[ReturnValues addObject:ObstacleImageTitle];
     return ReturnValues;
 }
 

@@ -34,7 +34,8 @@
                     :(NSString *)Button1Label
                     :(NSString *)Button2Label;
 -(float) CalcRatio:(NSString *)RatioString; // Strings are of form @"16/20"
-
+-(void) UpdateImages:(NSString *)PlayerImageTitle
+                    :(NSString *)ObstacleImageTitle;
 // Game view stuff end
 
 // Inspection view start
