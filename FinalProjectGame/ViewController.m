@@ -10,8 +10,6 @@
 #import "GameController.h"
 #import "DataStore.h"
 #define HEALTH_COLOUR_CHANGE_LIMIT 0.25
-#define RED [UIColor colorWithRed:255 green:8 blue:0 alpha:1.0]
-#define GREEN [UIColor colorWithRed:8 green:255 blue:0 alpha:1.0]
 
 @interface ViewController ()
 
