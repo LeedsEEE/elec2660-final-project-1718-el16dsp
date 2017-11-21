@@ -33,6 +33,8 @@
 -(void) UpdateLabels:(NSString *)HealthLabel // Strings are of form @"16/20"
                     :(NSString *)Button1Label
                     :(NSString *)Button2Label;
+-(float) CalcRatio:(NSString *)RatioString; // Strings are of form @"16/20"
+
 // Game view stuff end
 
 // Inspection view start

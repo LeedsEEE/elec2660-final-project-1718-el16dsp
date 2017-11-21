@@ -130,50 +130,13 @@
     NSLog(@"Update labels called with width %f", ScreenWidth);
     
     // Pull integers from the strings and find the ratio betwen them
-    NSInteger MaxHealth = [[[HealthLabel componentsSeparatedByString:@"/"] objectAtIndex:1] intValue];
-    NSInteger CurrentHealth = [[[HealthLabel componentsSeparatedByString:@"/"] objectAtIndex:0] intValue];
+    float HealthLabelProportion = [self CalcRatio:HealthLabel];
+    float Button1LabelProportion = [self CalcRatio:Button1Label];
+    float Button2LabelProportion = [self CalcRatio:Button2Label];
     
-    NSInteger MaxCount1 = [[[Button1Label componentsSeparatedByString:@"/"] objectAtIndex:1] intValue];
-    NSInteger CurrentCount1 = [[[Button1Label componentsSeparatedByString:@"/"] objectAtIndex:0] intValue];
-    
-    NSInteger MaxCount2 = [[[Button2Label componentsSeparatedByString:@"/"] objectAtIndex:1] intValue];
-    NSInteger CurrentCount2 = [[[Button2Label componentsSeparatedByString:@"/"] objectAtIndex:0] intValue];
-    
-    NSLog(@"Old Health Values: %ld/%ld", CurrentHealth, MaxHealth);
-    if (MaxHealth == 0) { // Added to deal with 'Not a Number' errors
-        MaxHealth = 1;
-    }
-    if (CurrentHealth == 0) {
-        CurrentHealth = 1;
-    }
-    NSLog(@"New Health Values: %ld/%ld", CurrentHealth, MaxHealth);
-    
-    float HealthLabelProportion = (float)CurrentHealth/MaxHealth;
-    NSLog(@"Health proportion is %f %ld/%ld", HealthLabelProportion, CurrentHealth, MaxHealth);
-    
-    NSLog(@"Old Count1 Values: %ld/%ld", CurrentCount1, MaxCount1);
-    if (MaxCount1 == 0) { // Added to deal with 'Not a Number' errors
-        MaxCount1 = 1;
-    }
-    if (CurrentCount1 == 0) {
-        CurrentCount1 = 1;
-    }
-    NSLog(@"New Count1 Values: %ld/%ld", CurrentCount1, MaxCount1);
-    
-    float Button1LabelProportion = (float)CurrentCount1/MaxCount1;
-    NSLog(@"Button 1 proportion is %f %ld/%ld", Button1LabelProportion, CurrentCount1, MaxCount1);
-    
-    NSLog(@"Old Count2 Values: %ld/%ld", CurrentCount2, MaxCount2);
-    if (MaxCount2 == 0) { // Added to deal with 'Not a Number' errors
-        MaxCount2 = 1;
-    }
-    if (CurrentCount2 == 0) {
-        CurrentCount2 = 1;
-    }
-    NSLog(@"New Count2 Values: %ld/%ld", CurrentCount2, MaxCount2);
-    
-    float Button2LabelProportion = (float)CurrentCount2/MaxCount2;
-    NSLog(@"Button 2 proportion is %f %ld/%ld", Button2LabelProportion, CurrentCount2, MaxCount2);
+    NSLog(@"Health proportion is %f", HealthLabelProportion);
+    NSLog(@"Button 1 proportion is %f", Button1LabelProportion);
+    NSLog(@"Button 2 proportion is %f", Button2LabelProportion);
     
     // Update label frames
     // Taken from https://stackoverflow.com/questions/13306604/how-to-change-the-width-of-label-once-after-its-frame-has-been-set-and-to-get-t on 2017-NOV-15
@@ -211,4 +174,19 @@
     // System seems to redraw in the idle time between button presses
 }
 
+-(float) CalcRatio:(NSString *)RatioString {
+    NSInteger Denominator = [[[RatioString componentsSeparatedByString:@"/"] objectAtIndex:1] intValue];
+    NSInteger Numerator = [[[RatioString componentsSeparatedByString:@"/"] objectAtIndex:0] intValue];
+    
+    NSLog(@"Old Values: %ld/%ld", Numerator, Denominator);
+    if (Denominator == 0) { // Added to deal with 'Not a Number' errors
+        Denominator = 1;
+    }
+    if (Numerator == 0) {
+        Numerator = 1;
+    }
+    NSLog(@"New Values: %ld/%ld", Numerator, Denominator);
+    float Ratio = (float)Numerator/Denominator;
+    return Ratio;
+}
 @end
