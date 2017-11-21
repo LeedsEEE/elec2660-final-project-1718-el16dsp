@@ -54,13 +54,17 @@
         
         // Picks whether the obstacle is a chest, door or enemy
         if (RandomInt < ENCOUNTER_CHEST_CHANCE && Index != Encounters - 1) {
-            NSLog(@"%@", [NSString stringWithFormat:@"Generated chest of level %ld", DesiredLevel]);
+            NSLog(@"%@", [NSString stringWithFormat:@"Picked chest of level %ld", DesiredLevel]);
             [Temp GenerateChest:DesiredLevel];
+            [self.ObstacleArray addObject:Temp];
+            [Temp GenerateChestDead:DesiredLevel];
         } else if (RandomInt < (ENCOUNTER_CHEST_CHANCE + ENCOUNTER_DOOR_CHANCE) || Index == Encounters - 1) {
-            NSLog(@"%@", [NSString stringWithFormat:@"Generated door of level %ld", DesiredLevel]);
+            NSLog(@"%@", [NSString stringWithFormat:@"Picked door of level %ld", DesiredLevel]);
             [Temp GenerateDoor:DesiredLevel];
+            [self.ObstacleArray addObject:Temp];
+            [Temp GenerateChestDead:DesiredLevel];
         } else {
-            NSLog(@"%@", [NSString stringWithFormat:@"Generated enemy of level %ld", DesiredLevel]);
+            NSLog(@"%@", [NSString stringWithFormat:@"Picked enemy of level %ld", DesiredLevel]);
             [Temp GenerateEnemy:DesiredLevel];
         }
         // Add obstacle to ObstacleArray

@@ -13,16 +13,16 @@
 		530362B91FB9BF6300BEE30F /* DataStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 530362B81FB9BF6300BEE30F /* DataStore.m */; };
 		531A75F91FC47C4700C36330 /* ELEC2660 Background Dark.png in Resources */ = {isa = PBXBuildFile; fileRef = 531A75E81FC47C4700C36330 /* ELEC2660 Background Dark.png */; };
 		531A75FA1FC47C4700C36330 /* ELEC2660 Background.png in Resources */ = {isa = PBXBuildFile; fileRef = 531A75E91FC47C4700C36330 /* ELEC2660 Background.png */; };
-		531A75FB1FC47C4700C36330 /* ELEC2660 Chest Closed.png in Resources */ = {isa = PBXBuildFile; fileRef = 531A75EA1FC47C4700C36330 /* ELEC2660 Chest Closed.png */; };
-		531A75FC1FC47C4700C36330 /* ELEC2660 Chest Opened.png in Resources */ = {isa = PBXBuildFile; fileRef = 531A75EB1FC47C4700C36330 /* ELEC2660 Chest Opened.png */; };
+		531A75FB1FC47C4700C36330 /* chest_idle.png in Resources */ = {isa = PBXBuildFile; fileRef = 531A75EA1FC47C4700C36330 /* chest_idle.png */; };
+		531A75FC1FC47C4700C36330 /* chest_dead.png in Resources */ = {isa = PBXBuildFile; fileRef = 531A75EB1FC47C4700C36330 /* chest_dead.png */; };
 		531A75FD1FC47C4700C36330 /* ELEC2660 Cutter Fire blowtorch.png in Resources */ = {isa = PBXBuildFile; fileRef = 531A75EC1FC47C4700C36330 /* ELEC2660 Cutter Fire blowtorch.png */; };
 		531A75FE1FC47C4700C36330 /* ELEC2660 Cutter Fire both.png in Resources */ = {isa = PBXBuildFile; fileRef = 531A75ED1FC47C4700C36330 /* ELEC2660 Cutter Fire both.png */; };
 		531A75FF1FC47C4700C36330 /* ELEC2660 Cutter Fire pistol.png in Resources */ = {isa = PBXBuildFile; fileRef = 531A75EE1FC47C4700C36330 /* ELEC2660 Cutter Fire pistol.png */; };
 		531A76001FC47C4700C36330 /* ELEC2660 Cutter Idle.png in Resources */ = {isa = PBXBuildFile; fileRef = 531A75EF1FC47C4700C36330 /* ELEC2660 Cutter Idle.png */; };
 		531A76011FC47C4700C36330 /* ELEC2660 Cutter Load blowtorch.png in Resources */ = {isa = PBXBuildFile; fileRef = 531A75F01FC47C4700C36330 /* ELEC2660 Cutter Load blowtorch.png */; };
 		531A76021FC47C4700C36330 /* ELEC2660 Cutter Load pistol.png in Resources */ = {isa = PBXBuildFile; fileRef = 531A75F11FC47C4700C36330 /* ELEC2660 Cutter Load pistol.png */; };
-		531A76031FC47C4700C36330 /* ELEC2660 Door Closed.png in Resources */ = {isa = PBXBuildFile; fileRef = 531A75F21FC47C4700C36330 /* ELEC2660 Door Closed.png */; };
-		531A76041FC47C4700C36330 /* ELEC2660 Door Opened.png in Resources */ = {isa = PBXBuildFile; fileRef = 531A75F31FC47C4700C36330 /* ELEC2660 Door Opened.png */; };
+		531A76031FC47C4700C36330 /* door_idle.png in Resources */ = {isa = PBXBuildFile; fileRef = 531A75F21FC47C4700C36330 /* door_idle.png */; };
+		531A76041FC47C4700C36330 /* door_dead.png in Resources */ = {isa = PBXBuildFile; fileRef = 531A75F31FC47C4700C36330 /* door_dead.png */; };
 		531A76051FC47C4700C36330 /* ELEC2660 Voltiguer Attack.png in Resources */ = {isa = PBXBuildFile; fileRef = 531A75F41FC47C4700C36330 /* ELEC2660 Voltiguer Attack.png */; };
 		531A76061FC47C4700C36330 /* ELEC2660 Voltiguer Idle.png in Resources */ = {isa = PBXBuildFile; fileRef = 531A75F51FC47C4700C36330 /* ELEC2660 Voltiguer Idle.png */; };
 		531A76071FC47C4700C36330 /* ELEC2660 Voltiguer Pre Attack.png in Resources */ = {isa = PBXBuildFile; fileRef = 531A75F61FC47C4700C36330 /* ELEC2660 Voltiguer Pre Attack.png */; };
@@ -69,16 +69,16 @@
 		530362B81FB9BF6300BEE30F /* DataStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataStore.m; sourceTree = "<group>"; };
 		531A75E81FC47C4700C36330 /* ELEC2660 Background Dark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "ELEC2660 Background Dark.png"; path = "Assets/ELEC2660 Background Dark.png"; sourceTree = SOURCE_ROOT; };
 		531A75E91FC47C4700C36330 /* ELEC2660 Background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "ELEC2660 Background.png"; path = "Assets/ELEC2660 Background.png"; sourceTree = SOURCE_ROOT; };
-		531A75EA1FC47C4700C36330 /* ELEC2660 Chest Closed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "ELEC2660 Chest Closed.png"; path = "Assets/ELEC2660 Chest Closed.png"; sourceTree = SOURCE_ROOT; };
-		531A75EB1FC47C4700C36330 /* ELEC2660 Chest Opened.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "ELEC2660 Chest Opened.png"; path = "Assets/ELEC2660 Chest Opened.png"; sourceTree = SOURCE_ROOT; };
+		531A75EA1FC47C4700C36330 /* chest_idle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = chest_idle.png; path = Assets/chest_idle.png; sourceTree = SOURCE_ROOT; };
+		531A75EB1FC47C4700C36330 /* chest_dead.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = chest_dead.png; path = Assets/chest_dead.png; sourceTree = SOURCE_ROOT; };
 		531A75EC1FC47C4700C36330 /* ELEC2660 Cutter Fire blowtorch.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "ELEC2660 Cutter Fire blowtorch.png"; path = "Assets/ELEC2660 Cutter Fire blowtorch.png"; sourceTree = SOURCE_ROOT; };
 		531A75ED1FC47C4700C36330 /* ELEC2660 Cutter Fire both.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "ELEC2660 Cutter Fire both.png"; path = "Assets/ELEC2660 Cutter Fire both.png"; sourceTree = SOURCE_ROOT; };
 		531A75EE1FC47C4700C36330 /* ELEC2660 Cutter Fire pistol.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "ELEC2660 Cutter Fire pistol.png"; path = "Assets/ELEC2660 Cutter Fire pistol.png"; sourceTree = SOURCE_ROOT; };
 		531A75EF1FC47C4700C36330 /* ELEC2660 Cutter Idle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "ELEC2660 Cutter Idle.png"; path = "Assets/ELEC2660 Cutter Idle.png"; sourceTree = SOURCE_ROOT; };
 		531A75F01FC47C4700C36330 /* ELEC2660 Cutter Load blowtorch.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "ELEC2660 Cutter Load blowtorch.png"; path = "Assets/ELEC2660 Cutter Load blowtorch.png"; sourceTree = SOURCE_ROOT; };
 		531A75F11FC47C4700C36330 /* ELEC2660 Cutter Load pistol.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "ELEC2660 Cutter Load pistol.png"; path = "Assets/ELEC2660 Cutter Load pistol.png"; sourceTree = SOURCE_ROOT; };
-		531A75F21FC47C4700C36330 /* ELEC2660 Door Closed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "ELEC2660 Door Closed.png"; path = "Assets/ELEC2660 Door Closed.png"; sourceTree = SOURCE_ROOT; };
-		531A75F31FC47C4700C36330 /* ELEC2660 Door Opened.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "ELEC2660 Door Opened.png"; path = "Assets/ELEC2660 Door Opened.png"; sourceTree = SOURCE_ROOT; };
+		531A75F21FC47C4700C36330 /* door_idle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = door_idle.png; path = Assets/door_idle.png; sourceTree = SOURCE_ROOT; };
+		531A75F31FC47C4700C36330 /* door_dead.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = door_dead.png; path = Assets/door_dead.png; sourceTree = SOURCE_ROOT; };
 		531A75F41FC47C4700C36330 /* ELEC2660 Voltiguer Attack.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "ELEC2660 Voltiguer Attack.png"; path = "Assets/ELEC2660 Voltiguer Attack.png"; sourceTree = SOURCE_ROOT; };
 		531A75F51FC47C4700C36330 /* ELEC2660 Voltiguer Idle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "ELEC2660 Voltiguer Idle.png"; path = "Assets/ELEC2660 Voltiguer Idle.png"; sourceTree = SOURCE_ROOT; };
 		531A75F61FC47C4700C36330 /* ELEC2660 Voltiguer Pre Attack.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "ELEC2660 Voltiguer Pre Attack.png"; path = "Assets/ELEC2660 Voltiguer Pre Attack.png"; sourceTree = SOURCE_ROOT; };
@@ -185,16 +185,16 @@
 			children = (
 				531A75E81FC47C4700C36330 /* ELEC2660 Background Dark.png */,
 				531A75E91FC47C4700C36330 /* ELEC2660 Background.png */,
-				531A75EA1FC47C4700C36330 /* ELEC2660 Chest Closed.png */,
-				531A75EB1FC47C4700C36330 /* ELEC2660 Chest Opened.png */,
+				531A75EA1FC47C4700C36330 /* chest_idle.png */,
+				531A75EB1FC47C4700C36330 /* chest_dead.png */,
 				531A75EC1FC47C4700C36330 /* ELEC2660 Cutter Fire blowtorch.png */,
 				531A75ED1FC47C4700C36330 /* ELEC2660 Cutter Fire both.png */,
 				531A75EE1FC47C4700C36330 /* ELEC2660 Cutter Fire pistol.png */,
 				531A75EF1FC47C4700C36330 /* ELEC2660 Cutter Idle.png */,
 				531A75F01FC47C4700C36330 /* ELEC2660 Cutter Load blowtorch.png */,
 				531A75F11FC47C4700C36330 /* ELEC2660 Cutter Load pistol.png */,
-				531A75F21FC47C4700C36330 /* ELEC2660 Door Closed.png */,
-				531A75F31FC47C4700C36330 /* ELEC2660 Door Opened.png */,
+				531A75F21FC47C4700C36330 /* door_idle.png */,
+				531A75F31FC47C4700C36330 /* door_dead.png */,
 				531A75F41FC47C4700C36330 /* ELEC2660 Voltiguer Attack.png */,
 				531A75F51FC47C4700C36330 /* ELEC2660 Voltiguer Idle.png */,
 				531A75F61FC47C4700C36330 /* ELEC2660 Voltiguer Pre Attack.png */,
@@ -331,9 +331,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				5385983C1FB9D19C00DBA7CB /* class_levels_data.txt in Resources */,
-				531A76041FC47C4700C36330 /* ELEC2660 Door Opened.png in Resources */,
+				531A76041FC47C4700C36330 /* door_dead.png in Resources */,
 				531A76021FC47C4700C36330 /* ELEC2660 Cutter Load pistol.png in Resources */,
-				531A75FB1FC47C4700C36330 /* ELEC2660 Chest Closed.png in Resources */,
+				531A75FB1FC47C4700C36330 /* chest_idle.png in Resources */,
 				53572C0A1FB2060300E11BDB /* LaunchScreen.storyboard in Resources */,
 				531A75FF1FC47C4700C36330 /* ELEC2660 Cutter Fire pistol.png in Resources */,
 				531A76051FC47C4700C36330 /* ELEC2660 Voltiguer Attack.png in Resources */,
@@ -342,10 +342,10 @@
 				53572C071FB2060300E11BDB /* Assets.xcassets in Resources */,
 				531A75F91FC47C4700C36330 /* ELEC2660 Background Dark.png in Resources */,
 				531A75FE1FC47C4700C36330 /* ELEC2660 Cutter Fire both.png in Resources */,
-				531A76031FC47C4700C36330 /* ELEC2660 Door Closed.png in Resources */,
+				531A76031FC47C4700C36330 /* door_idle.png in Resources */,
 				531A76071FC47C4700C36330 /* ELEC2660 Voltiguer Pre Attack.png in Resources */,
 				531A76001FC47C4700C36330 /* ELEC2660 Cutter Idle.png in Resources */,
-				531A75FC1FC47C4700C36330 /* ELEC2660 Chest Opened.png in Resources */,
+				531A75FC1FC47C4700C36330 /* chest_dead.png in Resources */,
 				531A75FD1FC47C4700C36330 /* ELEC2660 Cutter Fire blowtorch.png in Resources */,
 				53572C051FB2060300E11BDB /* Main.storyboard in Resources */,
 				531A76061FC47C4700C36330 /* ELEC2660 Voltiguer Idle.png in Resources */,

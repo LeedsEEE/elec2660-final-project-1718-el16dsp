@@ -21,9 +21,11 @@
 @property (nonatomic) NSInteger Reward;
 @property (strong, nonatomic) WeaponClass *Ability;
 
--(void) GenerateEnemy:(NSInteger) DesiredLevel;
--(void) GenerateDoor:(NSInteger) DesiredLevel;
 -(void) GenerateChest:(NSInteger) DesiredLevel;
+-(void) GenerateChestDead:(NSInteger)DesiredLevel;
+-(void) GenerateDoor:(NSInteger) DesiredLevel;
+-(void) GenerateDoorDead:(NSInteger)DesiredLevel;
+-(void) GenerateEnemy:(NSInteger) DesiredLevel;
 -(NSInteger) ReturnHealth;
 
 @end
