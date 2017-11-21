@@ -55,7 +55,9 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ELEC2660 Background Dark.png" translatesAutoresizingMaskIntoConstraints="NO" id="R9J-ut-iwX"/>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FL1-Ze-Hat">
                                 <color key="backgroundColor" red="0.0" green="1" blue="0.38352052688093341" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <state key="normal" title="Button"/>
+                                <state key="normal" title="Load Weapon1">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
                                 <connections>
                                     <action selector="Button1Pressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="uma-GZ-nGk"/>
                                 </connections>
@@ -65,7 +67,9 @@
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="oGp-9w-QV9" secondAttribute="height" multiplier="31:15" id="lQq-9q-y0u"/>
                                 </constraints>
-                                <state key="normal" title="Button"/>
+                                <state key="normal" title="Load Weapon2">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
                                 <connections>
                                     <action selector="Button2Pressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="scD-ge-fHE"/>
                                 </connections>
@@ -94,7 +98,6 @@
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="yDj-7P-VIC" secondAttribute="height" multiplier="1:1" id="SLx-Db-dev"/>
                                 </constraints>
-                                <state key="normal" title="Button"/>
                                 <connections>
                                     <action selector="CentralButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="2SG-0E-zzB"/>
                                 </connections>

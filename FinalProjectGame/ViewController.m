@@ -42,7 +42,8 @@
         self.CoinsLabelOutlet.hidden = NO;
         self.BackgroundImageOutlet.hidden = NO;
         // TODO Add button images/frames
-        
+        [self.Button1Outlet setTitle:[NSString stringWithFormat:@"Load %@", [self.GameHandler GetWeapon1Name]] forState:UIControlStateNormal];
+        [self.Button2Outlet setTitle:[NSString stringWithFormat:@"Load %@", [self.GameHandler GetWeapon2Name]] forState:UIControlStateNormal];
         [self UpdateLabels:[NSString stringWithFormat:@"%ld/%ld", self.GameHandler.Player.CurrentHealth, self.GameHandler.Player.MaxHealth]
                           :[NSString stringWithFormat:@"%ld/%ld", self.GameHandler.Player.Button1.ClickAmount, self.GameHandler.Player.Button1.ClicksPerClip]
                           :[NSString stringWithFormat:@"%ld/%ld", self.GameHandler.Player.Button2.ClickAmount, self.GameHandler.Player.Button2.ClicksPerClip]];
@@ -210,7 +211,7 @@
     [self.Button2LabelOutlet setFrame:Button2LabelFrame];
     
     // Update label text
-    /*
+    /* // Commenting out these as this makes the labels change size and colour
     NSLog(@"Updating labels with: Health %@, Button1 %@, Button2 %@", HealthLabel, Button1Label, Button2Label);
     [self.HealthLabelOutlet setText:HealthLabel]; // Full screen width
     [self.Button1LabelOutlet setText:Button1Label]; // Half screen width

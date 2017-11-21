@@ -18,6 +18,7 @@
         
         self.Ability = [[WeaponClass alloc] init];
         
+        // TODO Add methods for idle and dead states of each of these
         if (RandomResult == 0) { // Door
             [self GenerateDoor:InputLevel];
         } else if (RandomResult == 1) { // Chest
