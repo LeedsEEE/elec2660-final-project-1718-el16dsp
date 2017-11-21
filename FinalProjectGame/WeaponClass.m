@@ -39,19 +39,24 @@
         // Called on obstacle button press if weapon. Ability won't do anything unless charged
         // Called on both ability button presses
         // Any weapon buttons need a catchout to stop this from activating if manual increment occurs
-    NSMutableArray *ReturnValues = [NSMutableArray arrayWithCapacity:2];
-    [ReturnValues addObject:[NSNumber numberWithInt:self.DamagePerClick]];
-    [ReturnValues addObject:[NSNumber numberWithInt:self.StunDuration]];
-    if ([self.Type isEqualToString:@"W"]) {
-        if (self.ClickAmount>0) {
-            self.ClickAmount -= 1;
-            //return (self.DamagePerClick, self.StunDuration);
-        }
-    } else if ([self.Type isEqualToString:@"A"]) {
-        if (self.ClickAmount == self.ClicksPerClip) {
-            self.ClickAmount = 0;
-            //return (self.DamagePerClick, self.StunDuration);
-        }
+    NSMutableArray *ReturnValues = [NSMutableArray arrayWithCapacity:3];
+    NSInteger Zero = 0;
+    [ReturnValues addObject:[NSNumber numberWithInteger:Zero]];
+    [ReturnValues addObject:[NSNumber numberWithInteger:Zero]];
+    [ReturnValues addObject:@"0/0"];
+    if ([self.Type isEqualToString:@"W"] && self.ClickAmount>0) {
+        NSLog(@"Firing weapon for damage %ld and stun %ld", self.DamagePerClick, self.StunDuration);
+        self.ClickAmount -= 1;
+        [ReturnValues replaceObjectAtIndex:0 withObject:[NSNumber numberWithInteger:self.DamagePerClick]];
+        [ReturnValues replaceObjectAtIndex:1 withObject:[NSNumber numberWithInteger:self.StunDuration]];
+        [ReturnValues replaceObjectAtIndex:2 withObject:[NSString stringWithFormat:@"%ld/%ld", self.ClickAmount, self.ClicksPerClip]];
+    } else if ([self.Type isEqualToString:@"A"] && self.ClickAmount == self.ClicksPerClip)
+    {
+        NSLog(@"Firing ability for damage %ld and stun %ld", self.DamagePerClick, self.StunDuration);
+        self.ClickAmount = 0;
+        [ReturnValues replaceObjectAtIndex:0 withObject:[NSNumber numberWithInteger:self.DamagePerClick]];
+        [ReturnValues replaceObjectAtIndex:1 withObject:[NSNumber numberWithInteger:self.StunDuration]];
+        [ReturnValues replaceObjectAtIndex:2 withObject:[NSString stringWithFormat:@"%ld/%ld", self.ClickAmount, self.ClicksPerClip]];
     }
     return ReturnValues;
 }
@@ -133,7 +138,7 @@
 
 -(void) UpdateStats {
     // Class 0 is Cutter
-    // Slot 2 is the grenade
+    // Slot 2 is the blowtorch
     NSInteger level;
     
     level = self.Level;

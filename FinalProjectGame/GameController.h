@@ -24,8 +24,7 @@
 -(NSMutableArray *)OnObstacleClick; // If player has a weapon, it will do damage
 -(NSMutableArray *)OnButton1Click; // Player ability amount will be incremented and label updated
 -(NSMutableArray *)OnButton2Click; // Same as above
--(void)ObstacleImageUpdate: (NSString *)NewImageName; // Change obstacle image with the image that has the same name as NewImageName
--(void)PlayerImageUpdate: (NSString *)NewImageName; // Same as above but for the player image
+-(NSString *)GetObstacleName;
 
 /*
  Stuff to send back to the view controller:
