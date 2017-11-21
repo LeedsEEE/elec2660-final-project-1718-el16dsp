@@ -129,6 +129,12 @@
     NSInteger MaxHealth = [[[HealthLabel componentsSeparatedByString:@"/"] objectAtIndex:1] intValue];
     NSInteger CurrentHealth = [[[HealthLabel componentsSeparatedByString:@"/"] objectAtIndex:0] intValue];
     
+    NSInteger MaxCount1 = [[[Button1Label componentsSeparatedByString:@"/"] objectAtIndex:1] intValue];
+    NSInteger CurrentCount1 = [[[Button1Label componentsSeparatedByString:@"/"] objectAtIndex:0] intValue];
+    
+    NSInteger MaxCount2 = [[[Button2Label componentsSeparatedByString:@"/"] objectAtIndex:1] intValue];
+    NSInteger CurrentCount2 = [[[Button2Label componentsSeparatedByString:@"/"] objectAtIndex:0] intValue];
+    
     NSLog(@"Old Health Values: %ld/%ld", CurrentHealth, MaxHealth);
     if (MaxHealth == 0) { // Added to deal with 'Not a Number' errors
         MaxHealth = 1;
@@ -141,9 +147,6 @@
     float HealthLabelProportion = (float)CurrentHealth/MaxHealth;
     NSLog(@"Health proportion is %f %ld/%ld", HealthLabelProportion, CurrentHealth, MaxHealth);
     
-    NSInteger MaxCount1 = [[[Button1Label componentsSeparatedByString:@"/"] objectAtIndex:1] intValue];
-    NSInteger CurrentCount1 = [[[Button1Label componentsSeparatedByString:@"/"] objectAtIndex:0] intValue];
-    
     NSLog(@"Old Count1 Values: %ld/%ld", CurrentCount1, MaxCount1);
     if (MaxCount1 == 0) { // Added to deal with 'Not a Number' errors
         MaxCount1 = 1;
@@ -155,9 +158,6 @@
     
     float Button1LabelProportion = (float)CurrentCount1/MaxCount1;
     NSLog(@"Button 1 proportion is %f %ld/%ld", Button1LabelProportion, CurrentCount1, MaxCount1);
-    
-    NSInteger MaxCount2 = [[[Button2Label componentsSeparatedByString:@"/"] objectAtIndex:1] intValue];
-    NSInteger CurrentCount2 = [[[Button2Label componentsSeparatedByString:@"/"] objectAtIndex:0] intValue];
     
     NSLog(@"Old Count2 Values: %ld/%ld", CurrentCount2, MaxCount2);
     if (MaxCount2 == 0) { // Added to deal with 'Not a Number' errors
@@ -185,7 +185,6 @@
         [self.HealthLabelOutlet setBackgroundColor:[UIColor greenColor]];
     }
     [self.HealthLabelOutlet setFrame:HealthLabelFrame];
-    // TODO Make sure that the width changes on update rather than on the next update
     
     CGRect Button1LabelFrame = [self.Button1LabelOutlet frame];
     Button1LabelFrame.size.width = 0.5 * Button1LabelProportion * ScreenWidth - 5.0; // 5 removed due to the margin offset. Originally thought to be 15 but this works better
@@ -203,6 +202,8 @@
     [self.HealthLabelOutlet setText:HealthLabel]; // Full screen width
     [self.Button1LabelOutlet setText:Button1Label]; // Half screen width
     [self.Button2LabelOutlet setText:Button2Label]; // Half screen width
+    
+    // TODO Make sure that the width changes on update rather than on the next update
 }
 
 @end
