@@ -204,6 +204,7 @@
     [self.Button2LabelOutlet setText:Button2Label]; // Half screen width
     
     // TODO Make sure that the width changes on update rather than on the next update
+    
 }
 
 @end
