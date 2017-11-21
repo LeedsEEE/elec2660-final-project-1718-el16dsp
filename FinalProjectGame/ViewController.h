@@ -24,6 +24,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *CentralButtonOutlet;
 @property (weak, nonatomic) IBOutlet UIImageView *PlayerImageOutlet;
 @property (weak, nonatomic) IBOutlet UILabel *CoinsLabelOutlet;
+@property (weak, nonatomic) IBOutlet UIImageView *BackgroundImageOutlet;
 
 - (IBAction)Button1Pressed:(id)sender;
 - (IBAction)Button2Pressed:(id)sender;

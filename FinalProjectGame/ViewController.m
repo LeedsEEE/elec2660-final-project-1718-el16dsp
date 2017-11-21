@@ -39,6 +39,7 @@
         self.Button2LabelOutlet.hidden = NO;
         self.PlayerImageOutlet.hidden = NO;
         self.CoinsLabelOutlet.hidden = NO;
+        self.BackgroundImageOutlet.hidden = NO;
         
         [self UpdateLabels:[NSString stringWithFormat:@"%ld/%ld", self.GameHandler.Player.CurrentHealth, self.GameHandler.Player.MaxHealth]
                           :[NSString stringWithFormat:@"%ld/%ld", self.GameHandler.Player.Button1.ClickAmount, self.GameHandler.Player.Button1.ClicksPerClip]
@@ -55,6 +56,7 @@
         self.Button2LabelOutlet.hidden = YES;
         self.PlayerImageOutlet.hidden = YES;
         self.CoinsLabelOutlet.hidden = YES;
+        self.BackgroundImageOutlet.hidden = YES;
         // Show inspect stuff
     }
     else if (self.RowSelected == 2) {
@@ -68,6 +70,7 @@
         self.Button2LabelOutlet.hidden = YES;
         self.PlayerImageOutlet.hidden = YES;
         self.CoinsLabelOutlet.hidden = YES;
+        self.BackgroundImageOutlet.hidden = YES;
         // Show inspect stuff
     }
     // Do any additional setup after loading the view, typically from a nib.
