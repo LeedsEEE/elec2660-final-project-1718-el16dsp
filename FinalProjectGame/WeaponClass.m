@@ -43,7 +43,7 @@
     NSInteger Zero = 0;
     [ReturnValues addObject:[NSNumber numberWithInteger:Zero]];
     [ReturnValues addObject:[NSNumber numberWithInteger:Zero]];
-    [ReturnValues addObject:@"0/0"];
+    [ReturnValues addObject:[NSString stringWithFormat:@"%ld/%ld", self.ClickAmount, self.ClicksPerClip]];
     if ([self.Type isEqualToString:@"W"] && self.ClickAmount>0) {
         NSLog(@"Firing weapon for damage %ld and stun %ld", self.DamagePerClick, self.StunDuration);
         self.ClickAmount -= 1;

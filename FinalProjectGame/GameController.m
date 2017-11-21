@@ -79,8 +79,6 @@
     NSString *Button2Label = @"00/00";
     NSString *ObstacleImageTitle = @"placeholder.png";
     NSString *ObstacleWeaponStatus;
-    NSMutableArray *Damage1 = [NSMutableArray arrayWithCapacity:2];
-    NSMutableArray *Damage2 = [NSMutableArray arrayWithCapacity:2];
     NSMutableArray *ReturnValues = [NSMutableArray arrayWithCapacity:3];
     
     ObstacleClass *Temp = [self.ObstacleArray objectAtIndex:self.CurrentObstacle]; // TODO Add combat stuff
@@ -101,28 +99,12 @@
     // IF obstacle amount amount is full, fire
     NSLog(@"Obstacle attack processing...");
     
-    // IF player ability 1 is an ability, call weapon 1 DamageDealtOnClick
-    NSLog(@"Player weapon 1 attack processing...");
-    if ([self.Player.Button1.Type isEqualToString:@"A"]) {
-        NSLog(@"Player Button1 is an ability");
-        Damage1 = [self.Player.Button1 DamageDealtOnClick];
-        NSLog(@"Damage to be done is %@. Stun amount to be done is %@", [Damage1 objectAtIndex:0], [Damage1 objectAtIndex:1]);
-        Button1Label = [Damage1 objectAtIndex:2];
-    }
-    // IF player ability 2 is an ability, call weapon 2 DamageDealtOnClick
-    NSLog(@"Player weapon 2 attack processing...");
-    if ([self.Player.Button2.Type isEqualToString:@"A"]) {
-        NSLog(@"Player Button2 is an ability");
-        Damage2 = [self.Player.Button2 DamageDealtOnClick];
-        NSLog(@"Damage to be done is %@. Stun amount to be done is %@", [Damage2 objectAtIndex:0], [Damage2 objectAtIndex:1]);
-        Button2Label = [Damage2 objectAtIndex:2];
-    }
-    
     // Update images and labels
     NSLog(@"HealthLabel %@ Button1Label %@ Button2Label %@", HealthLabel, Button1Label, Button2Label);
-    [ReturnValues addObject:HealthLabel];
-    [ReturnValues addObject:Button1Label];
-    [ReturnValues addObject:Button2Label];
+    
+    [ReturnValues addObject:HealthLabel]; // Index 0
+    [ReturnValues addObject:Button1Label]; // Index 1
+    [ReturnValues addObject:Button2Label]; // Index 2
     // TODO
     //[ReturnValues addObject:CoinsLabel];
     //[ReturnValues addObject:PlayerImageTitle];
@@ -133,11 +115,29 @@
 -(NSMutableArray *)OnObstacleClick {
     NSLog(@"ObstacleClicked from GameController");
     
+    NSString *Button1Label;
+    NSString *Button2Label;
+    
     NSMutableArray *ReturnValues = [NSMutableArray arrayWithCapacity:3];
+    NSMutableArray *Damage1 = [NSMutableArray arrayWithCapacity:2];
+    NSMutableArray *Damage2 = [NSMutableArray arrayWithCapacity:2];
     
     ReturnValues = [self OnAnyTick];
-    // IF player ability 1 is a weapon, call weapon 1 DamageDealtOnClick
-    // IF player ability 2 is a weapon, call weapon 2 DamageDealtOnClick
+    
+    // Call weapon 1 DamageDealtOnClick
+    NSLog(@"Player weapon 1 attack processing...");
+    Damage1 = [self.Player.Button1 DamageDealtOnClick];
+    NSLog(@"Damage to be done is %@. Stun amount to be done is %@", [Damage1 objectAtIndex:0], [Damage1 objectAtIndex:1]);
+    Button1Label = [Damage1 objectAtIndex:2];
+    [ReturnValues replaceObjectAtIndex:1 withObject:Button1Label];
+    
+    // Call weapon 2 DamageDealtOnClick
+    NSLog(@"Player weapon 2 attack processing...");
+    Damage2 = [self.Player.Button2 DamageDealtOnClick];
+    NSLog(@"Damage to be done is %@. Stun amount to be done is %@", [Damage2 objectAtIndex:0], [Damage2 objectAtIndex:1]);
+    Button2Label = [Damage2 objectAtIndex:2];
+    [ReturnValues replaceObjectAtIndex:2 withObject:Button2Label];
+    
     NSLog(@"HealthLabel %@ Button1Label %@ Button2Label %@", [ReturnValues objectAtIndex:0], [ReturnValues objectAtIndex:1], [ReturnValues objectAtIndex:2]);
     return ReturnValues;
 }
