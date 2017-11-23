@@ -116,7 +116,7 @@
     NSLog(@"Obstacle attack processing...");
     // If the obstacle is still stunned, it can't do anything
     
-    if ([Temp IsStunned]) { // This should be replaced by IsStunned
+    if ([Temp IsStunned] == NO) { // IF Obstacle is not stunned
         NSLog(@"Obstacle not stunned");
         
         // This is literally just a copy of the CalcRatio from ViewController
@@ -197,6 +197,7 @@
     NSLog(@"HealthLabel %@ Button1Label %@", [ReturnValues objectAtIndex:0], [ReturnValues objectAtIndex:1]);
     NSLog(@"Button2Label %@ CoinsLabel %@", [ReturnValues objectAtIndex:2], [ReturnValues objectAtIndex:3]);
     NSLog(@"PlayerImage %@ ObstacleImage %@", [ReturnValues objectAtIndex:4], [ReturnValues objectAtIndex:5]);
+    [self OnEndTurn];
     return ReturnValues;
 }
 
@@ -209,6 +210,7 @@
     // Call weapon 1 manual increment method
     [ReturnValues replaceObjectAtIndex:1 withObject:[self.Player.Button1 ManualIncrement]];
     NSLog(@"HealthLabel %@ Button1Label %@ Button2Label %@", [ReturnValues objectAtIndex:0], [ReturnValues objectAtIndex:1], [ReturnValues objectAtIndex:2]);
+    [self OnEndTurn];
     return ReturnValues;
 }
 
@@ -221,6 +223,7 @@
     // Call weapon 2 manual increment method
     [ReturnValues replaceObjectAtIndex:2 withObject:[self.Player.Button2 ManualIncrement]];
     NSLog(@"HealthLabel %@ Button1Label %@ Button2Label %@", [ReturnValues objectAtIndex:0], [ReturnValues objectAtIndex:1], [ReturnValues objectAtIndex:2]);
+    [self OnEndTurn];
     return ReturnValues;
 }
 
