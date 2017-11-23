@@ -20,6 +20,7 @@
 @property (nonatomic) NSInteger Armour;
 @property (nonatomic) NSInteger Reward;
 @property (strong, nonatomic) WeaponClass *Ability;
+@property (nonatomic) NSInteger StunnedFor;
 
 -(void) GenerateChest:(NSInteger) DesiredLevel;
 -(void) GenerateChestDead:(NSInteger)DesiredLevel;
@@ -28,5 +29,6 @@
 -(void) GenerateEnemy:(NSInteger) DesiredLevel;
 -(NSInteger) ReturnHealth;
 -(NSInteger) GetClickAmount;
+-(BOOL) IsStunned;
 
 @end

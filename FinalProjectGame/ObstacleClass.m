@@ -17,6 +17,7 @@
         NSInteger RandomResult = arc4random() % 3;
         
         self.Ability = [[WeaponClass alloc] init];
+        self.StunnedFor = 0;
         
         // TODO Add methods for idle and dead states of each of these
         if (RandomResult == 0) { // Door
@@ -130,4 +131,16 @@
     return self.Ability.ClickAmount;
 }
 
+-(BOOL) IsStunned {
+    BOOL Stunned;
+    if (self.StunnedFor > 0) {
+        // Is stunned
+        Stunned = YES;
+        self.StunnedFor -= 1;
+    } else {
+        Stunned = NO;
+    }
+    NSLog(@"Obstacle stunned: %d for %ld turns", Stunned, self.StunnedFor +1);
+    return Stunned;
+}
 @end
