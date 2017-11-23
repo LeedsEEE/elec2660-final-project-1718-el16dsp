@@ -18,6 +18,7 @@
         
         self.Ability = [[WeaponClass alloc] init];
         self.StunnedFor = 0;
+        self.Ability.StunDuration = 0;
         
         // TODO Add methods for idle and dead states of each of these
         if (RandomResult == 0) { // Door

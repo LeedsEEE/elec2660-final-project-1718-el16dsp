@@ -113,9 +113,7 @@
     Button2Label = [self.Player.Button2 AutoIncrement];
     NSLog(@"Button 2 label is %@", Button2Label);
     
-    // IF obstacle amount amount is full, fire
     NSLog(@"Obstacle attack processing...");
-    
     // If the obstacle is still stunned, it can't do anything
     
     if ([Temp IsStunned]) { // This should be replaced by IsStunned
@@ -135,14 +133,20 @@
         NSLog(@"New Obstacle Weapon Status: %ld/%ld", Numerator, Denominator);
         float Ratio = (float)Numerator/Denominator;
         if (Ratio == 1.0) {
-            // ATTACK
+            // IF obstacle amount amount is full, fire
             NSLog(@"Obstacle Attacking");
             
             // Ask if obstacle will damage player
-            [Temp.Ability DamageDealtOnClick];
+            NSInteger DamageFromObstacle = [[Temp.Ability DamageDealtOnClick] objectAtIndex:0];
+            // Since there are no mechanics for the player to be stunned, no obstacle can stun a player
+            // Therefore, only the first element of the array is cared about
+            NSLog(@"Obstacle damage to player is %ld", DamageFromObstacle);
+            
+            // Apply damage to the player
+            float DamageToPlayer = [self.Player CalculateDamage:DamageFromObstacle];
+            HealthLabel = [self.Player DoDamage:DamageToPlayer];
         }
     }
-    // Apply damage to the player
     
     // Update images and labels
     NSLog(@"HealthLabel %@ Button1Label %@", HealthLabel, Button1Label);
@@ -155,7 +159,6 @@
     [ReturnValues addObject:CoinsLabel];        // Index 3
     [ReturnValues addObject:PlayerImageTitle];  // Index 4
     [ReturnValues addObject:ObstacleImageTitle];// Index 5
-    self.ClicksPressed += 1;
     return ReturnValues;
 }
 
@@ -194,7 +197,6 @@
     NSLog(@"HealthLabel %@ Button1Label %@", [ReturnValues objectAtIndex:0], [ReturnValues objectAtIndex:1]);
     NSLog(@"Button2Label %@ CoinsLabel %@", [ReturnValues objectAtIndex:2], [ReturnValues objectAtIndex:3]);
     NSLog(@"PlayerImage %@ ObstacleImage %@", [ReturnValues objectAtIndex:4], [ReturnValues objectAtIndex:5]);
-    NSLog(@"/// TURN %ld END FROM CENTRAL BUTTON \\\\\\", self.ClicksPressed);
     return ReturnValues;
 }
 
@@ -207,7 +209,6 @@
     // Call weapon 1 manual increment method
     [ReturnValues replaceObjectAtIndex:1 withObject:[self.Player.Button1 ManualIncrement]];
     NSLog(@"HealthLabel %@ Button1Label %@ Button2Label %@", [ReturnValues objectAtIndex:0], [ReturnValues objectAtIndex:1], [ReturnValues objectAtIndex:2]);
-    NSLog(@"/// TURN %ld END FROM BUTTON 1 \\\\\\", self.ClicksPressed);
     return ReturnValues;
 }
 
@@ -220,8 +221,14 @@
     // Call weapon 2 manual increment method
     [ReturnValues replaceObjectAtIndex:2 withObject:[self.Player.Button2 ManualIncrement]];
     NSLog(@"HealthLabel %@ Button1Label %@ Button2Label %@", [ReturnValues objectAtIndex:0], [ReturnValues objectAtIndex:1], [ReturnValues objectAtIndex:2]);
-    NSLog(@"/// TURN %ld END FROM BUTTON 2 \\\\\\", self.ClicksPressed);
     return ReturnValues;
+}
+
+-(void)OnEndTurn {
+    NSLog(@"/// TURN %ld END \\\\\\", self.ClicksPressed + 1);
+    
+    self.ClicksPressed += 1;
+    //Do player damage here
 }
 
 #pragma mark Getters

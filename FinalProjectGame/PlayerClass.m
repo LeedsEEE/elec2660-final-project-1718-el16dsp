@@ -43,4 +43,12 @@
     return damage_taken;
 }
 
+-(NSString *) DoDamage:(float)DamageIn {
+    NSString *HealthLabel = [NSString stringWithFormat:@"%ld/%ld", self.CurrentHealth, self.MaxHealth];
+    NSInteger Damage = floorf(DamageIn); // Floors damage input into an integer
+    self.CurrentHealth -= Damage;
+    HealthLabel = [NSString stringWithFormat:@"%ld/%ld", self.CurrentHealth, self.MaxHealth];
+    return HealthLabel;
+}
+
 @end

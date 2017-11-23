@@ -24,6 +24,7 @@
 -(NSMutableArray *)OnObstacleClick; // If player has a weapon, it will do damage
 -(NSMutableArray *)OnButton1Click; // Player ability amount will be incremented and label updated
 -(NSMutableArray *)OnButton2Click; // Same as above
+-(void)OnEndTurn;
 -(NSString *)GetObstacleName;
 -(NSString *)GetPlayerName;
 -(NSString *)GetWeapon1Name;

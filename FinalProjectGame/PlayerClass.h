@@ -24,5 +24,6 @@
 
 -(NSInteger) ReturnHealth; // Just returns the value of the player's health
 -(float) CalculateDamage: (NSInteger) RawDamageIn; // Takes in the damage from the obstacle's damage per click and processes it. Returns a floating value of damage taken
+-(NSString *) DoDamage:(float)DamageIn; // Returns string of form @"16/20"
 
 @end
