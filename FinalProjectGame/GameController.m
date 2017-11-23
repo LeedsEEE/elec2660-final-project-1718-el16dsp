@@ -32,6 +32,8 @@
     return self;
 }
 
+#pragma mark Obstacle generation
+
 -(NSInteger)GenerateObstacleArray {
     
     NSInteger Encounters;
@@ -75,15 +77,19 @@
     return Encounters;
 }
 
+#pragma mark OnTick
+
 -(NSMutableArray *)OnAnyTick {
     NSLog(@"OnAnyTick called from GameController");
     // Auto load obstacle ability amount
     NSString *HealthLabel = @"00/00";
     NSString *Button1Label = @"00/00";
     NSString *Button2Label = @"00/00";
+    NSString *CoinsLabel = @"Coins: 000";
     NSString *ObstacleImageTitle = @"placeholder.png";
+    NSString *PlayerImageTitle = @"placeholder.png";
     NSString *ObstacleWeaponStatus;
-    NSMutableArray *ReturnValues = [NSMutableArray arrayWithCapacity:3];
+    NSMutableArray *ReturnValues = [NSMutableArray arrayWithCapacity:6];
     
     ObstacleClass *Temp = [self.ObstacleArray objectAtIndex:self.CurrentObstacle]; // TODO Add combat stuff
     // Call onbstacle weapon AutoIncrement
@@ -106,13 +112,12 @@
     // Update images and labels
     NSLog(@"HealthLabel %@ Button1Label %@ Button2Label %@", HealthLabel, Button1Label, Button2Label);
     
-    [ReturnValues addObject:HealthLabel]; // Index 0
-    [ReturnValues addObject:Button1Label]; // Index 1
-    [ReturnValues addObject:Button2Label]; // Index 2
-    // TODO
-    //[ReturnValues addObject:CoinsLabel];
-    //[ReturnValues addObject:PlayerImageTitle];
-    //[ReturnValues addObject:ObstacleImageTitle];
+    [ReturnValues addObject:HealthLabel];       // Index 0
+    [ReturnValues addObject:Button1Label];      // Index 1
+    [ReturnValues addObject:Button2Label];      // Index 2
+    [ReturnValues addObject:CoinsLabel];        // Index 3
+    [ReturnValues addObject:PlayerImageTitle];  // Index 4
+    [ReturnValues addObject:ObstacleImageTitle];// Index 5
     return ReturnValues;
 }
 
@@ -122,7 +127,7 @@
     NSString *Button1Label;
     NSString *Button2Label;
     
-    NSMutableArray *ReturnValues = [NSMutableArray arrayWithCapacity:3];
+    NSMutableArray *ReturnValues = [NSMutableArray arrayWithCapacity:6];
     NSMutableArray *Damage1 = [NSMutableArray arrayWithCapacity:2];
     NSMutableArray *Damage2 = [NSMutableArray arrayWithCapacity:2];
     
@@ -149,7 +154,7 @@
 -(NSMutableArray *)OnButton1Click {
     NSLog(@"Button 1 clicked from GameController");
     
-    NSMutableArray *ReturnValues = [NSMutableArray arrayWithCapacity:3];
+    NSMutableArray *ReturnValues = [NSMutableArray arrayWithCapacity:6];
     
     ReturnValues = [self OnAnyTick];
     // Call weapon 1 manual increment method
@@ -161,7 +166,7 @@
 -(NSMutableArray *)OnButton2Click {
     NSLog(@"Button 2 clicked from GameController");
     
-    NSMutableArray *ReturnValues = [NSMutableArray arrayWithCapacity:3];
+    NSMutableArray *ReturnValues = [NSMutableArray arrayWithCapacity:6];
     
     ReturnValues = [self OnAnyTick];
     // Call weapon 2 manual increment method
@@ -169,6 +174,8 @@
     NSLog(@"HealthLabel %@ Button1Label %@ Button2Label %@", [ReturnValues objectAtIndex:0], [ReturnValues objectAtIndex:1], [ReturnValues objectAtIndex:2]);
     return ReturnValues;
 }
+
+#pragma mark Getters
 
 -(NSString *)GetObstacleName {
     ObstacleClass *Temp = [self.ObstacleArray objectAtIndex:self.CurrentObstacle];
