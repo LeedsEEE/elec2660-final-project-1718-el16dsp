@@ -89,12 +89,24 @@
     NSString *ObstacleImageTitle = @"placeholder.png";
     NSString *PlayerImageTitle = @"placeholder.png";
     NSString *ObstacleWeaponStatus;
+    
     NSMutableArray *ReturnValues = [NSMutableArray arrayWithCapacity:6];
     
-    ObstacleClass *Temp = [self.ObstacleArray objectAtIndex:self.CurrentObstacle]; // TODO Add combat stuff
+    ObstacleClass *Temp = [self.ObstacleArray objectAtIndex:self.CurrentObstacle];
+    
+    NSLog(@"/// TURN 1 BEGIN \\\\\\");
+    // TODO Add combat stuff
+    // Get the stun duration
+    // If the obstacle is still stunned, it can't do anything
+    // Ask if obstacle will damage player
+    // Apply damage to the player
+    
     // Call onbstacle weapon AutoIncrement
     NSLog(@"Obstacle Ability...");
     ObstacleWeaponStatus = [Temp.Ability AutoIncrement];
+    // Added these 2 lines to confirm that the stuff done to temp is also done to the stored obstacle
+    NSLog(@"Temp storage click amount %ld", [Temp GetClickAmount]);
+    NSLog(@"Actual storage click amount %ld", [[self.ObstacleArray objectAtIndex:self.CurrentObstacle] GetClickAmount]);
     
     // Call weapon 1 AutoIncrement
     NSLog(@"Player weapon 1...");
@@ -110,7 +122,9 @@
     NSLog(@"Obstacle attack processing...");
     
     // Update images and labels
-    NSLog(@"HealthLabel %@ Button1Label %@ Button2Label %@", HealthLabel, Button1Label, Button2Label);
+    NSLog(@"HealthLabel %@ Button1Label %@", HealthLabel, Button1Label);
+    NSLog(@"Button2Label %@ CoinsLabel %@", Button2Label, CoinsLabel);
+    NSLog(@"PlayerImage %@ ObstacleImage %@", PlayerImageTitle, ObstacleImageTitle);
     
     [ReturnValues addObject:HealthLabel];       // Index 0
     [ReturnValues addObject:Button1Label];      // Index 1
@@ -131,6 +145,8 @@
     NSMutableArray *Damage1 = [NSMutableArray arrayWithCapacity:2];
     NSMutableArray *Damage2 = [NSMutableArray arrayWithCapacity:2];
     
+    ObstacleClass *Temp = [self.ObstacleArray objectAtIndex:self.CurrentObstacle];
+    
     ReturnValues = [self OnAnyTick];
     
     // Call weapon 1 DamageDealtOnClick
@@ -147,7 +163,14 @@
     Button2Label = [Damage2 objectAtIndex:2];
     [ReturnValues replaceObjectAtIndex:2 withObject:Button2Label];
     
-    NSLog(@"HealthLabel %@ Button1Label %@ Button2Label %@", [ReturnValues objectAtIndex:0], [ReturnValues objectAtIndex:1], [ReturnValues objectAtIndex:2]);
+    // Do damage to obstacle here
+    // Need to get the image and the coins returned
+    // Need to update the coins label
+    
+    NSLog(@"HealthLabel %@ Button1Label %@", [ReturnValues objectAtIndex:0], [ReturnValues objectAtIndex:1]);
+    NSLog(@"Button2Label %@ CoinsLabel %@", [ReturnValues objectAtIndex:2], [ReturnValues objectAtIndex:3]);
+    NSLog(@"PlayerImage %@ ObstacleImage %@", [ReturnValues objectAtIndex:4], [ReturnValues objectAtIndex:5]);
+    NSLog(@"/// TURN 1 END FROM CENTRAL BUTTON \\\\\\");
     return ReturnValues;
 }
 
@@ -160,6 +183,7 @@
     // Call weapon 1 manual increment method
     [ReturnValues replaceObjectAtIndex:1 withObject:[self.Player.Button1 ManualIncrement]];
     NSLog(@"HealthLabel %@ Button1Label %@ Button2Label %@", [ReturnValues objectAtIndex:0], [ReturnValues objectAtIndex:1], [ReturnValues objectAtIndex:2]);
+    NSLog(@"/// TURN 1 END FROM BUTTON 1 \\\\\\");
     return ReturnValues;
 }
 
@@ -172,6 +196,7 @@
     // Call weapon 2 manual increment method
     [ReturnValues replaceObjectAtIndex:2 withObject:[self.Player.Button2 ManualIncrement]];
     NSLog(@"HealthLabel %@ Button1Label %@ Button2Label %@", [ReturnValues objectAtIndex:0], [ReturnValues objectAtIndex:1], [ReturnValues objectAtIndex:2]);
+    NSLog(@"/// TURN 1 END FROM BUTTON 2 \\\\\\");
     return ReturnValues;
 }
 

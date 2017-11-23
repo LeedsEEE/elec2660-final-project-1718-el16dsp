@@ -126,4 +126,8 @@
     NSLog(@"Generated enemy of level %ld", DesiredLevel);
 }
 
+-(NSInteger) GetClickAmount {
+    return self.Ability.ClickAmount;
+}
+
 @end

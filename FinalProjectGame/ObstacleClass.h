@@ -27,5 +27,6 @@
 -(void) GenerateDoorDead:(NSInteger)DesiredLevel;
 -(void) GenerateEnemy:(NSInteger) DesiredLevel;
 -(NSInteger) ReturnHealth;
+-(NSInteger) GetClickAmount;
 
 @end

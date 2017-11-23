@@ -47,6 +47,7 @@
         [self UpdateLabels:[NSString stringWithFormat:@"%ld/%ld", self.GameHandler.Player.CurrentHealth, self.GameHandler.Player.MaxHealth]
                           :[NSString stringWithFormat:@"%ld/%ld", self.GameHandler.Player.Button1.ClickAmount, self.GameHandler.Player.Button1.ClicksPerClip]
                           :[NSString stringWithFormat:@"%ld/%ld", self.GameHandler.Player.Button2.ClickAmount, self.GameHandler.Player.Button2.ClicksPerClip]];
+        NSLog(@"/// GAME LOADED \\\\\\");
     }
     else if (self.RowSelected == 1) {
         NSLog(@"Inspect button 1");
