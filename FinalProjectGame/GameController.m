@@ -82,10 +82,10 @@
 -(NSMutableArray *)OnAnyTick {
     NSLog(@"OnAnyTick called from GameController");
     // Auto load obstacle ability amount
-    NSString *HealthLabel = @"00/00";
-    NSString *Button1Label = @"00/00";
-    NSString *Button2Label = @"00/00";
-    NSString *CoinsLabel = @"Coins: 000";
+    NSString *HealthLabel = [NSString stringWithFormat:@"%ld/%ld", self.Player.CurrentHealth, self.Player.MaxHealth]; // Get current health ratio for the player
+    NSString *Button1Label = [self.Player.Button1 GetRatio];
+    NSString *Button2Label = [self.Player.Button2 GetRatio];
+    NSString *CoinsLabel = [NSString stringWithFormat:@"Coins: %03ld", self.Coins];
     NSString *ObstacleImageTitle = @"placeholder.png";
     NSString *PlayerImageTitle = @"placeholder.png";
     NSString *ObstacleWeaponStatus;

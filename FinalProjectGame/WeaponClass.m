@@ -108,6 +108,15 @@
     return Label;
 }
 
+-(NSString *) GetRatio {
+    // Returns the ratio between click amount and max click
+    NSString *Ratio;
+    NSInteger Numerator = self.ClickAmount;
+    NSInteger Denominator = self.ClicksPerClip;
+    Ratio = [NSString stringWithFormat:@"%ld/%ld", Numerator, Denominator];
+    return Ratio;
+}
+
 @end
 
 #pragma mark Class 0 - Cutter - Weapon 1 - Pistol

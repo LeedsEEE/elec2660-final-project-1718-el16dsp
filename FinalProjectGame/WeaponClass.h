@@ -33,6 +33,7 @@
 -(void) UpdateStats;
 -(NSString *) AutoIncrement;
 -(NSString *) ManualIncrement;
+-(NSString *) GetRatio;
 
 @end
 
