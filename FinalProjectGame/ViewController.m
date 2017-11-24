@@ -9,7 +9,7 @@
 #import "ViewController.h"
 #import "GameController.h"
 #import "DataStore.h"
-#define HEALTH_COLOUR_CHANGE_LIMIT 0.25
+#define HEALTH_COLOUR_CHANGE_LIMIT 0.40
 #define MODULE @"ELEC2660"
 
 @interface ViewController ()
@@ -46,7 +46,9 @@
         [self.Button2Outlet setTitle:[NSString stringWithFormat:@"Load %@", [self.GameHandler GetWeapon2Name]] forState:UIControlStateNormal];
         [self UpdateLabels:[NSString stringWithFormat:@"%ld/%ld", self.GameHandler.Player.CurrentHealth, self.GameHandler.Player.MaxHealth]
                           :[NSString stringWithFormat:@"%ld/%ld", self.GameHandler.Player.Button1.ClickAmount, self.GameHandler.Player.Button1.ClicksPerClip]
-                          :[NSString stringWithFormat:@"%ld/%ld", self.GameHandler.Player.Button2.ClickAmount, self.GameHandler.Player.Button2.ClicksPerClip]];
+                          :[NSString stringWithFormat:@"%ld/%ld", self.GameHandler.Player.Button2.ClickAmount, self.GameHandler.Player.Button2.ClicksPerClip]
+                          :@"Coins: 000"];
+        [self UpdateImages:@"ELEC2660 Cutter Idle.png" :@"ELEC2660 Voltiguer Idle.png"];
         NSLog(@"/// GAME LOADED \\\\\\");
     }
     else if (self.RowSelected == 1) {
@@ -96,7 +98,8 @@
     // Load weapon if type is a weapon
     // Charge (and fire) if type is an ability
     NSLog(@"HealthLabel %@ Button1Label %@ Button2Label %@", [ReturnValues objectAtIndex:0], [ReturnValues objectAtIndex:1], [ReturnValues objectAtIndex:2]);
-    [self UpdateLabels:[ReturnValues objectAtIndex:0] :[ReturnValues objectAtIndex:1] :[ReturnValues objectAtIndex:2]];
+    [self UpdateLabels:[ReturnValues objectAtIndex:0] :[ReturnValues objectAtIndex:1] :[ReturnValues objectAtIndex:2]:[ReturnValues objectAtIndex:3]];
+    [self UpdateImages:@"ELEC2660 Cutter Idle.png" :[ReturnValues objectAtIndex:5]];
 }
 
 - (IBAction)Button2Pressed:(id)sender {
@@ -109,7 +112,8 @@
     // Load weapon if type is a weapon
     // Charge (and fire) if type is an ability
     NSLog(@"HealthLabel %@ Button1Label %@ Button2Label %@", [ReturnValues objectAtIndex:0], [ReturnValues objectAtIndex:1], [ReturnValues objectAtIndex:2]);
-    [self UpdateLabels:[ReturnValues objectAtIndex:0] :[ReturnValues objectAtIndex:1] :[ReturnValues objectAtIndex:2]];
+    [self UpdateLabels:[ReturnValues objectAtIndex:0] :[ReturnValues objectAtIndex:1] :[ReturnValues objectAtIndex:2] :[ReturnValues objectAtIndex:3]];
+    [self UpdateImages:@"ELEC2660 Cutter Idle.png" :[ReturnValues objectAtIndex:5]];
 }
 
 - (IBAction)CentralButtonPressed:(id)sender {
@@ -121,12 +125,14 @@
     // Start events on any button press
     // Do damage from weapons
     NSLog(@"HealthLabel %@ Button1Label %@ Button2Label %@", [ReturnValues objectAtIndex:0], [ReturnValues objectAtIndex:1], [ReturnValues objectAtIndex:2]);
-    [self UpdateLabels:[ReturnValues objectAtIndex:0] :[ReturnValues objectAtIndex:1] :[ReturnValues objectAtIndex:2]];
+    [self UpdateLabels:[ReturnValues objectAtIndex:0] :[ReturnValues objectAtIndex:1] :[ReturnValues objectAtIndex:2] :[ReturnValues objectAtIndex:3]];
+    [self UpdateImages:@"ELEC2660 Cutter Idle.png" :[ReturnValues objectAtIndex:5]];
 }
 
 -(void) UpdateLabels:(NSString *)HealthLabel // Strings are of form @"16/20"
                     :(NSString *)Button1Label
-                    :(NSString *)Button2Label { // Need to add the coins label
+                    :(NSString *)Button2Label
+                    :(NSString *)CoinsLabel { // Need to add the coins label
     // Taken from https://stackoverflow.com/questions/3655104/iphone-ipad-how-to-get-screen-width-programmatically on 2017-NOV-15
     CGRect Screen = [[UIScreen mainScreen] bounds];
     CGFloat ScreenWidth = CGRectGetWidth(Screen);
@@ -218,6 +224,7 @@
     [self.Button1LabelOutlet setText:Button1Label]; // Half screen width
     [self.Button2LabelOutlet setText:Button2Label]; // Half screen width
     */
+    [self.CoinsLabelOutlet setText:CoinsLabel];
     
     // TODO Make sure that the width changes on update rather than on the next update
     // System seems to redraw in the idle time between button presses and as long as the text hasn't changed
@@ -243,6 +250,7 @@
 -(void) UpdateImages:(NSString *)PlayerImageTitle
                     :(NSString *)ObstacleImageTitle {
     // Taken from https://stackoverflow.com/questions/1469474/setting-an-image-for-a-uibutton-in-code on 21-NOV-2017
+    NSLog(@"Updating images with %@ and %@", PlayerImageTitle, ObstacleImageTitle);
     UIImage *PlayerImage = [UIImage imageNamed:PlayerImageTitle];
     [self.PlayerImageOutlet setImage:PlayerImage];
     

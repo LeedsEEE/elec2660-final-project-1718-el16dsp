@@ -32,7 +32,8 @@
 
 -(void) UpdateLabels:(NSString *)HealthLabel // Strings are of form @"16/20"
                     :(NSString *)Button1Label
-                    :(NSString *)Button2Label;
+                    :(NSString *)Button2Label
+                    :(NSString *)CoinsLabel;
 -(float) CalcRatio:(NSString *)RatioString; // Strings are of form @"16/20"
 -(void) UpdateImages:(NSString *)PlayerImageTitle
                     :(NSString *)ObstacleImageTitle;

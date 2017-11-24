@@ -44,7 +44,7 @@
     // Determine number of encounters based on a random amount and the number of ticks done so far
     Encounters = 1 + ((self.ClicksPressed + 1) % (ENCOUNTER_OFFSET + (arc4random() % ENCOUNTER_RANGE)));
     DesiredLevel = 1 + (self.Coins / (2 + (arc4random() % ENCOUNTER_LEVEL_RANGE)));
-    NSLog(@"%@", [NSString stringWithFormat:@"%ld encounters in room of level %ld", Encounters, DesiredLevel]);
+    NSLog(@"%ld encounters in room of level %ld", Encounters, DesiredLevel);
     
     // Fill array with enemies
     for (Index = 0; Index < Encounters; Index++) {
@@ -64,7 +64,7 @@
             NSLog(@"%@", [NSString stringWithFormat:@"Picked door of level %ld", DesiredLevel]);
             [Temp GenerateDoor:DesiredLevel];
             [self.ObstacleArray addObject:Temp];
-            [Temp GenerateChestDead:DesiredLevel];
+            [Temp GenerateDoorDead:DesiredLevel];
         } else {
             NSLog(@"%@", [NSString stringWithFormat:@"Picked enemy of level %ld", DesiredLevel]);
             [Temp GenerateEnemy:DesiredLevel];
@@ -77,7 +77,7 @@
     return Encounters;
 }
 
-#pragma mark OnTick
+#pragma mark OnTick methods
 
 -(NSMutableArray *)OnAnyTick {
     NSLog(@"OnAnyTick called from GameController");
@@ -95,6 +95,9 @@
     ObstacleClass *Temp = [self.ObstacleArray objectAtIndex:self.CurrentObstacle];
     
     NSLog(@"/// TURN %ld BEGIN \\\\\\", self.ClicksPressed + 1);
+    
+    NSLog(@"Currently facing obstacle %ld %@ of %ld", self.CurrentObstacle+1, Temp.Name, [self.ObstacleArray count]);
+    ObstacleImageTitle = [NSString stringWithFormat:@"%@.png",Temp.ImageBasis];
     
     // Call onbstacle weapon AutoIncrement
     NSLog(@"Obstacle Ability...");
@@ -203,8 +206,22 @@
     StunToObstacle = ([[Damage1 objectAtIndex:1] integerValue] > [[Damage2 objectAtIndex:1] integerValue]) ? [[Damage1 objectAtIndex:1] integerValue] : [[Damage2 objectAtIndex:1] integerValue]; // A fancy IF statement in a single line to determine which one to pick
     NSLog(@"Total damage to be done is %ld. Stune effect to be done is %ld", DamageToObstacle, StunToObstacle);
     
-    // Can I call a method in an NSLog...
-    NSLog(@"Obstacle health is %@", [Temp TakeDamage:DamageToObstacle :StunToObstacle]);
+    NSString *ObstacleHealthLabel = [Temp TakeDamage:DamageToObstacle :StunToObstacle];
+    NSLog(@"Obstacle health is %@", ObstacleHealthLabel);
+    NSInteger Numerator = [[[ObstacleHealthLabel componentsSeparatedByString:@"/"] objectAtIndex:0] intValue];
+    if (Numerator == 0) {
+        // Obstacle is dead
+        NSLog(@"Obstacle %ld of %ld overcome", self.CurrentObstacle, [self.ObstacleArray count]);
+        self.CurrentObstacle += 1;
+        if (self.CurrentObstacle >= [self.ObstacleArray count]) {
+            NSLog(@"Obstacles for room overcome.\nGenerating next room");
+            [self GenerateObstacleArray];
+            self.CurrentObstacle = 0;
+        }
+        NSLog(@"Old coins amount %ld", self.Coins);
+        self.Coins += Temp.Reward;
+        NSLog(@"New coins amoung %ld", self.Coins);
+    }
     
     // Need to get the image and the coins returned
     // Need to update the coins label
