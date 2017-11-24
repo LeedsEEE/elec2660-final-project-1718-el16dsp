@@ -15,6 +15,7 @@
 #define ENCOUNTER_CHEST_CHANCE 2
 #define ENCOUNTER_DOOR_CHANCE 2
 #define ENCOUNTER_LEVEL_RANGE 3
+#define GET_CURRENT_OBSTACLE [self.ObstacleArray objectAtIndex:self.CurrentObstacle]
 
 @implementation GameController
 
@@ -93,7 +94,7 @@
     
     NSMutableArray *ReturnValues = [NSMutableArray arrayWithCapacity:6];
     
-    ObstacleClass *Temp = [self.ObstacleArray objectAtIndex:self.CurrentObstacle];
+    ObstacleClass *Temp = GET_CURRENT_OBSTACLE;
     
     NSLog(@"/// TURN %ld BEGIN \\\\\\", self.ClicksPressed + 1);
     
@@ -105,7 +106,7 @@
     ObstacleWeaponStatus = [Temp.Ability AutoIncrement];
     // Added these 2 lines to confirm that the stuff done to temp is also done to the stored obstacle
     NSLog(@"Temp storage click amount %ld", [Temp GetClickAmount]);
-    NSLog(@"Actual storage click amount %ld", [[self.ObstacleArray objectAtIndex:self.CurrentObstacle] GetClickAmount]);
+    NSLog(@"Actual storage click amount %ld", [GET_CURRENT_OBSTACLE GetClickAmount]);
     
     // Call weapon 1 AutoIncrement
     NSLog(@"Player weapon 1...");
@@ -180,7 +181,7 @@
     NSMutableArray *Damage1 = [NSMutableArray arrayWithCapacity:2];
     NSMutableArray *Damage2 = [NSMutableArray arrayWithCapacity:2];
     
-    ObstacleClass *Temp = [self.ObstacleArray objectAtIndex:self.CurrentObstacle];
+    ObstacleClass *Temp = GET_CURRENT_OBSTACLE;
     
     ReturnValues = [self OnAnyTick];
     
@@ -215,17 +216,60 @@
         NSLog(@"Obstacle %ld of %ld overcome", self.CurrentObstacle, [self.ObstacleArray count]);
         self.CurrentObstacle += 1;
         if (self.CurrentObstacle >= [self.ObstacleArray count]) {
-            NSLog(@"Obstacles for room overcome.\nGenerating next room");
+            NSLog(@"Obstacles for room overcome. Generating next room");
             [self GenerateObstacleArray];
             self.CurrentObstacle = 0;
         }
         NSLog(@"Old coins amount %ld", self.Coins);
         self.Coins += Temp.Reward;
         NSLog(@"New coins amoung %ld", self.Coins);
+        [ReturnValues replaceObjectAtIndex:5 withObject:[GET_CURRENT_OBSTACLE GetImageName]];
+    } else if ([[GET_CURRENT_OBSTACLE GetName] isEqualToString:@"Enemy"]){
+        // Need to get the image for the current, still living obstacle's next state
+        // ie. Show what the obstacle will do in the coming turn
+        // This is only for enemies
+        if ([GET_CURRENT_OBSTACLE IsStunned]) { // IF Obstacle was stunned last turn, set image to stunned_alt
+            // This can't be done as the selected images were changed from being last turn's action to the next turn's action
+            // Ergo, if the obstacle was stunned this turn, set image to stunned alt
+            [ReturnValues replaceObjectAtIndex:5 withObject:@"enemy_alt_stunned"];
+            
+        } else if ([GET_CURRENT_OBSTACLE GetClickAmount] == ([GET_CURRENT_OBSTACLE GetMaxClicks] - (2 * [GET_CURRENT_OBSTACLE GetAutoClicks]))) { // IF ClickAmount is 2 AutoClicks away from MaxClick, get pre attack image
+            [ReturnValues replaceObjectAtIndex:5 withObject:@"enemy_pre_attack"];
+            
+        } else if ([GET_CURRENT_OBSTACLE GetClickAmount] == ([GET_CURRENT_OBSTACLE GetMaxClicks] - [GET_CURRENT_OBSTACLE GetAutoClicks])) { // IF ClickAmount is 1 AutoClick away from MaxClick, get attack image
+            [ReturnValues replaceObjectAtIndex:5 withObject:@"enemy_attack"];
+            
+        } else {
+            // Get idle image
+            [ReturnValues replaceObjectAtIndex:5 withObject:@"enemy_idle"];
+            
+        }
+        /*
+         else if () { //IF StunToObstacle is > 0 ie. Object is stunned in the action, set image to stunned
+         // This should be higher up in priority
+         // This can't be done as the selected images were changed from being last turn's action to the next turn's action
+         // Ergo, if the obstacle will be stunned next turn, set image to stunned
+         // This involves predicting what a person will do. This is out of scope for this project
+         // Therefore abandon this aspect
+         }
+         */
+        
+        // For the graphics, show what the player has done in the last turn
+        if (<#condition#>) { // IF the player fired both button 1 and button 2
+            <#statements#>
+        } else if (<#expression#>) { // IF the player fired button 1
+            
+        } else if (<#expression#>) { // IF the player fired button 2
+            
+        } else if (<#expression#>) { // IF the player loaded button 1
+            
+        } else if (<#expression#>) { // IF the player loaded button 2
+            
+        } else { // Pick idle
+            <#statements#>
+        }
+        
     }
-    
-    // Need to get the image and the coins returned
-    // Need to update the coins label
     
     NSLog(@"HealthLabel %@ Button1Label %@", [ReturnValues objectAtIndex:0], [ReturnValues objectAtIndex:1]);
     NSLog(@"Button2Label %@ CoinsLabel %@", [ReturnValues objectAtIndex:2], [ReturnValues objectAtIndex:3]);
@@ -270,7 +314,7 @@
 #pragma mark Getters
 
 -(NSString *)GetObstacleName {
-    ObstacleClass *Temp = [self.ObstacleArray objectAtIndex:self.CurrentObstacle];
+    ObstacleClass *Temp = GET_CURRENT_OBSTACLE;
     NSString *Name = Temp.Name;
     NSLog(@"Returning obstacle name %@", Name);
     return Name;

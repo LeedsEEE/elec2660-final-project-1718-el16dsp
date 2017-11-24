@@ -32,5 +32,9 @@
 -(BOOL) IsStunned;
 -(NSString *) TakeDamage:(NSInteger) DamageAmount
                         :(NSInteger) StunAmount;
+-(NSString *) GetName;
+-(NSString *) GetImageName;
+-(NSInteger) GetMaxClicks;
+-(NSInteger) GetAutoClicks;
 
 @end

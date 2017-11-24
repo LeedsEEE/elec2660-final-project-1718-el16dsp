@@ -223,8 +223,8 @@
     [self.HealthLabelOutlet setText:HealthLabel]; // Full screen width
     [self.Button1LabelOutlet setText:Button1Label]; // Half screen width
     [self.Button2LabelOutlet setText:Button2Label]; // Half screen width
+    [self.CoinsLabelOutlet setText:CoinsLabel];
     */
-    //[self.CoinsLabelOutlet setText:CoinsLabel];
     
     // TODO Make sure that the width changes on update rather than on the next update
     // System seems to redraw in the idle time between button presses and as long as the text hasn't changed
@@ -255,7 +255,6 @@
     [self.PlayerImageOutlet setImage:PlayerImage];
     
     UIImage *ObstacleImage = [UIImage imageNamed:ObstacleImageTitle];
-    
     [self.CentralButtonOutlet setImage:ObstacleImage forState:UIControlStateNormal];
 }
 @end

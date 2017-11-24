@@ -14,8 +14,6 @@
 {
     self = [super init];
     if (self) {
-        NSInteger RandomResult = arc4random() % 3;
-        
         self.Ability = [[WeaponClass alloc] init];
         self.StunnedFor = 0;
         self.Ability.StunDuration = 0;
@@ -101,7 +99,7 @@
 
 -(void) GenerateEnemy:(NSInteger)DesiredLevel {
     self.Name = @"Enemy";
-    self.ImageBasis = @"enemy";
+    self.ImageBasis = @"enemy_idle";
     self.Level = DesiredLevel;
     self.MaxHealth = (6+(arc4random() % 5))*self.Level; // (6 to 10) * level
     self.CurrentHealth = self.MaxHealth;
@@ -155,6 +153,22 @@
     NSString *HealthLabel = [NSString stringWithFormat:@"%ld/%ld", self.CurrentHealth, self.MaxHealth];
     NSLog(@"Obstacle health is %@", HealthLabel);
     return HealthLabel;
+}
+
+-(NSString *) GetName {
+    return self.Name;
+}
+
+-(NSString *) GetImageName {
+    return self.ImageBasis;
+}
+
+-(NSInteger) GetMaxClicks {
+    return self.Ability.ClicksPerClip;
+}
+
+-(NSInteger) GetAutoClicks {
+    return self.Ability.AutoClickLoadRate;
 }
 
 @end
