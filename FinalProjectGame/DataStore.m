@@ -31,6 +31,7 @@
         class_0.Name = @"Cutter";
         class_0.ImageBasis = @"class_0";
         class_0.MaxHealth = 40;
+        class_0.CurrentHealth = class_0.MaxHealth;
         class_0.Armour = 0;
         
         class_0.Button1 = [[class_0_1 alloc] init];

@@ -69,9 +69,9 @@
         if (indexPath.row == 0) {
             cell.textLabel.text = [NSString stringWithFormat:@"Play as %@", temp.Name];
         } else if (indexPath.row == 1) {
-            cell.textLabel.text = [NSString stringWithFormat:@"Inspect primary"];
+            cell.textLabel.text = [NSString stringWithFormat:@"Inspect %@", temp.Button1.Name];
         } else if (indexPath.row == 2) {
-            cell.textLabel.text = [NSString stringWithFormat:@"Inspect secondary"];
+            cell.textLabel.text = [NSString stringWithFormat:@"Inspect %@", temp.Button2.Name];
         }
     }
     
