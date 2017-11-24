@@ -144,4 +144,25 @@
     NSLog(@"Obstacle stunned: %d for %ld turns", Stunned, self.StunnedFor +1);
     return Stunned;
 }
+
+-(NSString *) TakeDamage:(NSInteger)DamageAmount
+                        :(NSInteger)StunAmount {
+    // Handle stuns. Only apply larger stun
+    NSLog(@"Current obstacle stun %ld", self.StunnedFor);
+    if (self.StunnedFor < StunAmount) {
+        self.StunnedFor = StunAmount;
+    }
+    NSLog(@"Obstacle Stunned for %ld to %ld", StunAmount, self.StunnedFor);
+    
+    NSLog(@"Obstacle taking damage of %ld from %ld to %ld", DamageAmount, self.CurrentHealth, self.CurrentHealth - DamageAmount);
+    self.CurrentHealth -= DamageAmount;
+    if (self.CurrentHealth < 0) {
+        self.CurrentHealth = 0;
+    }
+    
+    NSString *HealthLabel = [NSString stringWithFormat:@"%ld/%ld", self.CurrentHealth, self.MaxHealth];
+    NSLog(@"Obstacle health is %@", HealthLabel);
+    return HealthLabel;
+}
+
 @end

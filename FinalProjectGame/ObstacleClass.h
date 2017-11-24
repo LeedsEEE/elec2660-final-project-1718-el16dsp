@@ -30,5 +30,7 @@
 -(NSInteger) ReturnHealth;
 -(NSInteger) GetClickAmount;
 -(BOOL) IsStunned;
+-(NSString *) TakeDamage:(NSInteger) DamageAmount
+                        :(NSInteger) StunAmount;
 
 @end

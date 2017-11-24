@@ -169,6 +169,9 @@
     NSString *Button1Label;
     NSString *Button2Label;
     
+    NSInteger DamageToObstacle;
+    NSInteger StunToObstacle;
+    
     NSMutableArray *ReturnValues = [NSMutableArray arrayWithCapacity:6];
     NSMutableArray *Damage1 = [NSMutableArray arrayWithCapacity:2];
     NSMutableArray *Damage2 = [NSMutableArray arrayWithCapacity:2];
@@ -180,18 +183,29 @@
     // Call weapon 1 DamageDealtOnClick
     NSLog(@"Player weapon 1 attack processing...");
     Damage1 = [self.Player.Button1 DamageDealtOnClick];
-    NSLog(@"Damage to be done is %@. Stun amount to be done is %@", [Damage1 objectAtIndex:0], [Damage1 objectAtIndex:1]);
+    // Since the values returned from DamageDealtOnClick are NSNumbers, they need to be converted to NSIntegers. I don't know why they don't work as integers but, hey, this is objective-c
+    NSLog(@"Damage to be done is %ld. Stun amount to be done is %ld", [[Damage1 objectAtIndex:0] integerValue], [[Damage1 objectAtIndex:1] integerValue]);
     Button1Label = [Damage1 objectAtIndex:2];
     [ReturnValues replaceObjectAtIndex:1 withObject:Button1Label];
     
     // Call weapon 2 DamageDealtOnClick
     NSLog(@"Player weapon 2 attack processing...");
     Damage2 = [self.Player.Button2 DamageDealtOnClick];
-    NSLog(@"Damage to be done is %@. Stun amount to be done is %@", [Damage2 objectAtIndex:0], [Damage2 objectAtIndex:1]);
+    NSLog(@"Damage to be done is %ld. Stun amount to be done is %ld", [[Damage2 objectAtIndex:0] integerValue], [[Damage2 objectAtIndex:1] integerValue]);
     Button2Label = [Damage2 objectAtIndex:2];
     [ReturnValues replaceObjectAtIndex:2 withObject:Button2Label];
     
     // Do damage to obstacle here
+    NSLog(@"Damage to obstacle processing...");
+    // Add damage from both weapons together
+    DamageToObstacle = [[Damage1 objectAtIndex:0] integerValue] + [[Damage2 objectAtIndex:0] integerValue];
+    // Pick the larger of the two stun amounts
+    StunToObstacle = ([[Damage1 objectAtIndex:1] integerValue] > [[Damage2 objectAtIndex:1] integerValue]) ? [[Damage1 objectAtIndex:1] integerValue] : [[Damage2 objectAtIndex:1] integerValue]; // A fancy IF statement in a single line to determine which one to pick
+    NSLog(@"Total damage to be done is %ld. Stune effect to be done is %ld", DamageToObstacle, StunToObstacle);
+    
+    // Can I call a method in an NSLog...
+    NSLog(@"Obstacle health is %@", [Temp TakeDamage:DamageToObstacle :StunToObstacle]);
+    
     // Need to get the image and the coins returned
     // Need to update the coins label
     
