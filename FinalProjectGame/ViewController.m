@@ -48,7 +48,7 @@
                           :[NSString stringWithFormat:@"%ld/%ld", self.GameHandler.Player.Button1.ClickAmount, self.GameHandler.Player.Button1.ClicksPerClip]
                           :[NSString stringWithFormat:@"%ld/%ld", self.GameHandler.Player.Button2.ClickAmount, self.GameHandler.Player.Button2.ClicksPerClip]
                           :@"Coins: 000"];
-        [self UpdateImages:@"ELEC2660 Cutter Idle.png" :@"enemy_idle.png"];
+        [self UpdateImages:@"cutter_idle.png" :@"enemy_idle.png"];
         NSLog(@"/// GAME LOADED \\\\\\");
     }
     else if (self.RowSelected == 1) {
@@ -99,7 +99,7 @@
     // Charge (and fire) if type is an ability
     NSLog(@"HealthLabel %@ Button1Label %@ Button2Label %@", [ReturnValues objectAtIndex:0], [ReturnValues objectAtIndex:1], [ReturnValues objectAtIndex:2]);
     [self UpdateLabels:[ReturnValues objectAtIndex:0] :[ReturnValues objectAtIndex:1] :[ReturnValues objectAtIndex:2]:[ReturnValues objectAtIndex:3]];
-    [self UpdateImages:@"ELEC2660 Cutter Idle.png" :[ReturnValues objectAtIndex:5]];
+    [self UpdateImages:[ReturnValues objectAtIndex:4] :[ReturnValues objectAtIndex:5]];
 }
 
 - (IBAction)Button2Pressed:(id)sender {
@@ -113,7 +113,7 @@
     // Charge (and fire) if type is an ability
     NSLog(@"HealthLabel %@ Button1Label %@ Button2Label %@", [ReturnValues objectAtIndex:0], [ReturnValues objectAtIndex:1], [ReturnValues objectAtIndex:2]);
     [self UpdateLabels:[ReturnValues objectAtIndex:0] :[ReturnValues objectAtIndex:1] :[ReturnValues objectAtIndex:2] :[ReturnValues objectAtIndex:3]];
-    [self UpdateImages:@"ELEC2660 Cutter Idle.png" :[ReturnValues objectAtIndex:5]];
+    [self UpdateImages:[ReturnValues objectAtIndex:4] :[ReturnValues objectAtIndex:5]];
 }
 
 - (IBAction)CentralButtonPressed:(id)sender {
@@ -126,7 +126,7 @@
     // Do damage from weapons
     NSLog(@"HealthLabel %@ Button1Label %@ Button2Label %@", [ReturnValues objectAtIndex:0], [ReturnValues objectAtIndex:1], [ReturnValues objectAtIndex:2]);
     [self UpdateLabels:[ReturnValues objectAtIndex:0] :[ReturnValues objectAtIndex:1] :[ReturnValues objectAtIndex:2] :[ReturnValues objectAtIndex:3]];
-    [self UpdateImages:@"ELEC2660 Cutter Idle.png" :[ReturnValues objectAtIndex:5]];
+    [self UpdateImages:[ReturnValues objectAtIndex:4] :[ReturnValues objectAtIndex:5]];
 }
 
 -(void) UpdateLabels:(NSString *)HealthLabel // Strings are of form @"16/20"

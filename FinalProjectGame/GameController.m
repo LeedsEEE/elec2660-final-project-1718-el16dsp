@@ -255,18 +255,26 @@
          */
         
         // For the graphics, show what the player has done in the last turn
-        if (<#condition#>) { // IF the player fired both button 1 and button 2
-            <#statements#>
-        } else if (<#expression#>) { // IF the player fired button 1
+        if (([[Damage1 objectAtIndex:0] integerValue] > 0 || [[Damage1 objectAtIndex:1] integerValue]) && ([[Damage2 objectAtIndex:0] integerValue] > 0 || [[Damage2 objectAtIndex:1] integerValue])) { // IF the player fired both button 1 and button 2
+            // Handles case of some weapons not doing damage but stunning instead
+            [ReturnValues replaceObjectAtIndex:4 withObject:@"cutter_fire_12"];
             
-        } else if (<#expression#>) { // IF the player fired button 2
+        } else if ([[Damage1 objectAtIndex:0] integerValue] > 0 || [[Damage1 objectAtIndex:1] integerValue]) { // IF the player fired button 1
+            [ReturnValues replaceObjectAtIndex:4 withObject:@"cutter_fire_1"];
             
-        } else if (<#expression#>) { // IF the player loaded button 1
+        } else if ([[Damage2 objectAtIndex:0] integerValue] > 0 || [[Damage2 objectAtIndex:1] integerValue]) { // IF the player fired button 2
+            [ReturnValues replaceObjectAtIndex:4 withObject:@"cutter_fire_2"];
             
-        } else if (<#expression#>) { // IF the player loaded button 2
-            
-        } else { // Pick idle
-            <#statements#>
+        } /* else if () { // IF the player loaded button 1
+            // This is done in the OnButton1Click
+        
+        }
+           */
+        /* else if () { // IF the player loaded button 2
+            // This is done in the OnButton2Click
+        
+        } */ else { // Pick idle
+            [ReturnValues replaceObjectAtIndex:4 withObject:@"cutter_idle"];
         }
         
     }
@@ -287,6 +295,7 @@
     // Call weapon 1 manual increment method
     [ReturnValues replaceObjectAtIndex:1 withObject:[self.Player.Button1 ManualIncrement]];
     NSLog(@"HealthLabel %@ Button1Label %@ Button2Label %@", [ReturnValues objectAtIndex:0], [ReturnValues objectAtIndex:1], [ReturnValues objectAtIndex:2]);
+    [ReturnValues replaceObjectAtIndex:4 withObject:@"cutter_load_1"];
     [self OnEndTurn];
     return ReturnValues;
 }
@@ -300,6 +309,7 @@
     // Call weapon 2 manual increment method
     [ReturnValues replaceObjectAtIndex:2 withObject:[self.Player.Button2 ManualIncrement]];
     NSLog(@"HealthLabel %@ Button1Label %@ Button2Label %@", [ReturnValues objectAtIndex:0], [ReturnValues objectAtIndex:1], [ReturnValues objectAtIndex:2]);
+    [ReturnValues replaceObjectAtIndex:4 withObject:@"cutter_load_2"];
     [self OnEndTurn];
     return ReturnValues;
 }

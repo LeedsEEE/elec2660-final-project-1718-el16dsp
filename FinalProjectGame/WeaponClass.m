@@ -30,6 +30,7 @@
         self.ClicksPerClip = 0;
         self.StunDuration = 0;
         self.AutoClickLoadRate = 0;
+        // Weapon is invalid and cannot be used properly if (self.DamagePerClick + self.StunDuration == 0)
     }
     return self;
 }
