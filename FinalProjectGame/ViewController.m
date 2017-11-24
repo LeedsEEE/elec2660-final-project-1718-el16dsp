@@ -48,7 +48,7 @@
                           :[NSString stringWithFormat:@"%ld/%ld", self.GameHandler.Player.Button1.ClickAmount, self.GameHandler.Player.Button1.ClicksPerClip]
                           :[NSString stringWithFormat:@"%ld/%ld", self.GameHandler.Player.Button2.ClickAmount, self.GameHandler.Player.Button2.ClicksPerClip]
                           :@"Coins: 000"];
-        [self UpdateImages:@"ELEC2660 Cutter Idle.png" :@"ELEC2660 Voltiguer Idle.png"];
+        [self UpdateImages:@"ELEC2660 Cutter Idle.png" :@"enemy_idle.png"];
         NSLog(@"/// GAME LOADED \\\\\\");
     }
     else if (self.RowSelected == 1) {
@@ -224,7 +224,7 @@
     [self.Button1LabelOutlet setText:Button1Label]; // Half screen width
     [self.Button2LabelOutlet setText:Button2Label]; // Half screen width
     */
-    [self.CoinsLabelOutlet setText:CoinsLabel];
+    //[self.CoinsLabelOutlet setText:CoinsLabel];
     
     // TODO Make sure that the width changes on update rather than on the next update
     // System seems to redraw in the idle time between button presses and as long as the text hasn't changed
@@ -255,6 +255,7 @@
     [self.PlayerImageOutlet setImage:PlayerImage];
     
     UIImage *ObstacleImage = [UIImage imageNamed:ObstacleImageTitle];
+    
     [self.CentralButtonOutlet setImage:ObstacleImage forState:UIControlStateNormal];
 }
 @end

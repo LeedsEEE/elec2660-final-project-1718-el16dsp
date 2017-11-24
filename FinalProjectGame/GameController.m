@@ -50,6 +50,7 @@
     for (Index = 0; Index < Encounters; Index++) {
         // Makes a temporary obstacle
         ObstacleClass *Temp = [[ObstacleClass alloc] init];
+        ObstacleClass *Temp2 = [[ObstacleClass alloc] init];
         
         // Picks a random number between 0 and ENCOUNTER_TOTAL
         RandomInt = arc4random() % ENCOUNTER_TOTAL;
@@ -57,13 +58,13 @@
         // Picks whether the obstacle is a chest, door or enemy
         if (RandomInt < ENCOUNTER_CHEST_CHANCE && Index != Encounters - 1) {
             NSLog(@"%@", [NSString stringWithFormat:@"Picked chest of level %ld", DesiredLevel]);
-            [Temp GenerateChest:DesiredLevel];
-            [self.ObstacleArray addObject:Temp];
+            [Temp2 GenerateChest:DesiredLevel];
+            [self.ObstacleArray addObject:Temp2];
             [Temp GenerateChestDead:DesiredLevel];
         } else if (RandomInt < (ENCOUNTER_CHEST_CHANCE + ENCOUNTER_DOOR_CHANCE) || Index == Encounters - 1) {
             NSLog(@"%@", [NSString stringWithFormat:@"Picked door of level %ld", DesiredLevel]);
-            [Temp GenerateDoor:DesiredLevel];
-            [self.ObstacleArray addObject:Temp];
+            [Temp2 GenerateDoor:DesiredLevel];
+            [self.ObstacleArray addObject:Temp2];
             [Temp GenerateDoorDead:DesiredLevel];
         } else {
             NSLog(@"%@", [NSString stringWithFormat:@"Picked enemy of level %ld", DesiredLevel]);
@@ -204,7 +205,7 @@
     DamageToObstacle = [[Damage1 objectAtIndex:0] integerValue] + [[Damage2 objectAtIndex:0] integerValue];
     // Pick the larger of the two stun amounts
     StunToObstacle = ([[Damage1 objectAtIndex:1] integerValue] > [[Damage2 objectAtIndex:1] integerValue]) ? [[Damage1 objectAtIndex:1] integerValue] : [[Damage2 objectAtIndex:1] integerValue]; // A fancy IF statement in a single line to determine which one to pick
-    NSLog(@"Total damage to be done is %ld. Stune effect to be done is %ld", DamageToObstacle, StunToObstacle);
+    NSLog(@"Total damage to be done is %ld. Stun effect to be done is %ld", DamageToObstacle, StunToObstacle);
     
     NSString *ObstacleHealthLabel = [Temp TakeDamage:DamageToObstacle :StunToObstacle];
     NSLog(@"Obstacle health is %@", ObstacleHealthLabel);

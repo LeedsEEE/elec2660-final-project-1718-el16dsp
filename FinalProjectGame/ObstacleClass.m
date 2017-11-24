@@ -19,15 +19,7 @@
         self.Ability = [[WeaponClass alloc] init];
         self.StunnedFor = 0;
         self.Ability.StunDuration = 0;
-        
-        // TODO Add methods for idle and dead states of each of these
-        if (RandomResult == 0) { // Door
-            [self GenerateDoor:InputLevel];
-        } else if (RandomResult == 1) { // Chest
-            [self GenerateChest:InputLevel];
-        } else { // Enemy
-            [self GenerateEnemy:InputLevel];
-        }
+        self.ImageBasis = @"placeholder";
     }
     return self;
 }

@@ -53,11 +53,12 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ELEC2660 Background Dark.png" translatesAutoresizingMaskIntoConstraints="NO" id="R9J-ut-iwX"/>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yDj-7P-VIC">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yDj-7P-VIC">
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="yDj-7P-VIC" secondAttribute="height" multiplier="1:1" id="SLx-Db-dev"/>
                                 </constraints>
-                                <color key="tintColor" white="0.5" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <state key="normal" image="door_idle.png"/>
                                 <connections>
                                     <action selector="CentralButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="2SG-0E-zzB"/>
                                 </connections>
@@ -186,5 +187,6 @@
     </scenes>
     <resources>
         <image name="ELEC2660 Background Dark.png" width="230" height="395"/>
+        <image name="door_idle.png" width="200" height="199"/>
     </resources>
 </document>
