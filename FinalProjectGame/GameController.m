@@ -137,7 +137,8 @@
             NSLog(@"Obstacle Attacking");
             
             // Ask if obstacle will damage player
-            NSInteger DamageFromObstacle = [[Temp.Ability DamageDealtOnClick] objectAtIndex:0];
+            NSMutableArray *DamageArrayFromObstacle = [Temp.Ability DamageDealtOnClick];
+            NSInteger DamageFromObstacle = [[DamageArrayFromObstacle objectAtIndex:0] integerValue];
             // Since there are no mechanics for the player to be stunned, no obstacle can stun a player
             // Therefore, only the first element of the array is cared about
             NSLog(@"Obstacle damage to player is %ld", DamageFromObstacle);
