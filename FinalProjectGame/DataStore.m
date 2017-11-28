@@ -107,6 +107,7 @@
     // Taken from https://stackoverflow.com/questions/1820204/objective-c-creating-a-text-file-with-a-string on 2017-NOV-28
     NSLog(@"File saved: %d", [content writeToFile:[NSString stringWithFormat:@"%@", path] atomically:NO encoding:NSStringEncodingConversionAllowLossy error:nil]);
     
+    // Remakes classes with the new data
     [self init];
     
     return 0;
