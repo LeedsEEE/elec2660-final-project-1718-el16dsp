@@ -98,7 +98,7 @@
     
     NSLog(@"/// TURN %ld BEGIN \\\\\\", self.ClicksPressed + 1);
     
-    NSLog(@"Currently facing obstacle %ld %@ of %ld", self.CurrentObstacle+1, Temp.Name, [self.ObstacleArray count]);
+    NSLog(@"Currently facing obstacle %ld %@ of %ld with health of %ld", self.CurrentObstacle+1, Temp.Name, [self.ObstacleArray count], [GET_CURRENT_OBSTACLE ReturnHealth]);
     ObstacleImageTitle = [NSString stringWithFormat:@"%@.png",Temp.ImageBasis];
     
     // Call onbstacle weapon AutoIncrement
@@ -224,7 +224,7 @@
         self.Coins += Temp.Reward;
         NSLog(@"New coins amoung %ld", self.Coins);
         [ReturnValues replaceObjectAtIndex:5 withObject:[GET_CURRENT_OBSTACLE GetImageName]];
-    } else if ([[GET_CURRENT_OBSTACLE GetName] isEqualToString:@"Enemy"]){
+    } else if ([[GET_CURRENT_OBSTACLE GetName] isEqualToString:@"Enemy"]) {
         // Need to get the image for the current, still living obstacle's next state
         // ie. Show what the obstacle will do in the coming turn
         // This is only for enemies
@@ -253,7 +253,8 @@
          // Therefore abandon this aspect
          }
          */
-        
+    }
+    
         // For the graphics, show what the player has done in the last turn
         if (([[Damage1 objectAtIndex:0] integerValue] > 0 || [[Damage1 objectAtIndex:1] integerValue]) && ([[Damage2 objectAtIndex:0] integerValue] > 0 || [[Damage2 objectAtIndex:1] integerValue])) { // IF the player fired both button 1 and button 2
             // Handles case of some weapons not doing damage but stunning instead
@@ -265,19 +266,9 @@
         } else if ([[Damage2 objectAtIndex:0] integerValue] > 0 || [[Damage2 objectAtIndex:1] integerValue]) { // IF the player fired button 2
             [ReturnValues replaceObjectAtIndex:4 withObject:@"cutter_fire_2"];
             
-        } /* else if () { // IF the player loaded button 1
-            // This is done in the OnButton1Click
-        
-        }
-           */
-        /* else if () { // IF the player loaded button 2
-            // This is done in the OnButton2Click
-        
-        } */ else { // Pick idle
+        } else { // Pick idle
             [ReturnValues replaceObjectAtIndex:4 withObject:@"cutter_idle"];
-        }
-        
-    }
+        } // Loading an individual weapon is done in the appropriate button press
     
     NSLog(@"HealthLabel %@ Button1Label %@", [ReturnValues objectAtIndex:0], [ReturnValues objectAtIndex:1]);
     NSLog(@"Button2Label %@ CoinsLabel %@", [ReturnValues objectAtIndex:2], [ReturnValues objectAtIndex:3]);
@@ -294,8 +285,10 @@
     ReturnValues = [self OnAnyTick];
     // Call weapon 1 manual increment method
     [ReturnValues replaceObjectAtIndex:1 withObject:[self.Player.Button1 ManualIncrement]];
-    NSLog(@"HealthLabel %@ Button1Label %@ Button2Label %@", [ReturnValues objectAtIndex:0], [ReturnValues objectAtIndex:1], [ReturnValues objectAtIndex:2]);
     [ReturnValues replaceObjectAtIndex:4 withObject:@"cutter_load_1"];
+    NSLog(@"HealthLabel %@ Button1Label %@", [ReturnValues objectAtIndex:0], [ReturnValues objectAtIndex:1]);
+    NSLog(@"Button2Label %@ CoinsLabel %@", [ReturnValues objectAtIndex:2], [ReturnValues objectAtIndex:3]);
+    NSLog(@"PlayerImage %@ ObstacleImage %@", [ReturnValues objectAtIndex:4], [ReturnValues objectAtIndex:5]);
     [self OnEndTurn];
     return ReturnValues;
 }
@@ -308,8 +301,10 @@
     ReturnValues = [self OnAnyTick];
     // Call weapon 2 manual increment method
     [ReturnValues replaceObjectAtIndex:2 withObject:[self.Player.Button2 ManualIncrement]];
-    NSLog(@"HealthLabel %@ Button1Label %@ Button2Label %@", [ReturnValues objectAtIndex:0], [ReturnValues objectAtIndex:1], [ReturnValues objectAtIndex:2]);
     [ReturnValues replaceObjectAtIndex:4 withObject:@"cutter_load_2"];
+    NSLog(@"HealthLabel %@ Button1Label %@", [ReturnValues objectAtIndex:0], [ReturnValues objectAtIndex:1]);
+    NSLog(@"Button2Label %@ CoinsLabel %@", [ReturnValues objectAtIndex:2], [ReturnValues objectAtIndex:3]);
+    NSLog(@"PlayerImage %@ ObstacleImage %@", [ReturnValues objectAtIndex:4], [ReturnValues objectAtIndex:5]);
     [self OnEndTurn];
     return ReturnValues;
 }
@@ -318,7 +313,11 @@
     NSLog(@"/// TURN %ld END \\\\\\", self.ClicksPressed + 1);
     
     self.ClicksPressed += 1;
-    //Do player damage here
+    //Resolve player damage here
+    if (self.Player.CurrentHealth <= 0) {
+        NSLog(@"Player is dead");
+        // ViewController must open the shop and disable the combat buttons
+    }
 }
 
 #pragma mark Getters

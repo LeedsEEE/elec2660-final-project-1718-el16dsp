@@ -16,6 +16,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <color key="sectionIndexBackgroundColor" red="0.78663374350000004" green="0.78663374350000004" blue="0.78663374350000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="MenuButton" id="1hq-rK-uc6">
                                 <rect key="frame" x="0.0" y="120" width="375" height="44"/>
@@ -89,8 +90,11 @@
                                     <action selector="Button2Pressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="scD-ge-fHE"/>
                                 </connections>
                             </button>
-                            <label autoresizesSubviews="NO" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GbB-Gz-Sby">
+                            <label autoresizesSubviews="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="42" placeholderIntrinsicHeight="30" preservesSuperviewLayoutMargins="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GbB-Gz-Sby">
                                 <color key="backgroundColor" red="1" green="0.019891490399700618" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <accessibility key="accessibilityConfiguration">
+                                    <accessibilityTraits key="traits" none="YES"/>
+                                </accessibility>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="OSP-zb-vTf"/>
                                 </constraints>
@@ -99,8 +103,11 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label autoresizesSubviews="NO" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gdB-9T-wPs">
+                            <label autoresizesSubviews="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gdB-9T-wPs">
                                 <color key="backgroundColor" red="1" green="0.059605572916622496" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <accessibility key="accessibilityConfiguration">
+                                    <accessibilityTraits key="traits" none="YES"/>
+                                </accessibility>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="i0c-Px-b3s"/>
                                 </constraints>
@@ -113,8 +120,11 @@
                                 <color key="textColor" red="1" green="0.84898438405234899" blue="0.07469178153341538" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label autoresizesSubviews="NO" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z74-L6-mG9">
+                            <label autoresizesSubviews="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" contentMode="left" semanticContentAttribute="spatial" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="250" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z74-L6-mG9">
                                 <color key="backgroundColor" red="1" green="0.032579210069444448" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <accessibility key="accessibilityConfiguration">
+                                    <accessibilityTraits key="traits" notEnabled="YES"/>
+                                </accessibility>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="zW1-27-A7l"/>
                                 </constraints>
@@ -162,11 +172,74 @@
                         <outlet property="CoinsLabelOutlet" destination="cxl-ZV-xhp" id="mWd-eM-s5o"/>
                         <outlet property="HealthLabelOutlet" destination="z74-L6-mG9" id="hh6-si-sdr"/>
                         <outlet property="PlayerImageOutlet" destination="DBa-NE-WZI" id="L6v-y9-d57"/>
+                        <segue destination="YTr-5E-ltN" kind="show" identifier="ShowShop" id="Cv0-vP-YUe"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1616.8" y="97.601199400299862"/>
+        </scene>
+        <!--Shop Controller-->
+        <scene sceneID="Yml-nw-du3">
+            <objects>
+                <viewController id="YTr-5E-ltN" customClass="ShopController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Hcb-J5-uWx"/>
+                        <viewControllerLayoutGuide type="bottom" id="ZPS-Lm-Wso"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="iqt-IC-QjB">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4sS-rH-739">
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="4sS-rH-739" secondAttribute="height" multiplier="2:1" id="uMg-eI-yek"/>
+                                </constraints>
+                                <state key="normal" title="Button">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="Button1UpgradeAction:" destination="YTr-5E-ltN" eventType="touchUpInside" id="3Mq-4x-ToX"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FMY-1k-Rbx">
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="0.84898438405234899" blue="0.07469178153341538" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cxo-Dt-BC9">
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="cxo-Dt-BC9" secondAttribute="height" multiplier="2:1" id="47p-fp-4Ni"/>
+                                </constraints>
+                                <state key="normal" title="Button">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="Button2UpgradeAction:" destination="YTr-5E-ltN" eventType="touchUpInside" id="Xdy-6O-Yrr"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.78663374350000004" green="0.78663374350000004" blue="0.78663374350000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="4sS-rH-739" firstAttribute="top" secondItem="FMY-1k-Rbx" secondAttribute="bottom" constant="15" id="1Xv-XM-kvp"/>
+                            <constraint firstItem="cxo-Dt-BC9" firstAttribute="leading" secondItem="iqt-IC-QjB" secondAttribute="leadingMargin" constant="15" id="3Jx-rM-xGP"/>
+                            <constraint firstItem="4sS-rH-739" firstAttribute="leading" secondItem="iqt-IC-QjB" secondAttribute="leadingMargin" constant="15" id="4h4-Pa-uab"/>
+                            <constraint firstItem="FMY-1k-Rbx" firstAttribute="leading" secondItem="iqt-IC-QjB" secondAttribute="leadingMargin" id="5F2-Pp-ST6"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="4sS-rH-739" secondAttribute="trailing" constant="15" id="IeF-qe-1yW"/>
+                            <constraint firstItem="cxo-Dt-BC9" firstAttribute="top" secondItem="4sS-rH-739" secondAttribute="bottom" constant="15" id="Yxt-WJ-qsU"/>
+                            <constraint firstItem="FMY-1k-Rbx" firstAttribute="top" secondItem="Hcb-J5-uWx" secondAttribute="bottom" constant="65" id="cIz-u2-7Dk"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="cxo-Dt-BC9" secondAttribute="trailing" constant="15" id="wrr-XF-4do"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="Button1UpgradeOutlet" destination="4sS-rH-739" id="a6P-El-IHY"/>
+                        <outlet property="Button2UpgradeOutlet" destination="cxo-Dt-BC9" id="PuZ-hf-4Mf"/>
+                        <outlet property="CoinsLabel" destination="FMY-1k-Rbx" id="tZ8-PM-G3K"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Uvd-kD-Lsy" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2473" y="100"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="QCP-QH-tkP">

@@ -77,4 +77,19 @@
     return 0;
 }
 
+-(NSString *) GetClassName:(NSInteger)Class {
+    PlayerClass *Temp = [self.PlayerClassArray objectAtIndex:Class];
+    return Temp.Name;
+}
+
+-(NSString *) GetWeapon1Title:(NSInteger)Class {
+    PlayerClass *Temp = [self.PlayerClassArray objectAtIndex:Class];
+    return Temp.Button1.Name;
+}
+
+-(NSString *) GetWeapon2Title:(NSInteger)Class {
+    PlayerClass *Temp = [self.PlayerClassArray objectAtIndex:Class];
+    return Temp.Button2.Name;
+}
+
 @end

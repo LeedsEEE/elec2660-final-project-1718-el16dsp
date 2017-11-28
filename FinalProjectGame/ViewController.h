@@ -30,13 +30,19 @@
 - (IBAction)Button2Pressed:(id)sender;
 - (IBAction)CentralButtonPressed:(id)sender;
 
--(void) UpdateLabels:(NSString *)HealthLabel // Strings are of form @"16/20"
-                    :(NSString *)Button1Label
-                    :(NSString *)Button2Label
-                    :(NSString *)CoinsLabel;
+-(void) UpdateLabelText:(NSString *)HealthLabel // Strings are of form @"16/20"
+                       :(NSString *)Button1Label
+                       :(NSString *)Button2Label
+                       :(NSString *)CoinsLabel;
+-(void) UpdateLabelSize:(NSString *)HealthLabel // Strings are of form @"16/20"
+                       :(NSString *)Button1Label
+                       :(NSString *)Button2Label
+                       :(NSString *)CoinsLabel;
 -(float) CalcRatio:(NSString *)RatioString; // Strings are of form @"16/20"
 -(void) UpdateImages:(NSString *)PlayerImageTitle
                     :(NSString *)ObstacleImageTitle;
+-(void) prepareForSegue:(UIStoryboardSegue *)segue sender
+                       :(id)sender;
 // Game view stuff end
 
 // Inspection view start

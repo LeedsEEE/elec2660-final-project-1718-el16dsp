@@ -29,6 +29,7 @@
 		531A76081FC47C4700C36330 /* enemy_alt_stunned.png in Resources */ = {isa = PBXBuildFile; fileRef = 531A75F71FC47C4700C36330 /* enemy_alt_stunned.png */; };
 		531A76091FC47C4700C36330 /* enemy_stunned.png in Resources */ = {isa = PBXBuildFile; fileRef = 531A75F81FC47C4700C36330 /* enemy_stunned.png */; };
 		533C8CBA1FCDA5BD001E939C /* placeholder.png in Resources */ = {isa = PBXBuildFile; fileRef = 533C8CB91FCDA5BD001E939C /* placeholder.png */; };
+		533C8CC01FCDB9CA001E939C /* ShopController.m in Sources */ = {isa = PBXBuildFile; fileRef = 533C8CBF1FCDB9CA001E939C /* ShopController.m */; };
 		534863471FBB481000C482B7 /* GameController.m in Sources */ = {isa = PBXBuildFile; fileRef = 534863461FBB481000C482B7 /* GameController.m */; };
 		53572BFC1FB2060300E11BDB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 53572BFB1FB2060300E11BDB /* main.m */; };
 		53572BFF1FB2060300E11BDB /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 53572BFE1FB2060300E11BDB /* AppDelegate.m */; };
@@ -86,6 +87,8 @@
 		531A75F71FC47C4700C36330 /* enemy_alt_stunned.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = enemy_alt_stunned.png; path = Assets/enemy_alt_stunned.png; sourceTree = SOURCE_ROOT; };
 		531A75F81FC47C4700C36330 /* enemy_stunned.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = enemy_stunned.png; path = Assets/enemy_stunned.png; sourceTree = SOURCE_ROOT; };
 		533C8CB91FCDA5BD001E939C /* placeholder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = placeholder.png; path = Assets/placeholder.png; sourceTree = SOURCE_ROOT; };
+		533C8CBE1FCDB9CA001E939C /* ShopController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShopController.h; sourceTree = "<group>"; };
+		533C8CBF1FCDB9CA001E939C /* ShopController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShopController.m; sourceTree = "<group>"; };
 		534863451FBB481000C482B7 /* GameController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameController.h; sourceTree = "<group>"; };
 		534863461FBB481000C482B7 /* GameController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameController.m; sourceTree = "<group>"; };
 		53572BF71FB2060300E11BDB /* FinalProjectGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FinalProjectGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -166,6 +169,8 @@
 				5385983D1FB9D46800DBA7CB /* TableViewController.h */,
 				5385983E1FB9D46800DBA7CB /* TableViewController.m */,
 				53572C031FB2060300E11BDB /* Main.storyboard */,
+				533C8CBE1FCDB9CA001E939C /* ShopController.h */,
+				533C8CBF1FCDB9CA001E939C /* ShopController.m */,
 				530362B41FB9AFED00BEE30F /* ObstacleClass.h */,
 				530362B51FB9AFED00BEE30F /* ObstacleClass.m */,
 				530362B71FB9BF6300BEE30F /* DataStore.h */,
@@ -382,6 +387,7 @@
 				530362B91FB9BF6300BEE30F /* DataStore.m in Sources */,
 				530362B01FB999C400BEE30F /* WeaponClass.m in Sources */,
 				530362B61FB9AFED00BEE30F /* ObstacleClass.m in Sources */,
+				533C8CC01FCDB9CA001E939C /* ShopController.m in Sources */,
 				53572C021FB2060300E11BDB /* ViewController.m in Sources */,
 				53572BFF1FB2060300E11BDB /* AppDelegate.m in Sources */,
 				53572BFC1FB2060300E11BDB /* main.m in Sources */,
