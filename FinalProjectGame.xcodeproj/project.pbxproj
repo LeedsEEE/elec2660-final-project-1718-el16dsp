@@ -28,6 +28,7 @@
 		531A76071FC47C4700C36330 /* enemy_pre_attack.png in Resources */ = {isa = PBXBuildFile; fileRef = 531A75F61FC47C4700C36330 /* enemy_pre_attack.png */; };
 		531A76081FC47C4700C36330 /* enemy_alt_stunned.png in Resources */ = {isa = PBXBuildFile; fileRef = 531A75F71FC47C4700C36330 /* enemy_alt_stunned.png */; };
 		531A76091FC47C4700C36330 /* enemy_stunned.png in Resources */ = {isa = PBXBuildFile; fileRef = 531A75F81FC47C4700C36330 /* enemy_stunned.png */; };
+		533C8CBA1FCDA5BD001E939C /* placeholder.png in Resources */ = {isa = PBXBuildFile; fileRef = 533C8CB91FCDA5BD001E939C /* placeholder.png */; };
 		534863471FBB481000C482B7 /* GameController.m in Sources */ = {isa = PBXBuildFile; fileRef = 534863461FBB481000C482B7 /* GameController.m */; };
 		53572BFC1FB2060300E11BDB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 53572BFB1FB2060300E11BDB /* main.m */; };
 		53572BFF1FB2060300E11BDB /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 53572BFE1FB2060300E11BDB /* AppDelegate.m */; };
@@ -37,7 +38,6 @@
 		53572C0A1FB2060300E11BDB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 53572C081FB2060300E11BDB /* LaunchScreen.storyboard */; };
 		53572C151FB2060400E11BDB /* FinalProjectGameTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 53572C141FB2060400E11BDB /* FinalProjectGameTests.m */; };
 		53572C201FB2060400E11BDB /* FinalProjectGameUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 53572C1F1FB2060400E11BDB /* FinalProjectGameUITests.m */; };
-		5365F58F1FC88BD6002BC1A1 /* placeholder.png in Resources */ = {isa = PBXBuildFile; fileRef = 5365F58E1FC88BD6002BC1A1 /* placeholder.png */; };
 		5385983C1FB9D19C00DBA7CB /* class_levels_data.txt in Resources */ = {isa = PBXBuildFile; fileRef = 5385983B1FB9D19C00DBA7CB /* class_levels_data.txt */; };
 		5385983F1FB9D46800DBA7CB /* TableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5385983E1FB9D46800DBA7CB /* TableViewController.m */; };
 /* End PBXBuildFile section */
@@ -85,6 +85,7 @@
 		531A75F61FC47C4700C36330 /* enemy_pre_attack.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = enemy_pre_attack.png; path = Assets/enemy_pre_attack.png; sourceTree = SOURCE_ROOT; };
 		531A75F71FC47C4700C36330 /* enemy_alt_stunned.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = enemy_alt_stunned.png; path = Assets/enemy_alt_stunned.png; sourceTree = SOURCE_ROOT; };
 		531A75F81FC47C4700C36330 /* enemy_stunned.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = enemy_stunned.png; path = Assets/enemy_stunned.png; sourceTree = SOURCE_ROOT; };
+		533C8CB91FCDA5BD001E939C /* placeholder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = placeholder.png; path = Assets/placeholder.png; sourceTree = SOURCE_ROOT; };
 		534863451FBB481000C482B7 /* GameController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameController.h; sourceTree = "<group>"; };
 		534863461FBB481000C482B7 /* GameController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameController.m; sourceTree = "<group>"; };
 		53572BF71FB2060300E11BDB /* FinalProjectGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FinalProjectGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -103,7 +104,6 @@
 		53572C1B1FB2060400E11BDB /* FinalProjectGameUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FinalProjectGameUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		53572C1F1FB2060400E11BDB /* FinalProjectGameUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FinalProjectGameUITests.m; sourceTree = "<group>"; };
 		53572C211FB2060400E11BDB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		5365F58E1FC88BD6002BC1A1 /* placeholder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = placeholder.png; path = ../../../../Downloads/placeholder.png; sourceTree = "<group>"; };
 		5385983B1FB9D19C00DBA7CB /* class_levels_data.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = class_levels_data.txt; sourceTree = "<group>"; };
 		5385983D1FB9D46800DBA7CB /* TableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableViewController.h; sourceTree = "<group>"; };
 		5385983E1FB9D46800DBA7CB /* TableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableViewController.m; sourceTree = "<group>"; };
@@ -185,7 +185,7 @@
 		53572BFA1FB2060300E11BDB /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				5365F58E1FC88BD6002BC1A1 /* placeholder.png */,
+				533C8CB91FCDA5BD001E939C /* placeholder.png */,
 				531A75E81FC47C4700C36330 /* ELEC2660 Background Dark.png */,
 				531A75E91FC47C4700C36330 /* ELEC2660 Background.png */,
 				531A75EA1FC47C4700C36330 /* chest_idle.png */,
@@ -342,7 +342,6 @@
 				531A76051FC47C4700C36330 /* enemy_attack.png in Resources */,
 				531A76091FC47C4700C36330 /* enemy_stunned.png in Resources */,
 				531A76011FC47C4700C36330 /* cutter_load_2.png in Resources */,
-				5365F58F1FC88BD6002BC1A1 /* placeholder.png in Resources */,
 				53572C071FB2060300E11BDB /* Assets.xcassets in Resources */,
 				531A75F91FC47C4700C36330 /* ELEC2660 Background Dark.png in Resources */,
 				531A75FE1FC47C4700C36330 /* cutter_fire_12.png in Resources */,
@@ -350,6 +349,7 @@
 				531A76071FC47C4700C36330 /* enemy_pre_attack.png in Resources */,
 				531A76001FC47C4700C36330 /* cutter_idle.png in Resources */,
 				531A75FC1FC47C4700C36330 /* chest_dead.png in Resources */,
+				533C8CBA1FCDA5BD001E939C /* placeholder.png in Resources */,
 				531A75FD1FC47C4700C36330 /* cutter_fire_2.png in Resources */,
 				53572C051FB2060300E11BDB /* Main.storyboard in Resources */,
 				531A76061FC47C4700C36330 /* enemy_idle.png in Resources */,
