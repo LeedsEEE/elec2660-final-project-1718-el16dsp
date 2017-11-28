@@ -154,6 +154,37 @@
         }
     }
     
+    if ([[GET_CURRENT_OBSTACLE GetName] isEqualToString:@"Enemy"]) {
+        // Need to get the image for the current, still living obstacle's next state
+        // ie. Show what the obstacle will do in the coming turn
+        // This is only for enemies
+        if ([GET_CURRENT_OBSTACLE IsStunned]) { // IF Obstacle was stunned last turn, set image to stunned_alt
+            // This can't be done as the selected images were changed from being last turn's action to the next turn's action
+            // Ergo, if the obstacle was stunned this turn, set image to stunned alt
+            ObstacleImageTitle = @"enemy_alt_stunned";
+            
+        } else if ([GET_CURRENT_OBSTACLE GetClickAmount] == ([GET_CURRENT_OBSTACLE GetMaxClicks] - (2 * [GET_CURRENT_OBSTACLE GetAutoClicks]))) { // IF ClickAmount is 2 AutoClicks away from MaxClick, get pre attack image
+            ObstacleImageTitle = @"enemy_pre_attack";
+            
+        } else if ([GET_CURRENT_OBSTACLE GetClickAmount] == ([GET_CURRENT_OBSTACLE GetMaxClicks] - [GET_CURRENT_OBSTACLE GetAutoClicks])) { // IF ClickAmount is 1 AutoClick away from MaxClick, get attack image
+            ObstacleImageTitle = @"enemy_attack";
+            
+        } else {
+            // Get idle image
+            ObstacleImageTitle = @"enemy_idle";
+            
+        }
+        /*
+         else if () { //IF StunToObstacle is > 0 ie. Object is stunned in the action, set image to stunned
+         // This should be higher up in priority
+         // This can't be done as the selected images were changed from being last turn's action to the next turn's action
+         // Ergo, if the obstacle will be stunned next turn, set image to stunned
+         // This involves predicting what a person will do. This is out of scope for this project
+         // Therefore abandon this aspect
+         }
+         */
+    }
+    
     // Update images and labels
     NSLog(@"HealthLabel %@ Button1Label %@", HealthLabel, Button1Label);
     NSLog(@"Button2Label %@ CoinsLabel %@", Button2Label, CoinsLabel);
@@ -224,51 +255,22 @@
         self.Coins += Temp.Reward;
         NSLog(@"New coins amoung %ld", self.Coins);
         [ReturnValues replaceObjectAtIndex:5 withObject:[GET_CURRENT_OBSTACLE GetImageName]];
-    } else if ([[GET_CURRENT_OBSTACLE GetName] isEqualToString:@"Enemy"]) {
-        // Need to get the image for the current, still living obstacle's next state
-        // ie. Show what the obstacle will do in the coming turn
-        // This is only for enemies
-        if ([GET_CURRENT_OBSTACLE IsStunned]) { // IF Obstacle was stunned last turn, set image to stunned_alt
-            // This can't be done as the selected images were changed from being last turn's action to the next turn's action
-            // Ergo, if the obstacle was stunned this turn, set image to stunned alt
-            [ReturnValues replaceObjectAtIndex:5 withObject:@"enemy_alt_stunned"];
-            
-        } else if ([GET_CURRENT_OBSTACLE GetClickAmount] == ([GET_CURRENT_OBSTACLE GetMaxClicks] - (2 * [GET_CURRENT_OBSTACLE GetAutoClicks]))) { // IF ClickAmount is 2 AutoClicks away from MaxClick, get pre attack image
-            [ReturnValues replaceObjectAtIndex:5 withObject:@"enemy_pre_attack"];
-            
-        } else if ([GET_CURRENT_OBSTACLE GetClickAmount] == ([GET_CURRENT_OBSTACLE GetMaxClicks] - [GET_CURRENT_OBSTACLE GetAutoClicks])) { // IF ClickAmount is 1 AutoClick away from MaxClick, get attack image
-            [ReturnValues replaceObjectAtIndex:5 withObject:@"enemy_attack"];
-            
-        } else {
-            // Get idle image
-            [ReturnValues replaceObjectAtIndex:5 withObject:@"enemy_idle"];
-            
-        }
-        /*
-         else if () { //IF StunToObstacle is > 0 ie. Object is stunned in the action, set image to stunned
-         // This should be higher up in priority
-         // This can't be done as the selected images were changed from being last turn's action to the next turn's action
-         // Ergo, if the obstacle will be stunned next turn, set image to stunned
-         // This involves predicting what a person will do. This is out of scope for this project
-         // Therefore abandon this aspect
-         }
-         */
     }
     
-        // For the graphics, show what the player has done in the last turn
-        if (([[Damage1 objectAtIndex:0] integerValue] > 0 || [[Damage1 objectAtIndex:1] integerValue]) && ([[Damage2 objectAtIndex:0] integerValue] > 0 || [[Damage2 objectAtIndex:1] integerValue])) { // IF the player fired both button 1 and button 2
-            // Handles case of some weapons not doing damage but stunning instead
-            [ReturnValues replaceObjectAtIndex:4 withObject:@"cutter_fire_12"];
+    // For the graphics, show what the player has done in the last turn
+    if (([[Damage1 objectAtIndex:0] integerValue] > 0 || [[Damage1 objectAtIndex:1] integerValue]) && ([[Damage2 objectAtIndex:0] integerValue] > 0 || [[Damage2 objectAtIndex:1] integerValue])) { // IF the player fired both button 1 and button 2
+        // Handles case of some weapons not doing damage but stunning instead
+        [ReturnValues replaceObjectAtIndex:4 withObject:@"cutter_fire_12"];
             
-        } else if ([[Damage1 objectAtIndex:0] integerValue] > 0 || [[Damage1 objectAtIndex:1] integerValue]) { // IF the player fired button 1
-            [ReturnValues replaceObjectAtIndex:4 withObject:@"cutter_fire_1"];
+    } else if ([[Damage1 objectAtIndex:0] integerValue] > 0 || [[Damage1 objectAtIndex:1] integerValue]) { // IF the player fired button 1
+        [ReturnValues replaceObjectAtIndex:4 withObject:@"cutter_fire_1"];
             
-        } else if ([[Damage2 objectAtIndex:0] integerValue] > 0 || [[Damage2 objectAtIndex:1] integerValue]) { // IF the player fired button 2
-            [ReturnValues replaceObjectAtIndex:4 withObject:@"cutter_fire_2"];
+    } else if ([[Damage2 objectAtIndex:0] integerValue] > 0 || [[Damage2 objectAtIndex:1] integerValue]) { // IF the player fired button 2
+        [ReturnValues replaceObjectAtIndex:4 withObject:@"cutter_fire_2"];
             
-        } else { // Pick idle
-            [ReturnValues replaceObjectAtIndex:4 withObject:@"cutter_idle"];
-        } // Loading an individual weapon is done in the appropriate button press
+    } else { // Pick idle
+        [ReturnValues replaceObjectAtIndex:4 withObject:@"cutter_idle"];
+    } // Loading an individual weapon is done in the appropriate button press
     
     NSLog(@"HealthLabel %@ Button1Label %@", [ReturnValues objectAtIndex:0], [ReturnValues objectAtIndex:1]);
     NSLog(@"Button2Label %@ CoinsLabel %@", [ReturnValues objectAtIndex:2], [ReturnValues objectAtIndex:3]);

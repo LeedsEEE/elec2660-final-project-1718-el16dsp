@@ -108,7 +108,7 @@
     
     if (HealthNumerator > 0) {
         // If player not dead
-        //[self UpdateLabelText:[ReturnValues objectAtIndex:0] :[ReturnValues objectAtIndex:1] :[ReturnValues objectAtIndex:2] :[ReturnValues objectAtIndex:3]];
+        [self UpdateLabelText:[ReturnValues objectAtIndex:0] :[ReturnValues objectAtIndex:1] :[ReturnValues objectAtIndex:2] :[ReturnValues objectAtIndex:3]];
         [self UpdateLabelSize:[ReturnValues objectAtIndex:0] :[ReturnValues objectAtIndex:1] :[ReturnValues objectAtIndex:2] :[ReturnValues objectAtIndex:3]];
         [self UpdateImages:[ReturnValues objectAtIndex:4] :[ReturnValues objectAtIndex:5]];
     } else {
@@ -132,7 +132,7 @@
     
     if (HealthNumerator > 0) {
         // If player not dead
-        //[self UpdateLabelText:[ReturnValues objectAtIndex:0] :[ReturnValues objectAtIndex:1] :[ReturnValues objectAtIndex:2] :[ReturnValues objectAtIndex:3]];
+        [self UpdateLabelText:[ReturnValues objectAtIndex:0] :[ReturnValues objectAtIndex:1] :[ReturnValues objectAtIndex:2] :[ReturnValues objectAtIndex:3]];
         [self UpdateLabelSize:[ReturnValues objectAtIndex:0] :[ReturnValues objectAtIndex:1] :[ReturnValues objectAtIndex:2] :[ReturnValues objectAtIndex:3]];
         [self UpdateImages:[ReturnValues objectAtIndex:4] :[ReturnValues objectAtIndex:5]];
     } else {
@@ -155,7 +155,7 @@
     
     if (HealthNumerator > 0) {
         // If player not dead
-        //[self UpdateLabelText:[ReturnValues objectAtIndex:0] :[ReturnValues objectAtIndex:1] :[ReturnValues objectAtIndex:2] :[ReturnValues objectAtIndex:3]];
+        [self UpdateLabelText:[ReturnValues objectAtIndex:0] :[ReturnValues objectAtIndex:1] :[ReturnValues objectAtIndex:2] :[ReturnValues objectAtIndex:3]];
         [self UpdateLabelSize:[ReturnValues objectAtIndex:0] :[ReturnValues objectAtIndex:1] :[ReturnValues objectAtIndex:2] :[ReturnValues objectAtIndex:3]];
         [self UpdateImages:[ReturnValues objectAtIndex:4] :[ReturnValues objectAtIndex:5]];
     } else {
@@ -268,7 +268,7 @@
     
     // TODO Make sure that the width changes on update rather than on the next update
     // System seems to redraw in the idle time between button presses and as long as the text hasn't changed
-    [self.view setNeedsDisplay];
+    //[self.view setNeedsDisplay];
 }
 
 -(float) CalcRatio:(NSString *)RatioString {
@@ -296,6 +296,8 @@
     
     UIImage *ObstacleImage = [UIImage imageNamed:ObstacleImageTitle];
     [self.CentralButtonOutlet setImage:ObstacleImage forState:UIControlStateNormal];
+    
+    //[self.view setNeedsDisplay];
 }
 
 -(void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
