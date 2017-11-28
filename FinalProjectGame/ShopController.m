@@ -49,11 +49,27 @@
 - (IBAction)Button1UpgradeAction:(id)sender {
     NSLog(@"Button 1 Upgrade pressed");
     // IF enough coins, decrease coins by amount spent and save new level in file
+    if (self.Coins >= self.Cost1) {
+        self.Coins -= self.Cost1;
+        [self.Data SaveData:self.ClassSelected :0 :[self.Data GetWeapon1Level:self.ClassSelected]];
+        self.CoinsLabel.text = [NSString stringWithFormat:@"Coins: %3ld", self.Coins];
+        self.Cost1 = [self.Data GetWeapon1Cost:self.ClassSelected];
+        [self.Button1UpgradeOutlet setTitle:[NSString stringWithFormat:@"Upgrade %@ for %ld coins", [self.Data GetWeapon1Title:self.ClassSelected], self.Cost1] forState:UIControlStateNormal];
+    }
 }
 
 - (IBAction)Button2UpgradeAction:(id)sender {
     NSLog(@"Button 2 Upgrade pressed");
     // IF enough coins, decrease coins by amount spent and save new level in file
+    if (self.Coins >= self.Cost2) {
+        self.Coins -= self.Cost2;
+        [self.Data SaveData:self.ClassSelected
+                           :1
+                           :[self.Data GetWeapon2Level:self.ClassSelected]+1];
+        self.CoinsLabel.text = [NSString stringWithFormat:@"Coins: %3ld", self.Coins];
+        self.Cost2 = [self.Data GetWeapon2Cost:self.ClassSelected];
+        [self.Button2UpgradeOutlet setTitle:[NSString stringWithFormat:@"Upgrade %@ for %ld coins", [self.Data GetWeapon2Title:self.ClassSelected], self.Cost2] forState:UIControlStateNormal];
+    }
 }
 
 @end

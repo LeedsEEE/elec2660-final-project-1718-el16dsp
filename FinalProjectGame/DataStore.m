@@ -9,6 +9,7 @@
 #import "DataStore.h"
 #import "PlayerClass.h"
 #define DATA_STORE_STRING_SPLITTER @":"
+#define MAKE_TEMP_PLAYER PlayerClass *Temp = [self.PlayerClassArray objectAtIndex:Class];
 
 @implementation DataStore
 
@@ -73,9 +74,11 @@
 }
 
 -(NSInteger) SaveData:(NSInteger) Class
-                     :(NSInteger)WeaponOffset
-                     :(NSInteger)NewLevel{
+                     :(NSInteger) WeaponOffset
+                     :(NSInteger) NewLevel {
     // Save class levels into text file
+    NSInteger NumberOfClasses = [self.PlayerClassArray count];
+    NSMutableArray *ClassData = [NSMutableArray arrayWithCapacity:NumberOfClasses];
     
     // Get path
     NSString *path = [[NSBundle mainBundle] pathForResource:@"class_levels_data"
@@ -83,32 +86,51 @@
     NSLog(@"%@", path);
     
     // Make string
+    NSString *content = self.StoredData;
+    for (NSInteger index = 0; index < NumberOfClasses*2; index++) {
+        NSString *cell_value = [[content componentsSeparatedByString:DATA_STORE_STRING_SPLITTER] objectAtIndex:index];
+        NSLog(@"Cell %ld:%@", index, cell_value);
+        [ClassData addObject:cell_value];
+    }
     // Level index is 2*ClassNumber+(1 IF Weapon is Button2, 0 if not). ClassNumber starts at 0
+    NSString *NewLevelString = [NSString stringWithFormat:@"%ld", NewLevel];
+    NSInteger DataSaveIndex = 2*Class+WeaponOffset;
+    NSLog(@"Saving %@ into index %ld", NewLevelString, DataSaveIndex);
+    [ClassData replaceObjectAtIndex:DataSaveIndex withObject:NewLevelString];
+    
+    content = [ClassData componentsJoinedByString:DATA_STORE_STRING_SPLITTER];
+    NSLog(@"New Data: %@", content);
     
     // Dump string into file
+    self.StoredData = content;
+    
+    // Taken from https://stackoverflow.com/questions/1820204/objective-c-creating-a-text-file-with-a-string on 2017-NOV-28
+    NSLog(@"File saved: %d", [content writeToFile:[NSString stringWithFormat:@"%@", path] atomically:NO encoding:NSStringEncodingConversionAllowLossy error:nil]);
+    
+    [self init];
     
     return 0;
 }
 
 -(NSString *) GetClassName:(NSInteger)Class {
-    PlayerClass *Temp = [self.PlayerClassArray objectAtIndex:Class];
+    MAKE_TEMP_PLAYER
     return Temp.Name;
 }
 
 -(NSString *) GetWeapon1Title:(NSInteger)Class {
-    PlayerClass *Temp = [self.PlayerClassArray objectAtIndex:Class];
+    MAKE_TEMP_PLAYER
     return Temp.Button1.Name;
 }
 
 -(NSString *) GetWeapon2Title:(NSInteger)Class {
-    PlayerClass *Temp = [self.PlayerClassArray objectAtIndex:Class];
+    MAKE_TEMP_PLAYER
     return Temp.Button2.Name;
 }
 
 -(NSInteger) GetWeapon1Cost:(NSInteger) Class {
     float CostPrecise;
     NSInteger Cost;
-    PlayerClass *Temp = [self.PlayerClassArray objectAtIndex:Class];
+    MAKE_TEMP_PLAYER
     float NumberOfStatsAffectedByLevelling = Temp.Button1.LevelsPerUpgrade;
     float CurrentLevel = Temp.Button1.Level;
     CostPrecise = (1.0 + 0.1 * NumberOfStatsAffectedByLevelling) * powf(10.0, 1 + ((1 + 0.1 * NumberOfStatsAffectedByLevelling) * CurrentLevel)/12);
@@ -121,7 +143,7 @@
 -(NSInteger) GetWeapon2Cost:(NSInteger) Class {
     float CostPrecise;
     NSInteger Cost;
-    PlayerClass *Temp = [self.PlayerClassArray objectAtIndex:Class];
+    MAKE_TEMP_PLAYER
     float NumberOfStatsAffectedByLevelling = Temp.Button2.LevelsPerUpgrade;
     float CurrentLevel = Temp.Button2.Level;
     CostPrecise = (1.0 + 0.1 * NumberOfStatsAffectedByLevelling) * powf(10.0, 1 + ((1 + 0.1 * NumberOfStatsAffectedByLevelling) * CurrentLevel)/12);
@@ -129,6 +151,16 @@
     Cost = (NSInteger)roundf(CostPrecise);
     NSLog(@"Actual cost for upgrading is %ld", Cost);
     return Cost;
+}
+
+-(NSInteger) GetWeapon1Level:(NSInteger)Class {
+    MAKE_TEMP_PLAYER
+    return Temp.Button1.Level;
+}
+
+-(NSInteger) GetWeapon2Level:(NSInteger)Class {
+    MAKE_TEMP_PLAYER
+    return Temp.Button2.Level;
 }
 
 @end
