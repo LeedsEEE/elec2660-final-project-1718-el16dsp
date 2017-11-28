@@ -19,11 +19,14 @@
     // Do any additional setup after loading the view.
     self.Data = [[DataStore alloc] init];
     
-    NSLog(@"Loading shop with class %ld and %ld", self.ClassSelected, self.Coins);
+    NSLog(@"Loading shop with class %ld and %ld coins", self.ClassSelected, self.Coins);
     self.CoinsLabel.text = [NSString stringWithFormat:@"Coins: %3ld", self.Coins];
     
-    [self.Button1UpgradeOutlet setTitle:[NSString stringWithFormat:@"Upgrade %@", [self.Data GetWeapon1Title:self.ClassSelected]] forState:UIControlStateNormal];
-    [self.Button2UpgradeOutlet setTitle:[NSString stringWithFormat:@"Upgrade %@", [self.Data GetWeapon2Title:self.ClassSelected]] forState:UIControlStateNormal];
+    self.Cost1 = [self.Data GetWeapon1Cost:self.ClassSelected];
+    self.Cost2 = [self.Data GetWeapon2Cost:self.ClassSelected];
+    
+    [self.Button1UpgradeOutlet setTitle:[NSString stringWithFormat:@"Upgrade %@ for %ld coins", [self.Data GetWeapon1Title:self.ClassSelected], self.Cost1] forState:UIControlStateNormal];
+    [self.Button2UpgradeOutlet setTitle:[NSString stringWithFormat:@"Upgrade %@ for %ld coins", [self.Data GetWeapon2Title:self.ClassSelected], self.Cost2] forState:UIControlStateNormal];
 }
 
 - (void)didReceiveMemoryWarning {

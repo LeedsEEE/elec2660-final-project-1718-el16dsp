@@ -13,6 +13,8 @@
 
 @property (nonatomic) NSInteger ClassSelected;
 @property (nonatomic) NSInteger Coins;
+@property (nonatomic) NSInteger Cost1;
+@property (nonatomic) NSInteger Cost2;
 @property (strong, nonatomic) DataStore *Data;
 
 @property (weak, nonatomic) IBOutlet UILabel *CoinsLabel;

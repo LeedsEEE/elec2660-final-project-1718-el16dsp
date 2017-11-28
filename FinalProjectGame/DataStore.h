@@ -19,5 +19,7 @@
 -(NSString *) GetClassName:(NSInteger) Class;
 -(NSString *) GetWeapon1Title:(NSInteger) Class;
 -(NSString *) GetWeapon2Title:(NSInteger) Class;
+-(NSInteger) GetWeapon1Cost:(NSInteger) Class; // Takes nothing, uses the current level and returns the cost
+-(NSInteger) GetWeapon2Cost:(NSInteger) Class;
 
 @end

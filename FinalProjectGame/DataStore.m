@@ -72,8 +72,21 @@
     return content;
 }
 
--(NSInteger) SaveData {
-    // Save class levels into json file
+-(NSInteger) SaveData:(NSInteger) Class
+                     :(NSInteger)WeaponOffset
+                     :(NSInteger)NewLevel{
+    // Save class levels into text file
+    
+    // Get path
+    NSString *path = [[NSBundle mainBundle] pathForResource:@"class_levels_data"
+                                                     ofType:@"txt"];
+    NSLog(@"%@", path);
+    
+    // Make string
+    // Level index is 2*ClassNumber+(1 IF Weapon is Button2, 0 if not). ClassNumber starts at 0
+    
+    // Dump string into file
+    
     return 0;
 }
 
@@ -90,6 +103,32 @@
 -(NSString *) GetWeapon2Title:(NSInteger)Class {
     PlayerClass *Temp = [self.PlayerClassArray objectAtIndex:Class];
     return Temp.Button2.Name;
+}
+
+-(NSInteger) GetWeapon1Cost:(NSInteger) Class {
+    float CostPrecise;
+    NSInteger Cost;
+    PlayerClass *Temp = [self.PlayerClassArray objectAtIndex:Class];
+    float NumberOfStatsAffectedByLevelling = Temp.Button1.LevelsPerUpgrade;
+    float CurrentLevel = Temp.Button1.Level;
+    CostPrecise = (1.0 + 0.1 * NumberOfStatsAffectedByLevelling) * powf(10.0, 1 + ((1 + 0.1 * NumberOfStatsAffectedByLevelling) * CurrentLevel)/12);
+    NSLog(@"Precise cost for upgrading %@ to level %.0f is %3.3f", Temp.Button1.Name, CurrentLevel + 1.0, CostPrecise);
+    Cost = (NSInteger)roundf(CostPrecise);
+    NSLog(@"Actual cost for upgrading is %ld", Cost);
+    return Cost;
+}
+
+-(NSInteger) GetWeapon2Cost:(NSInteger) Class {
+    float CostPrecise;
+    NSInteger Cost;
+    PlayerClass *Temp = [self.PlayerClassArray objectAtIndex:Class];
+    float NumberOfStatsAffectedByLevelling = Temp.Button2.LevelsPerUpgrade;
+    float CurrentLevel = Temp.Button2.Level;
+    CostPrecise = (1.0 + 0.1 * NumberOfStatsAffectedByLevelling) * powf(10.0, 1 + ((1 + 0.1 * NumberOfStatsAffectedByLevelling) * CurrentLevel)/12);
+    NSLog(@"Precise cost for upgrading %@ to level %.0f is %3.3f", Temp.Button2.Name, CurrentLevel + 1.0, CostPrecise);
+    Cost = (NSInteger)roundf(CostPrecise);
+    NSLog(@"Actual cost for upgrading is %ld", Cost);
+    return Cost;
 }
 
 @end
