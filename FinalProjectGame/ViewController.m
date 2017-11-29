@@ -24,17 +24,14 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     NSLog(@"ViewController Loaded");
+    self.GameHandler = [[GameController alloc] init];
+    NSLog(@"Class %ld selected in ViewController", self.ClassSelected);
+    NSLog(@"GameHandler loaded");
     
-    // Set Label Content Mode to not autosize
-    self.HealthLabelOutlet.autoresizesSubviews = NO;
+    self.GameHandler.Player = [[[DataStore alloc] init].PlayerClassArray objectAtIndex:self.ClassSelected];
     
     if (self.RowSelected == 0) {
         NSLog(@"Game selected");
-        self.GameHandler = [[GameController alloc] init];
-        NSLog(@"Class %ld selected in ViewController", self.ClassSelected);
-        NSLog(@"GameHandler loaded");
-    
-        self.GameHandler.Player = [[[DataStore alloc] init].PlayerClassArray objectAtIndex:self.ClassSelected];
         NSLog(@"Class %ld %@ loaded with %@ and %@", self.ClassSelected, [self.GameHandler GetPlayerName], [self.GameHandler GetWeapon1Name], [self.GameHandler GetWeapon2Name]);
         // Hide inspect stuff
         self.ClassNameLabelOutlet.hidden = YES;
@@ -45,6 +42,7 @@
         self.ClicksPerClipLabelOutlet.hidden = YES;
         self.StunDurationLabelOutlet.hidden = YES;
         self.AutoClickRateLabelOutlet.hidden = YES;
+        self.WeaponNameLabelOutlet.hidden = YES;
         
         // Show game stuff
         self.CentralButtonOutlet.hidden = NO;
@@ -56,6 +54,7 @@
         self.PlayerImageOutlet.hidden = NO;
         self.CoinsLabelOutlet.hidden = NO;
         self.BackgroundImageOutlet.hidden = NO;
+        
         // Add button images/frames
         [self.Button1Outlet setTitle:[NSString stringWithFormat:@"Load %@", [self.GameHandler GetWeapon1Name]] forState:UIControlStateNormal];
         [self.Button2Outlet setTitle:[NSString stringWithFormat:@"Load %@", [self.GameHandler GetWeapon2Name]] forState:UIControlStateNormal];
@@ -81,6 +80,7 @@
     }
     else if (self.RowSelected == 1) {
         NSLog(@"Inspect button 1");
+        NSString *ImageName = @"placeholder.png";
         // Hide game stuff
         self.CentralButtonOutlet.hidden = YES;
         self.Button1Outlet.hidden = YES;
@@ -91,6 +91,7 @@
         self.PlayerImageOutlet.hidden = YES;
         self.CoinsLabelOutlet.hidden = YES;
         self.BackgroundImageOutlet.hidden = YES;
+        
         // Show inspect stuff
         self.ClassNameLabelOutlet.hidden = NO;
         self.WeaponImageOutlet.hidden = NO;
@@ -100,9 +101,29 @@
         self.ClicksPerClipLabelOutlet.hidden = NO;
         self.StunDurationLabelOutlet.hidden = NO;
         self.AutoClickRateLabelOutlet.hidden = NO;
+        self.WeaponNameLabelOutlet.hidden = NO;
+        
+        // Set labels and images
+        self.ClassNameLabelOutlet.text = [NSString stringWithFormat:@"Class: %@", [self.GameHandler GetPlayerName]];
+        self.DescriptionLabelOutlet.text = self.GameHandler.Player.Button1.Description;
+        self.LevelLabelOutlet.text = [NSString stringWithFormat:@"Level: %ld", self.GameHandler.Player.Button1.Level];
+        self.DamageLabelOutlet.text = [NSString stringWithFormat:@"Damage: %ld", self.GameHandler.Player.Button1.DamagePerClick];
+        // IF type is 'A', display activation limit
+        // ELSE IF type is 'W', display capacity
+        if ([[self.GameHandler GetWeapon1Type] isEqualToString:@"A"]) {
+            self.ClicksPerClipLabelOutlet.text = [NSString stringWithFormat:@"Activation limit: %ld", self.GameHandler.Player.Button1.ClicksPerClip];
+        } else if ([[self.GameHandler GetWeapon1Type] isEqualToString:@"W"]) {
+            self.ClicksPerClipLabelOutlet.text = [NSString stringWithFormat:@"Capacity: %ld", self.GameHandler.Player.Button1.ClicksPerClip];
+        }
+        self.StunDurationLabelOutlet.text = [NSString stringWithFormat:@"Stun Duration: %ld", self.GameHandler.Player.Button1.StunDuration];
+        self.AutoClickRateLabelOutlet.text = [NSString stringWithFormat:@"Auto Load Rate: %ld", self.GameHandler.Player.Button1.AutoClickLoadRate];
+        ImageName = self.GameHandler.Player.Button1.ImageName;
+        [self.WeaponImageOutlet setImage:[UIImage imageNamed:ImageName]];
+        self.WeaponNameLabelOutlet.text = self.GameHandler.Player.Button1.Name;
     }
     else if (self.RowSelected == 2) {
         NSLog(@"Inspect button 2");
+        NSString *ImageName = @"placeholder.png";
         // Hide game stuff
         self.CentralButtonOutlet.hidden = YES;
         self.Button1Outlet.hidden = YES;
@@ -113,6 +134,7 @@
         self.PlayerImageOutlet.hidden = YES;
         self.CoinsLabelOutlet.hidden = YES;
         self.BackgroundImageOutlet.hidden = YES;
+        
         // Show inspect stuff
         self.ClassNameLabelOutlet.hidden = NO;
         self.WeaponImageOutlet.hidden = NO;
@@ -122,6 +144,25 @@
         self.ClicksPerClipLabelOutlet.hidden = NO;
         self.StunDurationLabelOutlet.hidden = NO;
         self.AutoClickRateLabelOutlet.hidden = NO;
+        self.WeaponNameLabelOutlet.hidden = NO;
+        
+        // Set labels and images
+        self.ClassNameLabelOutlet.text = [NSString stringWithFormat:@"Class: %@", [self.GameHandler GetPlayerName]];
+        self.DescriptionLabelOutlet.text = self.GameHandler.Player.Button2.Description;
+        self.LevelLabelOutlet.text = [NSString stringWithFormat:@"Level: %ld", self.GameHandler.Player.Button2.Level];
+        self.DamageLabelOutlet.text = [NSString stringWithFormat:@"Damage: %ld", self.GameHandler.Player.Button2.DamagePerClick];
+        // IF type is 'A', display activation limit
+        // ELSE IF type is 'W', display capacity
+        if ([[self.GameHandler GetWeapon2Type] isEqualToString:@"A"]) {
+            self.ClicksPerClipLabelOutlet.text = [NSString stringWithFormat:@"Activation limit: %ld", self.GameHandler.Player.Button2.ClicksPerClip];
+        } else if ([[self.GameHandler GetWeapon2Type] isEqualToString:@"W"]) {
+            self.ClicksPerClipLabelOutlet.text = [NSString stringWithFormat:@"Capacity: %ld", self.GameHandler.Player.Button2.ClicksPerClip];
+        }
+        self.StunDurationLabelOutlet.text = [NSString stringWithFormat:@"Stun Duration: %ld", self.GameHandler.Player.Button2.StunDuration];
+        self.AutoClickRateLabelOutlet.text = [NSString stringWithFormat:@"Auto Load Rate: %ld", self.GameHandler.Player.Button2.AutoClickLoadRate];
+        ImageName = self.GameHandler.Player.Button2.ImageName;
+        [self.WeaponImageOutlet setImage:[UIImage imageNamed:ImageName]];
+        self.WeaponNameLabelOutlet.text = self.GameHandler.Player.Button2.Name;
     }
     // Do any additional setup after loading the view, typically from a nib.
 }

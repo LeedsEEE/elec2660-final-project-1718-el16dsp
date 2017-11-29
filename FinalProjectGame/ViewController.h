@@ -54,5 +54,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *ClicksPerClipLabelOutlet;
 @property (weak, nonatomic) IBOutlet UILabel *StunDurationLabelOutlet;
 @property (weak, nonatomic) IBOutlet UILabel *AutoClickRateLabelOutlet;
+@property (weak, nonatomic) IBOutlet UILabel *WeaponNameLabelOutlet;
 // Inspection view end
 @end
