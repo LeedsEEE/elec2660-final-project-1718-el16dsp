@@ -10,8 +10,10 @@
 #import "GameController.h"
 #import "ShopController.h"
 #import "DataStore.h"
+#import "ObstacleClass.h"
 #define HEALTH_COLOUR_CHANGE_LIMIT 0.40
 #define MODULE @"ELEC2660"
+#define GET_CURRENT_OBSTACLE [self.GameHandler.ObstacleArray objectAtIndex:self.GameHandler.CurrentObstacle]
 
 @interface ViewController ()
 
@@ -53,7 +55,20 @@
                              :[NSString stringWithFormat:@"%ld/%ld", self.GameHandler.Player.Button1.ClickAmount, self.GameHandler.Player.Button1.ClicksPerClip]
                              :[NSString stringWithFormat:@"%ld/%ld", self.GameHandler.Player.Button2.ClickAmount, self.GameHandler.Player.Button2.ClicksPerClip]
                              :@"Coins: 000"];
-        [self UpdateImages:@"cutter_idle.png" :@"enemy_idle.png"];
+        if ([[self.GameHandler GetObstacleName] isEqualToString:@"Enemy"]) {
+            // Could be idle or pre_attack or attack
+            if ([GET_CURRENT_OBSTACLE GetClickAmount] == ([GET_CURRENT_OBSTACLE GetMaxClicks] - [GET_CURRENT_OBSTACLE GetAutoClicks])) {
+                [self UpdateImages:@"cutter_idle.png" :@"enemy_attack.png"];
+            } else if ([GET_CURRENT_OBSTACLE GetClickAmount] == ([GET_CURRENT_OBSTACLE GetMaxClicks] - (2 * [GET_CURRENT_OBSTACLE GetAutoClicks]))) {
+                [self UpdateImages:@"cutter_idle.png" :@"enemy_pre_attack.png"];
+            } else {
+                [self UpdateImages:@"cutter_idle.png" :@"enemy_idle.png"];
+            }
+        } else if ([[self.GameHandler GetObstacleName] isEqualToString:@"Chest"]){
+            [self UpdateImages:@"cutter_idle.png" :@"chest_idle.png"];
+        } else {
+            [self UpdateImages:@"cutter_idle.png" :@"door_idle.png"];
+        }
         NSLog(@"/// GAME LOADED \\\\\\");
     }
     else if (self.RowSelected == 1) {

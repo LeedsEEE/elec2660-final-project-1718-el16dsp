@@ -57,12 +57,13 @@
         RandomInt = arc4random() % ENCOUNTER_TOTAL;
         
         // Picks whether the obstacle is a chest, door or enemy
-        if (RandomInt < ENCOUNTER_CHEST_CHANCE && Index != Encounters - 1) {
+        NSLog(@"Random roll was %ld out of %d:%d:%d", RandomInt, ENCOUNTER_CHEST_CHANCE, ENCOUNTER_DOOR_CHANCE, ENCOUNTER_ENEMY_CHANCE);
+        if (RandomInt <= ENCOUNTER_CHEST_CHANCE && Index != Encounters - 1) {
             NSLog(@"%@", [NSString stringWithFormat:@"Picked chest of level %ld", DesiredLevel]);
             [Temp2 GenerateChest:DesiredLevel];
             [self.ObstacleArray addObject:Temp2];
             [Temp GenerateChestDead:DesiredLevel];
-        } else if (RandomInt < (ENCOUNTER_CHEST_CHANCE + ENCOUNTER_DOOR_CHANCE) || Index == Encounters - 1) {
+        } else if (RandomInt <= (ENCOUNTER_CHEST_CHANCE + ENCOUNTER_DOOR_CHANCE) || Index == Encounters - 1) {
             NSLog(@"%@", [NSString stringWithFormat:@"Picked door of level %ld", DesiredLevel]);
             [Temp2 GenerateDoor:DesiredLevel];
             [self.ObstacleArray addObject:Temp2];

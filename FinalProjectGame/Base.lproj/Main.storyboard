@@ -71,7 +71,7 @@
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FL1-Ze-Hat">
                                 <color key="backgroundColor" red="0.0" green="1" blue="0.38352052688093341" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <state key="normal" title="Load Weapon1">
+                                <state key="normal" title="Load Weapon1" backgroundImage="ELEC2660 Button.png">
                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
@@ -83,7 +83,7 @@
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="oGp-9w-QV9" secondAttribute="height" multiplier="31:15" id="lQq-9q-y0u"/>
                                 </constraints>
-                                <state key="normal" title="Load Weapon2">
+                                <state key="normal" title="Load Weapon2" backgroundImage="ELEC2660 Button.png">
                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
@@ -192,10 +192,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4sS-rH-739">
+                                <color key="backgroundColor" red="0.0" green="1" blue="0.38352052689999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="4sS-rH-739" secondAttribute="height" multiplier="2:1" id="uMg-eI-yek"/>
                                 </constraints>
-                                <state key="normal" title="Button">
+                                <state key="normal" title="Button" backgroundImage="ELEC2660 Button.png">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
@@ -208,10 +209,11 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cxo-Dt-BC9">
+                                <color key="backgroundColor" red="0.0" green="1" blue="0.98010850959999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="cxo-Dt-BC9" secondAttribute="height" multiplier="2:1" id="47p-fp-4Ni"/>
                                 </constraints>
-                                <state key="normal" title="Button">
+                                <state key="normal" title="Button" backgroundImage="ELEC2660 Button.png">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
@@ -260,6 +262,7 @@
     </scenes>
     <resources>
         <image name="ELEC2660 Background Dark.png" width="230" height="395"/>
+        <image name="ELEC2660 Button.png" width="230" height="111"/>
         <image name="door_idle.png" width="200" height="199"/>
     </resources>
 </document>
