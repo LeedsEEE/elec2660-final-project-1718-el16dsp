@@ -46,5 +46,13 @@
 // Game view stuff end
 
 // Inspection view start
+@property (weak, nonatomic) IBOutlet UILabel *ClassNameLabelOutlet;
+@property (weak, nonatomic) IBOutlet UIImageView *WeaponImageOutlet;
+@property (weak, nonatomic) IBOutlet UILabel *DescriptionLabelOutlet;
+@property (weak, nonatomic) IBOutlet UILabel *LevelLabelOutlet;
+@property (weak, nonatomic) IBOutlet UILabel *DamageLabelOutlet;
+@property (weak, nonatomic) IBOutlet UILabel *ClicksPerClipLabelOutlet;
+@property (weak, nonatomic) IBOutlet UILabel *StunDurationLabelOutlet;
+@property (weak, nonatomic) IBOutlet UILabel *AutoClickRateLabelOutlet;
 // Inspection view end
 @end

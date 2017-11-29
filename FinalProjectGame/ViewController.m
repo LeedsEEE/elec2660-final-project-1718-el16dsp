@@ -37,6 +37,14 @@
         self.GameHandler.Player = [[[DataStore alloc] init].PlayerClassArray objectAtIndex:self.ClassSelected];
         NSLog(@"Class %ld %@ loaded with %@ and %@", self.ClassSelected, [self.GameHandler GetPlayerName], [self.GameHandler GetWeapon1Name], [self.GameHandler GetWeapon2Name]);
         // Hide inspect stuff
+        self.ClassNameLabelOutlet.hidden = YES;
+        self.WeaponImageOutlet.hidden = YES;
+        self.DescriptionLabelOutlet.hidden = YES;
+        self.LevelLabelOutlet.hidden = YES;
+        self.DamageLabelOutlet.hidden = YES;
+        self.ClicksPerClipLabelOutlet.hidden = YES;
+        self.StunDurationLabelOutlet.hidden = YES;
+        self.AutoClickRateLabelOutlet.hidden = YES;
         
         // Show game stuff
         self.CentralButtonOutlet.hidden = NO;
@@ -48,7 +56,7 @@
         self.PlayerImageOutlet.hidden = NO;
         self.CoinsLabelOutlet.hidden = NO;
         self.BackgroundImageOutlet.hidden = NO;
-        // TODO Add button images/frames
+        // Add button images/frames
         [self.Button1Outlet setTitle:[NSString stringWithFormat:@"Load %@", [self.GameHandler GetWeapon1Name]] forState:UIControlStateNormal];
         [self.Button2Outlet setTitle:[NSString stringWithFormat:@"Load %@", [self.GameHandler GetWeapon2Name]] forState:UIControlStateNormal];
         [self UpdateLabelSize:[NSString stringWithFormat:@"%ld/%ld", self.GameHandler.Player.CurrentHealth, self.GameHandler.Player.MaxHealth]
@@ -84,6 +92,14 @@
         self.CoinsLabelOutlet.hidden = YES;
         self.BackgroundImageOutlet.hidden = YES;
         // Show inspect stuff
+        self.ClassNameLabelOutlet.hidden = NO;
+        self.WeaponImageOutlet.hidden = NO;
+        self.DescriptionLabelOutlet.hidden = NO;
+        self.LevelLabelOutlet.hidden = NO;
+        self.DamageLabelOutlet.hidden = NO;
+        self.ClicksPerClipLabelOutlet.hidden = NO;
+        self.StunDurationLabelOutlet.hidden = NO;
+        self.AutoClickRateLabelOutlet.hidden = NO;
     }
     else if (self.RowSelected == 2) {
         NSLog(@"Inspect button 2");
@@ -98,6 +114,14 @@
         self.CoinsLabelOutlet.hidden = YES;
         self.BackgroundImageOutlet.hidden = YES;
         // Show inspect stuff
+        self.ClassNameLabelOutlet.hidden = NO;
+        self.WeaponImageOutlet.hidden = NO;
+        self.DescriptionLabelOutlet.hidden = NO;
+        self.LevelLabelOutlet.hidden = NO;
+        self.DamageLabelOutlet.hidden = NO;
+        self.ClicksPerClipLabelOutlet.hidden = NO;
+        self.StunDurationLabelOutlet.hidden = NO;
+        self.AutoClickRateLabelOutlet.hidden = NO;
     }
     // Do any additional setup after loading the view, typically from a nib.
 }
