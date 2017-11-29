@@ -120,6 +120,7 @@
         ImageName = self.GameHandler.Player.Button1.ImageName;
         [self.WeaponImageOutlet setImage:[UIImage imageNamed:ImageName]];
         self.WeaponNameLabelOutlet.text = self.GameHandler.Player.Button1.Name;
+        // TODO Add weapon images (pistol.png and blowtorch.png) and a cost label
     }
     else if (self.RowSelected == 2) {
         NSLog(@"Inspect button 2");
