@@ -13,24 +13,25 @@
 		530362B91FB9BF6300BEE30F /* DataStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 530362B81FB9BF6300BEE30F /* DataStore.m */; };
 		531A75F91FC47C4700C36330 /* ELEC2660 Background Dark.png in Resources */ = {isa = PBXBuildFile; fileRef = 531A75E81FC47C4700C36330 /* ELEC2660 Background Dark.png */; };
 		531A75FA1FC47C4700C36330 /* ELEC2660 Background.png in Resources */ = {isa = PBXBuildFile; fileRef = 531A75E91FC47C4700C36330 /* ELEC2660 Background.png */; };
-		531A75FB1FC47C4700C36330 /* chest_idle.png in Resources */ = {isa = PBXBuildFile; fileRef = 531A75EA1FC47C4700C36330 /* chest_idle.png */; };
 		531A75FC1FC47C4700C36330 /* chest_dead.png in Resources */ = {isa = PBXBuildFile; fileRef = 531A75EB1FC47C4700C36330 /* chest_dead.png */; };
-		531A75FD1FC47C4700C36330 /* cutter_fire_2.png in Resources */ = {isa = PBXBuildFile; fileRef = 531A75EC1FC47C4700C36330 /* cutter_fire_2.png */; };
-		531A75FE1FC47C4700C36330 /* cutter_fire_12.png in Resources */ = {isa = PBXBuildFile; fileRef = 531A75ED1FC47C4700C36330 /* cutter_fire_12.png */; };
-		531A75FF1FC47C4700C36330 /* cutter_fire_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 531A75EE1FC47C4700C36330 /* cutter_fire_1.png */; };
-		531A76001FC47C4700C36330 /* cutter_idle.png in Resources */ = {isa = PBXBuildFile; fileRef = 531A75EF1FC47C4700C36330 /* cutter_idle.png */; };
-		531A76011FC47C4700C36330 /* cutter_load_2.png in Resources */ = {isa = PBXBuildFile; fileRef = 531A75F01FC47C4700C36330 /* cutter_load_2.png */; };
-		531A76021FC47C4700C36330 /* cutter_load_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 531A75F11FC47C4700C36330 /* cutter_load_1.png */; };
 		531A76031FC47C4700C36330 /* door_idle.png in Resources */ = {isa = PBXBuildFile; fileRef = 531A75F21FC47C4700C36330 /* door_idle.png */; };
 		531A76041FC47C4700C36330 /* door_dead.png in Resources */ = {isa = PBXBuildFile; fileRef = 531A75F31FC47C4700C36330 /* door_dead.png */; };
-		531A76051FC47C4700C36330 /* enemy_attack.png in Resources */ = {isa = PBXBuildFile; fileRef = 531A75F41FC47C4700C36330 /* enemy_attack.png */; };
-		531A76061FC47C4700C36330 /* enemy_idle.png in Resources */ = {isa = PBXBuildFile; fileRef = 531A75F51FC47C4700C36330 /* enemy_idle.png */; };
-		531A76071FC47C4700C36330 /* enemy_pre_attack.png in Resources */ = {isa = PBXBuildFile; fileRef = 531A75F61FC47C4700C36330 /* enemy_pre_attack.png */; };
-		531A76081FC47C4700C36330 /* enemy_alt_stunned.png in Resources */ = {isa = PBXBuildFile; fileRef = 531A75F71FC47C4700C36330 /* enemy_alt_stunned.png */; };
-		531A76091FC47C4700C36330 /* enemy_stunned.png in Resources */ = {isa = PBXBuildFile; fileRef = 531A75F81FC47C4700C36330 /* enemy_stunned.png */; };
 		533C8CBA1FCDA5BD001E939C /* placeholder.png in Resources */ = {isa = PBXBuildFile; fileRef = 533C8CB91FCDA5BD001E939C /* placeholder.png */; };
 		533C8CC01FCDB9CA001E939C /* ShopController.m in Sources */ = {isa = PBXBuildFile; fileRef = 533C8CBF1FCDB9CA001E939C /* ShopController.m */; };
 		534863471FBB481000C482B7 /* GameController.m in Sources */ = {isa = PBXBuildFile; fileRef = 534863461FBB481000C482B7 /* GameController.m */; };
+		534AC8AA1FCEEA1A00989660 /* ELEC2660 Button.png in Resources */ = {isa = PBXBuildFile; fileRef = 534AC89D1FCEEA1A00989660 /* ELEC2660 Button.png */; };
+		534AC8AB1FCEEA1A00989660 /* chest_idle.png in Resources */ = {isa = PBXBuildFile; fileRef = 534AC89E1FCEEA1A00989660 /* chest_idle.png */; };
+		534AC8AC1FCEEA1A00989660 /* cutter_fire_2.png in Resources */ = {isa = PBXBuildFile; fileRef = 534AC89F1FCEEA1A00989660 /* cutter_fire_2.png */; };
+		534AC8AD1FCEEA1A00989660 /* cutter_fire_12.png in Resources */ = {isa = PBXBuildFile; fileRef = 534AC8A01FCEEA1A00989660 /* cutter_fire_12.png */; };
+		534AC8AE1FCEEA1A00989660 /* cutter_fire_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 534AC8A11FCEEA1A00989660 /* cutter_fire_1.png */; };
+		534AC8AF1FCEEA1A00989660 /* cutter_idle.png in Resources */ = {isa = PBXBuildFile; fileRef = 534AC8A21FCEEA1A00989660 /* cutter_idle.png */; };
+		534AC8B01FCEEA1A00989660 /* cutter_load_2.png in Resources */ = {isa = PBXBuildFile; fileRef = 534AC8A31FCEEA1A00989660 /* cutter_load_2.png */; };
+		534AC8B11FCEEA1A00989660 /* cutter_load_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 534AC8A41FCEEA1A00989660 /* cutter_load_1.png */; };
+		534AC8B21FCEEA1A00989660 /* enemy_attack.png in Resources */ = {isa = PBXBuildFile; fileRef = 534AC8A51FCEEA1A00989660 /* enemy_attack.png */; };
+		534AC8B31FCEEA1A00989660 /* enemy_idle.png in Resources */ = {isa = PBXBuildFile; fileRef = 534AC8A61FCEEA1A00989660 /* enemy_idle.png */; };
+		534AC8B41FCEEA1A00989660 /* enemy_pre_attack.png in Resources */ = {isa = PBXBuildFile; fileRef = 534AC8A71FCEEA1A00989660 /* enemy_pre_attack.png */; };
+		534AC8B51FCEEA1A00989660 /* enemy_stunned_alt.png in Resources */ = {isa = PBXBuildFile; fileRef = 534AC8A81FCEEA1A00989660 /* enemy_stunned_alt.png */; };
+		534AC8B61FCEEA1A00989660 /* enemy_stunned.png in Resources */ = {isa = PBXBuildFile; fileRef = 534AC8A91FCEEA1A00989660 /* enemy_stunned.png */; };
 		53572BFC1FB2060300E11BDB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 53572BFB1FB2060300E11BDB /* main.m */; };
 		53572BFF1FB2060300E11BDB /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 53572BFE1FB2060300E11BDB /* AppDelegate.m */; };
 		53572C021FB2060300E11BDB /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 53572C011FB2060300E11BDB /* ViewController.m */; };
@@ -71,26 +72,27 @@
 		530362B81FB9BF6300BEE30F /* DataStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataStore.m; sourceTree = "<group>"; };
 		531A75E81FC47C4700C36330 /* ELEC2660 Background Dark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "ELEC2660 Background Dark.png"; path = "Assets/ELEC2660 Background Dark.png"; sourceTree = SOURCE_ROOT; };
 		531A75E91FC47C4700C36330 /* ELEC2660 Background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "ELEC2660 Background.png"; path = "Assets/ELEC2660 Background.png"; sourceTree = SOURCE_ROOT; };
-		531A75EA1FC47C4700C36330 /* chest_idle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = chest_idle.png; path = Assets/chest_idle.png; sourceTree = SOURCE_ROOT; };
 		531A75EB1FC47C4700C36330 /* chest_dead.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = chest_dead.png; path = Assets/chest_dead.png; sourceTree = SOURCE_ROOT; };
-		531A75EC1FC47C4700C36330 /* cutter_fire_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = cutter_fire_2.png; path = Assets/cutter_fire_2.png; sourceTree = SOURCE_ROOT; };
-		531A75ED1FC47C4700C36330 /* cutter_fire_12.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = cutter_fire_12.png; path = Assets/cutter_fire_12.png; sourceTree = SOURCE_ROOT; };
-		531A75EE1FC47C4700C36330 /* cutter_fire_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = cutter_fire_1.png; path = Assets/cutter_fire_1.png; sourceTree = SOURCE_ROOT; };
-		531A75EF1FC47C4700C36330 /* cutter_idle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = cutter_idle.png; path = Assets/cutter_idle.png; sourceTree = SOURCE_ROOT; };
-		531A75F01FC47C4700C36330 /* cutter_load_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = cutter_load_2.png; path = Assets/cutter_load_2.png; sourceTree = SOURCE_ROOT; };
-		531A75F11FC47C4700C36330 /* cutter_load_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = cutter_load_1.png; path = Assets/cutter_load_1.png; sourceTree = SOURCE_ROOT; };
 		531A75F21FC47C4700C36330 /* door_idle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = door_idle.png; path = Assets/door_idle.png; sourceTree = SOURCE_ROOT; };
 		531A75F31FC47C4700C36330 /* door_dead.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = door_dead.png; path = Assets/door_dead.png; sourceTree = SOURCE_ROOT; };
-		531A75F41FC47C4700C36330 /* enemy_attack.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = enemy_attack.png; path = Assets/enemy_attack.png; sourceTree = SOURCE_ROOT; };
-		531A75F51FC47C4700C36330 /* enemy_idle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = enemy_idle.png; path = Assets/enemy_idle.png; sourceTree = SOURCE_ROOT; };
-		531A75F61FC47C4700C36330 /* enemy_pre_attack.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = enemy_pre_attack.png; path = Assets/enemy_pre_attack.png; sourceTree = SOURCE_ROOT; };
-		531A75F71FC47C4700C36330 /* enemy_alt_stunned.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = enemy_alt_stunned.png; path = Assets/enemy_alt_stunned.png; sourceTree = SOURCE_ROOT; };
-		531A75F81FC47C4700C36330 /* enemy_stunned.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = enemy_stunned.png; path = Assets/enemy_stunned.png; sourceTree = SOURCE_ROOT; };
 		533C8CB91FCDA5BD001E939C /* placeholder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = placeholder.png; path = Assets/placeholder.png; sourceTree = SOURCE_ROOT; };
 		533C8CBE1FCDB9CA001E939C /* ShopController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShopController.h; sourceTree = "<group>"; };
 		533C8CBF1FCDB9CA001E939C /* ShopController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShopController.m; sourceTree = "<group>"; };
 		534863451FBB481000C482B7 /* GameController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameController.h; sourceTree = "<group>"; };
 		534863461FBB481000C482B7 /* GameController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameController.m; sourceTree = "<group>"; };
+		534AC89D1FCEEA1A00989660 /* ELEC2660 Button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "ELEC2660 Button.png"; path = "../Assets/ELEC2660 Button.png"; sourceTree = "<group>"; };
+		534AC89E1FCEEA1A00989660 /* chest_idle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = chest_idle.png; path = ../Assets/chest_idle.png; sourceTree = "<group>"; };
+		534AC89F1FCEEA1A00989660 /* cutter_fire_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = cutter_fire_2.png; path = ../Assets/cutter_fire_2.png; sourceTree = "<group>"; };
+		534AC8A01FCEEA1A00989660 /* cutter_fire_12.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = cutter_fire_12.png; path = ../Assets/cutter_fire_12.png; sourceTree = "<group>"; };
+		534AC8A11FCEEA1A00989660 /* cutter_fire_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = cutter_fire_1.png; path = ../Assets/cutter_fire_1.png; sourceTree = "<group>"; };
+		534AC8A21FCEEA1A00989660 /* cutter_idle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = cutter_idle.png; path = ../Assets/cutter_idle.png; sourceTree = "<group>"; };
+		534AC8A31FCEEA1A00989660 /* cutter_load_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = cutter_load_2.png; path = ../Assets/cutter_load_2.png; sourceTree = "<group>"; };
+		534AC8A41FCEEA1A00989660 /* cutter_load_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = cutter_load_1.png; path = ../Assets/cutter_load_1.png; sourceTree = "<group>"; };
+		534AC8A51FCEEA1A00989660 /* enemy_attack.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = enemy_attack.png; path = ../Assets/enemy_attack.png; sourceTree = "<group>"; };
+		534AC8A61FCEEA1A00989660 /* enemy_idle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = enemy_idle.png; path = ../Assets/enemy_idle.png; sourceTree = "<group>"; };
+		534AC8A71FCEEA1A00989660 /* enemy_pre_attack.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = enemy_pre_attack.png; path = ../Assets/enemy_pre_attack.png; sourceTree = "<group>"; };
+		534AC8A81FCEEA1A00989660 /* enemy_stunned_alt.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = enemy_stunned_alt.png; path = ../Assets/enemy_stunned_alt.png; sourceTree = "<group>"; };
+		534AC8A91FCEEA1A00989660 /* enemy_stunned.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = enemy_stunned.png; path = ../Assets/enemy_stunned.png; sourceTree = "<group>"; };
 		53572BF71FB2060300E11BDB /* FinalProjectGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FinalProjectGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		53572BFB1FB2060300E11BDB /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		53572BFD1FB2060300E11BDB /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -190,24 +192,25 @@
 		53572BFA1FB2060300E11BDB /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				534AC89D1FCEEA1A00989660 /* ELEC2660 Button.png */,
+				534AC89F1FCEEA1A00989660 /* cutter_fire_2.png */,
+				534AC8A01FCEEA1A00989660 /* cutter_fire_12.png */,
+				534AC8A11FCEEA1A00989660 /* cutter_fire_1.png */,
+				534AC8A21FCEEA1A00989660 /* cutter_idle.png */,
+				534AC8A31FCEEA1A00989660 /* cutter_load_2.png */,
+				534AC8A41FCEEA1A00989660 /* cutter_load_1.png */,
+				534AC8A51FCEEA1A00989660 /* enemy_attack.png */,
+				534AC8A61FCEEA1A00989660 /* enemy_idle.png */,
+				534AC8A71FCEEA1A00989660 /* enemy_pre_attack.png */,
+				534AC8A81FCEEA1A00989660 /* enemy_stunned_alt.png */,
+				534AC8A91FCEEA1A00989660 /* enemy_stunned.png */,
 				533C8CB91FCDA5BD001E939C /* placeholder.png */,
 				531A75E81FC47C4700C36330 /* ELEC2660 Background Dark.png */,
 				531A75E91FC47C4700C36330 /* ELEC2660 Background.png */,
-				531A75EA1FC47C4700C36330 /* chest_idle.png */,
+				534AC89E1FCEEA1A00989660 /* chest_idle.png */,
 				531A75EB1FC47C4700C36330 /* chest_dead.png */,
-				531A75EC1FC47C4700C36330 /* cutter_fire_2.png */,
-				531A75ED1FC47C4700C36330 /* cutter_fire_12.png */,
-				531A75EE1FC47C4700C36330 /* cutter_fire_1.png */,
-				531A75EF1FC47C4700C36330 /* cutter_idle.png */,
-				531A75F01FC47C4700C36330 /* cutter_load_2.png */,
-				531A75F11FC47C4700C36330 /* cutter_load_1.png */,
 				531A75F21FC47C4700C36330 /* door_idle.png */,
 				531A75F31FC47C4700C36330 /* door_dead.png */,
-				531A75F51FC47C4700C36330 /* enemy_idle.png */,
-				531A75F41FC47C4700C36330 /* enemy_attack.png */,
-				531A75F61FC47C4700C36330 /* enemy_pre_attack.png */,
-				531A75F71FC47C4700C36330 /* enemy_alt_stunned.png */,
-				531A75F81FC47C4700C36330 /* enemy_stunned.png */,
 				53572BFB1FB2060300E11BDB /* main.m */,
 				5385983B1FB9D19C00DBA7CB /* class_levels_data.txt */,
 			);
@@ -339,27 +342,28 @@
 			buildActionMask = 2147483647;
 			files = (
 				5385983C1FB9D19C00DBA7CB /* class_levels_data.txt in Resources */,
+				534AC8B21FCEEA1A00989660 /* enemy_attack.png in Resources */,
 				531A76041FC47C4700C36330 /* door_dead.png in Resources */,
-				531A76021FC47C4700C36330 /* cutter_load_1.png in Resources */,
-				531A75FB1FC47C4700C36330 /* chest_idle.png in Resources */,
 				53572C0A1FB2060300E11BDB /* LaunchScreen.storyboard in Resources */,
-				531A75FF1FC47C4700C36330 /* cutter_fire_1.png in Resources */,
-				531A76051FC47C4700C36330 /* enemy_attack.png in Resources */,
-				531A76091FC47C4700C36330 /* enemy_stunned.png in Resources */,
-				531A76011FC47C4700C36330 /* cutter_load_2.png in Resources */,
+				534AC8B11FCEEA1A00989660 /* cutter_load_1.png in Resources */,
+				534AC8AA1FCEEA1A00989660 /* ELEC2660 Button.png in Resources */,
+				534AC8B01FCEEA1A00989660 /* cutter_load_2.png in Resources */,
+				534AC8B41FCEEA1A00989660 /* enemy_pre_attack.png in Resources */,
+				534AC8B51FCEEA1A00989660 /* enemy_stunned_alt.png in Resources */,
+				534AC8AD1FCEEA1A00989660 /* cutter_fire_12.png in Resources */,
+				534AC8AF1FCEEA1A00989660 /* cutter_idle.png in Resources */,
 				53572C071FB2060300E11BDB /* Assets.xcassets in Resources */,
+				534AC8AC1FCEEA1A00989660 /* cutter_fire_2.png in Resources */,
 				531A75F91FC47C4700C36330 /* ELEC2660 Background Dark.png in Resources */,
-				531A75FE1FC47C4700C36330 /* cutter_fire_12.png in Resources */,
+				534AC8AB1FCEEA1A00989660 /* chest_idle.png in Resources */,
+				534AC8B31FCEEA1A00989660 /* enemy_idle.png in Resources */,
 				531A76031FC47C4700C36330 /* door_idle.png in Resources */,
-				531A76071FC47C4700C36330 /* enemy_pre_attack.png in Resources */,
-				531A76001FC47C4700C36330 /* cutter_idle.png in Resources */,
 				531A75FC1FC47C4700C36330 /* chest_dead.png in Resources */,
 				533C8CBA1FCDA5BD001E939C /* placeholder.png in Resources */,
-				531A75FD1FC47C4700C36330 /* cutter_fire_2.png in Resources */,
+				534AC8B61FCEEA1A00989660 /* enemy_stunned.png in Resources */,
+				534AC8AE1FCEEA1A00989660 /* cutter_fire_1.png in Resources */,
 				53572C051FB2060300E11BDB /* Main.storyboard in Resources */,
-				531A76061FC47C4700C36330 /* enemy_idle.png in Resources */,
 				531A75FA1FC47C4700C36330 /* ELEC2660 Background.png in Resources */,
-				531A76081FC47C4700C36330 /* enemy_alt_stunned.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
