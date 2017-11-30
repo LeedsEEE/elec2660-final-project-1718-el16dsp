@@ -56,12 +56,19 @@
         self.BackgroundImageOutlet.hidden = NO;
         
         // Add button images/frames
-        [self.Button1Outlet setTitle:[NSString stringWithFormat:@"Load %@", [self.GameHandler GetWeapon1Name]] forState:UIControlStateNormal];
+        NSString *HealthProportion = [NSString stringWithFormat:@"Load %@", [self.GameHandler GetWeapon1Name]];
+        NSString *Button1Proportion = [NSString stringWithFormat:@"%ld/%ld", self.GameHandler.Player.Button1.ClickAmount, self.GameHandler.Player.Button1.ClicksPerClip];
+        NSString *Button2Proportion = [NSString stringWithFormat:@"%ld/%ld", self.GameHandler.Player.Button2.ClickAmount, self.GameHandler.Player.Button2.ClicksPerClip];
+        [self.Button1Outlet setTitle:HealthProportion forState:UIControlStateNormal];
         [self.Button2Outlet setTitle:[NSString stringWithFormat:@"Load %@", [self.GameHandler GetWeapon2Name]] forState:UIControlStateNormal];
-        [self UpdateLabelSize:[NSString stringWithFormat:@"%ld/%ld", self.GameHandler.Player.CurrentHealth, self.GameHandler.Player.MaxHealth]
-                             :[NSString stringWithFormat:@"%ld/%ld", self.GameHandler.Player.Button1.ClickAmount, self.GameHandler.Player.Button1.ClicksPerClip]
-                             :[NSString stringWithFormat:@"%ld/%ld", self.GameHandler.Player.Button2.ClickAmount, self.GameHandler.Player.Button2.ClicksPerClip]
+        [self UpdateLabelSize:HealthProportion
+                             :Button1Proportion
+                             :Button2Proportion
                              :@"Coins: 000"];
+        //[self UpdateLabelText:HealthProportion
+                             :Button1Proportion
+                             :Button2Proportion
+                             :@"Coins: 000"]; // TODO Fix this
         if ([[self.GameHandler GetObstacleName] isEqualToString:@"Enemy"]) {
             // Could be idle or pre_attack or attack
             if ([GET_CURRENT_OBSTACLE GetClickAmount] == ([GET_CURRENT_OBSTACLE GetMaxClicks] - [GET_CURRENT_OBSTACLE GetAutoClicks])) {
@@ -266,6 +273,8 @@
     // Taken from https://stackoverflow.com/questions/3655104/iphone-ipad-how-to-get-screen-width-programmatically on 2017-NOV-15
     CGRect Screen = [[UIScreen mainScreen] bounds];
     CGFloat ScreenWidth = CGRectGetWidth(Screen);
+    // Status bar information from https://stackoverflow.com/questions/3888517/get-iphone-status-bar-height on 30-NOV-2017
+    CGRect StatusBar = [[UIApplication sharedApplication] statusBarFrame];
     NSLog(@"Update labels called with width %f", ScreenWidth);
     
     // Pull integers from the strings and find the ratio betwen them
@@ -278,78 +287,89 @@
     NSLog(@"Button 2 proportion is %f", Button2LabelProportion);
     
     // Update label frames
+    
+    // HEALTH LABEL
     // Taken from https://stackoverflow.com/questions/13306604/how-to-change-the-width-of-label-once-after-its-frame-has-been-set-and-to-get-t on 2017-NOV-15
     CGRect HealthLabelFrame = [self.HealthLabelOutlet frame];
     HealthLabelFrame.size.width = HealthLabelProportion * ScreenWidth;
+    HealthLabelFrame.size.height = 30;
     NSLog(@"New Health width %f", HealthLabelFrame.size.width);
     HealthLabelFrame.origin.x = ((1.0 - HealthLabelProportion) * ScreenWidth)/2.0;
+    // Taken from https://stackoverflow.com/questions/20160933/what-is-the-height-of-navigation-bar-in-ios-7 on 30-NOV-2017
+    HealthLabelFrame.origin.y = self.navigationController.navigationBar.frame.size.height + StatusBar.size.height + 30;
+    
+    // Draw box behind label
+    // Taken from https://stackoverflow.com/questions/14785188/drawing-rectangles-in-ios on 30-NOV-2017
+    [self.HealthBox removeFromSuperview];
+    self.HealthBox = [[UIView alloc] initWithFrame:HealthLabelFrame];
     if (HealthLabelProportion < HEALTH_COLOUR_CHANGE_LIMIT) {
         NSLog(@"Health label red");
-        [self.HealthLabelOutlet setBackgroundColor:[UIColor clearColor]];
-        [self.HealthLabelOutlet setBackgroundColor:[UIColor redColor]];
+        [self.HealthBox setBackgroundColor:[UIColor redColor]];
     } else {
         NSLog(@"Health label green");
-        [self.HealthLabelOutlet setBackgroundColor:[UIColor clearColor]];
-        [self.HealthLabelOutlet setBackgroundColor:[UIColor greenColor]];
+        [self.HealthBox setBackgroundColor:[UIColor greenColor]];
     }
-    [self.HealthLabelOutlet setFrame:HealthLabelFrame];
+    [self.view addSubview:self.HealthBox];
+    [self.view bringSubviewToFront:self.HealthLabelOutlet];
     
+    // BUTTON 1 LABEL
+    [self.Button1Box removeFromSuperview];
     CGRect Button1LabelFrame = [self.Button1LabelOutlet frame];
     Button1LabelFrame.size.width = 0.5 * Button1LabelProportion * ScreenWidth;
+    Button1LabelFrame.size.height = 30;
+    Button1LabelFrame.origin.x = self.Button1LabelOutlet.frame.origin.x;
+    Button1LabelFrame.origin.y = self.Button1LabelOutlet.frame.origin.y;
     NSLog(@"New Button1 width %f", Button1LabelFrame.size.width);
+    self.Button1Box = [[UIView alloc] initWithFrame:Button1LabelFrame];
     if ([[self.GameHandler GetWeapon1Type] isEqualToString:@"W"] && [[[Button1Label componentsSeparatedByString:@"/"] objectAtIndex:0] intValue] == 0) {
         // Green if ammo remaining
         // Red if can't shoot
         NSLog(@"Button1 label red weapon");
-        [self.Button1LabelOutlet setBackgroundColor:[UIColor clearColor]];
-        [self.Button1LabelOutlet setBackgroundColor:[UIColor redColor]];
+        [self.Button1Box setBackgroundColor:[UIColor redColor]];
     } else if ([[self.GameHandler GetWeapon1Type] isEqualToString:@"W"]) {
         NSLog(@"Button1 label green weapon");
-        [self.Button1LabelOutlet setBackgroundColor:[UIColor clearColor]];
-        [self.Button1LabelOutlet setBackgroundColor:[UIColor greenColor]];
+        [self.Button1Box setBackgroundColor:[UIColor greenColor]];
     } else if ([[self.GameHandler GetWeapon1Type] isEqualToString:@"A"] && Button1LabelProportion == 1.0) {
         // Green if can shoot (at full charge)
         // Red if can't
         NSLog(@"Button1 label green ability");
-        [self.Button1LabelOutlet setBackgroundColor:[UIColor clearColor]];
-        [self.Button1LabelOutlet setBackgroundColor:[UIColor greenColor]];
+        [self.Button1Box setBackgroundColor:[UIColor greenColor]];
     } else if ([[self.GameHandler GetWeapon1Type] isEqualToString:@"A"]) {
         NSLog(@"Button1 label red ability");
-        [self.Button1LabelOutlet setBackgroundColor:[UIColor clearColor]];
-        [self.Button1LabelOutlet setBackgroundColor:[UIColor redColor]];
+        [self.Button1Box setBackgroundColor:[UIColor redColor]];
     }
-    [self.Button1LabelOutlet setFrame:Button1LabelFrame];
+    [self.view addSubview:self.Button1Box];
+    [self.view bringSubviewToFront:self.Button1LabelOutlet];
     
+    // BUTTON 2 LABEL
+    [self.Button2Box removeFromSuperview];
     CGRect Button2LabelFrame = [self.Button2LabelOutlet frame];
     Button2LabelFrame.size.width = 0.5 * Button2LabelProportion * ScreenWidth;
+    Button2LabelFrame.size.height = 30;
     Button2LabelFrame.origin.x = ScreenWidth - 0.5 * Button2LabelProportion * ScreenWidth;
+    Button2LabelFrame.origin.y = self.Button2LabelOutlet.frame.origin.y;
     NSLog(@"New Button2 width %f", Button2LabelFrame.size.width);
+    self.Button2Box = [[UIView alloc] initWithFrame:Button2LabelFrame];
     if ([[self.GameHandler GetWeapon2Type] isEqualToString:@"W"] && [[[Button2Label componentsSeparatedByString:@"/"] objectAtIndex:0] intValue] == 0) {
         // Green if ammo remaining
         // Red if can't shoot
         NSLog(@"Button2 label red weapon");
-        [self.Button2LabelOutlet setBackgroundColor:[UIColor clearColor]];
-        [self.Button2LabelOutlet setBackgroundColor:[UIColor redColor]];
+        [self.Button2Box setBackgroundColor:[UIColor redColor]];
     } else if ([[self.GameHandler GetWeapon2Type] isEqualToString:@"W"]) {
         NSLog(@"Button2 label green weapon");
-        [self.Button2LabelOutlet setBackgroundColor:[UIColor clearColor]];
-        [self.Button2LabelOutlet setBackgroundColor:[UIColor greenColor]];
+        [self.Button2Box setBackgroundColor:[UIColor greenColor]];
     } else if ([[self.GameHandler GetWeapon2Type] isEqualToString:@"A"] && Button2LabelProportion == 1.0) {
         // Green if can shoot (at full charge)
         // Red if can't
         NSLog(@"Button2 label green ability");
-        [self.Button2LabelOutlet setBackgroundColor:[UIColor clearColor]];
-        [self.Button2LabelOutlet setBackgroundColor:[UIColor greenColor]];
+        [self.Button2Box setBackgroundColor:[UIColor greenColor]];
     } else if ([[self.GameHandler GetWeapon2Type] isEqualToString:@"A"]) {
         NSLog(@"Button2 label red ability");
-        [self.Button2LabelOutlet setBackgroundColor:[UIColor clearColor]];
-        [self.Button2LabelOutlet setBackgroundColor:[UIColor redColor]];
+        [self.Button2Box setBackgroundColor:[UIColor redColor]];
     }
-    [self.Button2LabelOutlet setFrame:Button2LabelFrame];
-    
-    // TODO Make sure that the width changes on update rather than on the next update
-    // System seems to redraw in the idle time between button presses and as long as the text hasn't changed
-    //[self.view setNeedsDisplay];
+    [self.view addSubview:self.Button2Box];
+    [self.view bringSubviewToFront:self.Button2LabelOutlet];
+
 }
 
 -(float) CalcRatio:(NSString *)RatioString {
@@ -396,3 +416,4 @@
 }
 
 @end
+

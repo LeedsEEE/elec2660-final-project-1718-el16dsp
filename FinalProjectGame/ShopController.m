@@ -18,6 +18,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.Data = [[DataStore alloc] init];
+    //[self.navigationItem]
     
     NSLog(@"Loading shop with class %ld and %ld coins", self.ClassSelected, self.Coins);
     self.CoinsLabel.text = [NSString stringWithFormat:@"Coins: %3ld", self.Coins];

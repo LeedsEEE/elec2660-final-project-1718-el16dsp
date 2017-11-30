@@ -42,7 +42,7 @@
         class_0.Button1.Type = @"W";
         class_0.Button1.Name = @"Pistol";
         class_0.Button1.ImageName = @"pistol.png"; // TODO Add picture to supporting files
-        class_0.Button1.Description = @"A basic weapon for a basic pirate";
+        class_0.Button1.Description = @"\'A basic weapon for a basic pirate\'";
         NSLog(@"Button1 new name is %@", class_0.Button1.Name);
         
         class_0.Button2 = [[class_0_2 alloc] init];
@@ -52,7 +52,7 @@
         class_0.Button2.Type = @"A";
         class_0.Button2.Name = @"Blowtorch";
         class_0.Button2.ImageName = @"blowtorch.png"; // TODO Add picture to supporting files
-        class_0.Button2.Description = @"A versatile tool for a versatile pirate";
+        class_0.Button2.Description = @"\'A versatile tool for a versatile pirate\'";
         NSLog(@"Button2 new name is %@", class_0.Button2.Name);
         
         [self.PlayerClassArray addObject:class_0];

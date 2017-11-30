@@ -18,9 +18,16 @@
 // Game view stuff start
 @property (weak, nonatomic) IBOutlet UIButton *Button1Outlet;
 @property (weak, nonatomic) IBOutlet UIButton *Button2Outlet;
+
 @property (weak, nonatomic) IBOutlet UILabel *HealthLabelOutlet;
+@property (nonatomic) UIView *HealthBox;
+
 @property (weak, nonatomic) IBOutlet UILabel *Button2LabelOutlet;
+@property (nonatomic) UIView *Button1Box;
+
 @property (weak, nonatomic) IBOutlet UILabel *Button1LabelOutlet;
+@property (nonatomic) UIView *Button2Box;
+
 @property (weak, nonatomic) IBOutlet UIButton *CentralButtonOutlet;
 @property (weak, nonatomic) IBOutlet UIImageView *PlayerImageOutlet;
 @property (weak, nonatomic) IBOutlet UILabel *CoinsLabelOutlet;

@@ -59,7 +59,7 @@
         // Picks whether the obstacle is a chest, door or enemy
         NSLog(@"Random roll was %ld out of %d:%d:%d", RandomInt, ENCOUNTER_CHEST_CHANCE, ENCOUNTER_DOOR_CHANCE, ENCOUNTER_ENEMY_CHANCE);
         NSLog(@"Chest possible %d", (0 <= ENCOUNTER_CHEST_CHANCE && Index != (Encounters - 1)));
-        NSLog(@"Door possible %d", ((0 <= (ENCOUNTER_CHEST_CHANCE + ENCOUNTER_DOOR_CHANCE)) || Index == Encounters - 1));
+        NSLog(@"Door possible %d", ((0 <= (ENCOUNTER_CHEST_CHANCE + ENCOUNTER_DOOR_CHANCE)) || (Index == Encounters - 1)));
         if (RandomInt <= ENCOUNTER_CHEST_CHANCE && Index != (Encounters - 1)) {
             NSLog(@"%@", [NSString stringWithFormat:@"Picked chest of level %ld", DesiredLevel]);
             [Temp2 GenerateChest:DesiredLevel];
