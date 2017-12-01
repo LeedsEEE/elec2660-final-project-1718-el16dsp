@@ -53,6 +53,15 @@
                     :(NSString *)ObstacleImageTitle;
 -(void) prepareForSegue:(UIStoryboardSegue *)segue sender
                        :(id)sender;
+-(void) CheckIfDead:(NSMutableArray *)ReturnValues;
+// Shop stuff start
+@property (weak, nonatomic) IBOutlet UIButton *ShopButton1Outlet;
+@property (weak, nonatomic) IBOutlet UIButton *ShopButton2Outlet;
+
+- (IBAction)ShopButton1Action:(id)sender;
+- (IBAction)ShopButton2Action:(id)sender;
+
+// Shop stuff end
 // Game view stuff end
 
 // Inspection view start
@@ -67,4 +76,5 @@
 @property (weak, nonatomic) IBOutlet UILabel *WeaponNameLabelOutlet;
 @property (weak, nonatomic) IBOutlet UILabel *CostLabel;
 // Inspection view end
+
 @end

@@ -30,6 +30,13 @@
     
     self.GameHandler.Player = [[[DataStore alloc] init].PlayerClassArray objectAtIndex:self.ClassSelected];
     
+    self.GameHandler.ClassSelected = self.ClassSelected;
+    [self.GameHandler AssignWeapon1Cost:self.ClassSelected];
+    [self.GameHandler AssignWeapon2Cost:self.ClassSelected];
+    
+    self.ShopButton1Outlet.hidden = YES;
+    self.ShopButton2Outlet.hidden = YES;
+    
     if (self.RowSelected == 0) {
         NSLog(@"Game selected");
         NSLog(@"Class %ld %@ loaded with %@ and %@", self.ClassSelected, [self.GameHandler GetPlayerName], [self.GameHandler GetWeapon1Name], [self.GameHandler GetWeapon2Name]);
@@ -201,17 +208,7 @@
     // Charge (and fire) if type is an ability
     NSLog(@"HealthLabel %@ Button1Label %@ Button2Label %@", [ReturnValues objectAtIndex:0], [ReturnValues objectAtIndex:1], [ReturnValues objectAtIndex:2]);
     
-    NSInteger HealthNumerator = [[[[ReturnValues objectAtIndex:0] componentsSeparatedByString:@"/"] objectAtIndex:0] intValue];
-    
-    if (HealthNumerator > 0) {
-        // If player not dead
-        [self UpdateLabelText:[ReturnValues objectAtIndex:0] :[ReturnValues objectAtIndex:1] :[ReturnValues objectAtIndex:2] :[ReturnValues objectAtIndex:3]];
-        [self UpdateLabelSize:[ReturnValues objectAtIndex:0] :[ReturnValues objectAtIndex:1] :[ReturnValues objectAtIndex:2] :[ReturnValues objectAtIndex:3]];
-        [self UpdateImages:[ReturnValues objectAtIndex:4] :[ReturnValues objectAtIndex:5]];
-    } else {
-        // Player is dead
-        [self performSegueWithIdentifier:@"ShowShop" sender:self];
-    }
+    [self CheckIfDead:ReturnValues];
 }
 
 - (IBAction)Button2Pressed:(id)sender {
@@ -225,17 +222,7 @@
     // Charge (and fire) if type is an ability
     NSLog(@"HealthLabel %@ Button1Label %@ Button2Label %@", [ReturnValues objectAtIndex:0], [ReturnValues objectAtIndex:1], [ReturnValues objectAtIndex:2]);
     
-    NSInteger HealthNumerator = [[[[ReturnValues objectAtIndex:0] componentsSeparatedByString:@"/"] objectAtIndex:0] intValue];
-    
-    if (HealthNumerator > 0) {
-        // If player not dead
-        [self UpdateLabelText:[ReturnValues objectAtIndex:0] :[ReturnValues objectAtIndex:1] :[ReturnValues objectAtIndex:2] :[ReturnValues objectAtIndex:3]];
-        [self UpdateLabelSize:[ReturnValues objectAtIndex:0] :[ReturnValues objectAtIndex:1] :[ReturnValues objectAtIndex:2] :[ReturnValues objectAtIndex:3]];
-        [self UpdateImages:[ReturnValues objectAtIndex:4] :[ReturnValues objectAtIndex:5]];
-    } else {
-        // Player is dead
-        [self performSegueWithIdentifier:@"ShowShop" sender:self];
-    }
+    [self CheckIfDead:ReturnValues];
 }
 
 - (IBAction)CentralButtonPressed:(id)sender {
@@ -248,17 +235,7 @@
     // Do damage from weapons
     NSLog(@"HealthLabel %@ Button1Label %@ Button2Label %@", [ReturnValues objectAtIndex:0], [ReturnValues objectAtIndex:1], [ReturnValues objectAtIndex:2]);
     
-    NSInteger HealthNumerator = [[[[ReturnValues objectAtIndex:0] componentsSeparatedByString:@"/"] objectAtIndex:0] intValue];
-    
-    if (HealthNumerator > 0) {
-        // If player not dead
-        [self UpdateLabelText:[ReturnValues objectAtIndex:0] :[ReturnValues objectAtIndex:1] :[ReturnValues objectAtIndex:2] :[ReturnValues objectAtIndex:3]];
-        [self UpdateLabelSize:[ReturnValues objectAtIndex:0] :[ReturnValues objectAtIndex:1] :[ReturnValues objectAtIndex:2] :[ReturnValues objectAtIndex:3]];
-        [self UpdateImages:[ReturnValues objectAtIndex:4] :[ReturnValues objectAtIndex:5]];
-    } else {
-        // Player is dead
-        [self performSegueWithIdentifier:@"ShowShop" sender:self];
-    }
+    [self CheckIfDead:ReturnValues];
 }
 
 -(void) UpdateLabelText:(NSString *)HealthLabel
@@ -437,11 +414,47 @@
         // Get class integer and push it to the new view
         destination.ClassSelected = self.ClassSelected;
         destination.Coins = self.GameHandler.Coins;
+    }
+    
+}
+
+- (IBAction)ShopButton1Action:(id)sender {
+    // Call the method in GameController to spend the monies
+    self.CoinsLabelOutlet.text = [self.GameHandler OnShop1Click];
+    [self.GameHandler AssignWeapon1Cost:self.ClassSelected];
+    [self.ShopButton1Outlet setTitle:[NSString stringWithFormat:@"Upgrade %@ to level %ld for %ld coins", self.GameHandler.Player.Button1.Name, self.GameHandler.Player.Button1.Level + 1, self.GameHandler.Cost1] forState:UIControlStateNormal];
+}
+
+- (IBAction)ShopButton2Action:(id)sender {
+    // Call the method in GameController to spend the monies
+    self.CoinsLabelOutlet.text = [self.GameHandler OnShop2Click];
+    [self.GameHandler AssignWeapon2Cost:self.ClassSelected];
+    [self.ShopButton2Outlet setTitle:[NSString stringWithFormat:@"Upgrade %@ to level %ld for %ld coins", self.GameHandler.Player.Button2.Name, self.GameHandler.Player.Button2.Level + 1, self.GameHandler.Cost2] forState:UIControlStateNormal];
+}
+
+-(void) CheckIfDead:(NSMutableArray *)ReturnValues {
+    // View Controller's equivalent of OnEndTick
+    
+    NSInteger HealthNumerator = [[[[ReturnValues objectAtIndex:0] componentsSeparatedByString:@"/"] objectAtIndex:0] intValue];
+    
+    if (HealthNumerator > 0) {
+        // If player not dead
+        [self UpdateLabelText:[ReturnValues objectAtIndex:0] :[ReturnValues objectAtIndex:1] :[ReturnValues objectAtIndex:2] :[ReturnValues objectAtIndex:3]];
+        [self UpdateLabelSize:[ReturnValues objectAtIndex:0] :[ReturnValues objectAtIndex:1] :[ReturnValues objectAtIndex:2] :[ReturnValues objectAtIndex:3]];
+        [self UpdateImages:[ReturnValues objectAtIndex:4] :[ReturnValues objectAtIndex:5]];
+    } else {
+        // Player is dead
         self.Button1Outlet.enabled = NO;
         self.Button2Outlet.enabled = NO;
         self.CentralButtonOutlet.enabled = NO;
+        
+        [self.ShopButton1Outlet setTitle:[NSString stringWithFormat:@"Upgrade %@ to level %ld for %ld coins", self.GameHandler.Player.Button1.Name, self.GameHandler.Player.Button1.Level + 1, self.GameHandler.Cost1] forState:UIControlStateNormal];
+        [self.ShopButton2Outlet setTitle:[NSString stringWithFormat:@"Upgrade %@ to level %ld for %ld coins", self.GameHandler.Player.Button2.Name, self.GameHandler.Player.Button2.Level + 1, self.GameHandler.Cost2] forState:UIControlStateNormal];
+        
+        self.ShopButton1Outlet.hidden = NO;
+        self.ShopButton2Outlet.hidden = NO;
+        //[self performSegueWithIdentifier:@"ShowShop" sender:self];
     }
-    
 }
 
 @end

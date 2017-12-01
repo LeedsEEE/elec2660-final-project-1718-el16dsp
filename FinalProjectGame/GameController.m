@@ -12,7 +12,7 @@
 #define ENCOUNTER_RANGE 300
 #define ENCOUNTER_TOTAL ENCOUNTER_ENEMY_CHANCE+ENCOUNTER_CHEST_CHANCE+ENCOUNTER_DOOR_CHANCE
 #define ENCOUNTER_ENEMY_CHANCE 5
-#define ENCOUNTER_CHEST_CHANCE 2
+#define ENCOUNTER_CHEST_CHANCE 5
 #define ENCOUNTER_DOOR_CHANCE 2
 #define ENCOUNTER_LEVEL_RANGE 3
 #define GET_CURRENT_OBSTACLE [self.ObstacleArray objectAtIndex:self.CurrentObstacle]
@@ -23,6 +23,7 @@
 {
     self = [super init];
     if (self) {
+        self.Data = [[DataStore alloc] init];
         self.Coins = 0;
         self.ClicksPressed = 0;
         self.ObstacleArray = [NSMutableArray array];
@@ -314,6 +315,44 @@
     return ReturnValues;
 }
 
+-(NSString *)OnShop1Click {
+    NSLog(@"Shop Button 1 clicked from GameController");
+    
+    NSString *CoinLabel = [NSString stringWithFormat:@"Coins: %3ld", self.Coins];
+    
+    if (self.Coins >= self.Cost1) {
+        self.Coins -= self.Cost1;
+        [self.Data SaveData:self.ClassSelected
+                           :0
+                           :([self.Data GetWeapon1Level:self.ClassSelected] + 1)];
+        CoinLabel = [NSString stringWithFormat:@"Coins: %3ld", self.Coins];
+        [self AssignWeapon1Cost:self.ClassSelected];
+        // Need to return string for the button. Or just have the view controller abuse the public variable nature of objective c and hack the string together itself...
+        self.Player.Button1.Level += 1;
+    }
+    
+    return CoinLabel;
+}
+
+-(NSString *)OnShop2Click {
+    NSLog(@"Shop Button 2 clicked from GameController");
+    
+    NSString *CoinLabel = [NSString stringWithFormat:@"Coins: %3ld", self.Coins];
+    
+    if (self.Coins >= self.Cost2) {
+        self.Coins -= self.Cost2;
+        [self.Data SaveData:self.ClassSelected
+                           :1
+                           :([self.Data GetWeapon2Level:self.ClassSelected] + 1)];
+        CoinLabel = [NSString stringWithFormat:@"Coins: %3ld", self.Coins];
+        [self AssignWeapon2Cost:self.ClassSelected];
+        // Need to return string for the button. Or just have the view controller abuse the public variable nature of objective c and hack the string together itself...
+        self.Player.Button2.Level += 1;
+    }
+    
+    return CoinLabel;
+}
+
 -(void)OnEndTurn {
     NSLog(@"/// TURN %ld END \\\\\\", self.ClicksPressed + 1);
     
@@ -364,6 +403,14 @@
     NSString *Name = self.Player.Button2.Type;
     NSLog(@"Returning weapon 2 type %@", Name);
     return Name;
+}
+
+-(void)AssignWeapon1Cost:(NSInteger)ClassSelected {
+    self.Cost1 = [self.Data GetWeapon1Cost:ClassSelected];
+}
+
+-(void)AssignWeapon2Cost:(NSInteger)ClassSelected {
+    self.Cost2 = [self.Data GetWeapon2Cost:ClassSelected];
 }
 
 @end

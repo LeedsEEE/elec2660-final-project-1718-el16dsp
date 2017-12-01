@@ -8,11 +8,16 @@
 
 #import <Foundation/Foundation.h>
 #import "PlayerClass.h"
+#import "DataStore.h"
 
 @interface GameController : NSObject
 
+@property (strong, nonatomic) DataStore *Data;
 @property (strong, nonatomic) PlayerClass *Player; // Stores current player data but is initiated by copying one from DataStore
 @property (nonatomic) NSInteger Coins; // Stores the points gained in the runthrough
+@property (nonatomic) NSInteger ClassSelected;
+@property (nonatomic) NSInteger Cost1;
+@property (nonatomic) NSInteger Cost2;
 @property (nonatomic) NSInteger ClicksPressed; // Stores the number of buttons pressed in this runthrough
 @property (strong, nonatomic) NSMutableArray *ObstacleArray; // Stores the obstacles that the player has to overcome. Is regenerated upon overcoming the last one
 @property (nonatomic) NSInteger RoomInteger;
@@ -24,6 +29,8 @@
 -(NSMutableArray *)OnObstacleClick; // If player has a weapon, it will do damage
 -(NSMutableArray *)OnButton1Click; // Player ability amount will be incremented and label updated
 -(NSMutableArray *)OnButton2Click; // Same as above
+-(NSString *)OnShop1Click; // When the shop button is clicked, upgrades the item and returns a string of the new coin label
+-(NSString *)OnShop2Click;
 -(void)OnEndTurn;
 -(NSString *)GetObstacleName;
 -(NSString *)GetPlayerName;
@@ -31,6 +38,8 @@
 -(NSString *)GetWeapon1Type;
 -(NSString *)GetWeapon2Name;
 -(NSString *)GetWeapon2Type;
+-(void)AssignWeapon1Cost:(NSInteger) ClassSelected;
+-(void)AssignWeapon2Cost:(NSInteger) ClassSelected;
 
 /*
  Stuff to send back to the view controller:

@@ -27,7 +27,7 @@
     self.Cost2 = [self.Data GetWeapon2Cost:self.ClassSelected];
     
     [self.Button1UpgradeOutlet setTitle:[NSString stringWithFormat:@"Upgrade %@ to level %ld for %ld coins", [self.Data GetWeapon1Title:self.ClassSelected], [self.Data GetWeapon1Level:self.ClassSelected] + 1, self.Cost1] forState:UIControlStateNormal];
-    [self.Button2UpgradeOutlet setTitle:[NSString stringWithFormat:@"Upgrade %@ to level %ld for %ld coins", [self.Data GetWeapon2Title:self.ClassSelected], [self.Data GetWeapon2Level:self.ClassSelected] + 1, self.Cost2] forState:UIControlStateNormal];
+    [self.Button2UpgradeOutlet setTitle:[NSString stringWithFormat:@"Upgrade %@ to level %ld for %ld coins", [self.Data GetWeapon2Title:self.ClassSelected], [self.Data GetWeapon2Level:self.ClassSelected], self.Cost2] forState:UIControlStateNormal];
 }
 
 - (void)didReceiveMemoryWarning {
