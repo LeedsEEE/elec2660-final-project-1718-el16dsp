@@ -258,6 +258,7 @@
         NSLog(@"Old coins amount %ld", self.Coins);
         self.Coins += Temp.Reward;
         NSLog(@"New coins amoung %ld", self.Coins);
+        [ReturnValues replaceObjectAtIndex:3 withObject:[NSString stringWithFormat:@"Coins: %03ld", self.Coins]];
         [ReturnValues replaceObjectAtIndex:5 withObject:[GET_CURRENT_OBSTACLE GetImageName]];
     }
     
