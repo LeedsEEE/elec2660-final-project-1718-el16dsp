@@ -56,19 +56,19 @@
         self.BackgroundImageOutlet.hidden = NO;
         
         // Add button images/frames
-        NSString *HealthProportion = [NSString stringWithFormat:@"Load %@", [self.GameHandler GetWeapon1Name]];
+        NSString *HealthProportion = [NSString stringWithFormat:@"%ld/%ld", self.GameHandler.Player.CurrentHealth, self.GameHandler.Player.MaxHealth];
         NSString *Button1Proportion = [NSString stringWithFormat:@"%ld/%ld", self.GameHandler.Player.Button1.ClickAmount, self.GameHandler.Player.Button1.ClicksPerClip];
         NSString *Button2Proportion = [NSString stringWithFormat:@"%ld/%ld", self.GameHandler.Player.Button2.ClickAmount, self.GameHandler.Player.Button2.ClicksPerClip];
-        [self.Button1Outlet setTitle:HealthProportion forState:UIControlStateNormal];
+        [self.Button1Outlet setTitle:[NSString stringWithFormat:@"Load %@", [self.GameHandler GetWeapon1Name]] forState:UIControlStateNormal];
         [self.Button2Outlet setTitle:[NSString stringWithFormat:@"Load %@", [self.GameHandler GetWeapon2Name]] forState:UIControlStateNormal];
         [self UpdateLabelSize:HealthProportion
                              :Button1Proportion
                              :Button2Proportion
                              :@"Coins: 000"];
-        //[self UpdateLabelText:HealthProportion
+        [self UpdateLabelText:HealthProportion
                              :Button1Proportion
                              :Button2Proportion
-                             :@"Coins: 000"]; // TODO Fix this
+                             :@"Coins: 000"];
         if ([[self.GameHandler GetObstacleName] isEqualToString:@"Enemy"]) {
             // Could be idle or pre_attack or attack
             if ([GET_CURRENT_OBSTACLE GetClickAmount] == ([GET_CURRENT_OBSTACLE GetMaxClicks] - [GET_CURRENT_OBSTACLE GetAutoClicks])) {
