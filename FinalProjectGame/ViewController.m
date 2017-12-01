@@ -278,10 +278,11 @@
     // Taken from https://stackoverflow.com/questions/3655104/iphone-ipad-how-to-get-screen-width-programmatically on 2017-NOV-15
     CGRect Screen = [[UIScreen mainScreen] bounds];
     CGFloat ScreenWidth = CGRectGetWidth(Screen);
+    CGFloat ScreenHeight = CGRectGetHeight(Screen);
     // Status bar information from https://stackoverflow.com/questions/3888517/get-iphone-status-bar-height on 30-NOV-2017
     CGRect StatusBar = [[UIApplication sharedApplication] statusBarFrame];
     CGFloat BarOffset = self.navigationController.navigationBar.frame.size.height + StatusBar.size.height;
-    NSLog(@"Update labels called with width %f", ScreenWidth);
+    NSLog(@"Update labels called with width %f and height %f", ScreenWidth, ScreenHeight);
     
     // Pull integers from the strings and find the ratio betwen them
     float HealthLabelProportion = [self CalcRatio:HealthLabel];
@@ -324,7 +325,15 @@
     Button1LabelFrame.size.width = 0.5 * Button1LabelProportion * ScreenWidth;
     Button1LabelFrame.size.height = 30;
     Button1LabelFrame.origin.x = self.Button1LabelOutlet.frame.origin.x;
-    Button1LabelFrame.origin.y = self.Button1LabelOutlet.frame.origin.y; // TODO Fix this
+    if (self.Button1LabelOutlet.frame.origin.y == 0) {
+        NSString *DeviceName = [[UIDevice currentDevice] model];
+        NSLog(@"Device is %@", DeviceName);
+        if ([DeviceName isEqualToString:@"iPhone"]) {
+            Button1LabelFrame.origin.y = 606; // For iPhone 6s+ although the simulator seems to convert this for each device's aspect ratios
+        }
+    } else {
+        Button1LabelFrame.origin.y = self.Button1LabelOutlet.frame.origin.y;
+    }
     NSLog(@"New Button1 width %f", Button1LabelFrame.size.width);
     self.Button1Box = [[UIView alloc] initWithFrame:Button1LabelFrame];
     if ([[self.GameHandler GetWeapon1Type] isEqualToString:@"W"] && [[[Button1Label componentsSeparatedByString:@"/"] objectAtIndex:0] intValue] == 0) {
@@ -353,7 +362,15 @@
     Button2LabelFrame.size.width = 0.5 * Button2LabelProportion * ScreenWidth;
     Button2LabelFrame.size.height = 30;
     Button2LabelFrame.origin.x = ScreenWidth - 0.5 * Button2LabelProportion * ScreenWidth;
-    Button2LabelFrame.origin.y = self.Button2LabelOutlet.frame.origin.y; // TODO Fix this
+    if (self.Button2LabelOutlet.frame.origin.y == 0) {
+        NSString *DeviceName = [[UIDevice currentDevice] model];
+        NSLog(@"Device is %@", DeviceName);
+        if ([DeviceName isEqualToString:@"iPhone"]) {
+            Button2LabelFrame.origin.y = 606; // For iPhone 6s+ although the simulator seems to convert this for each device's aspect ratios
+        }
+    } else {
+        Button2LabelFrame.origin.y = self.Button2LabelOutlet.frame.origin.y;
+    }
     NSLog(@"New Button2 width %f", Button2LabelFrame.size.width);
     self.Button2Box = [[UIView alloc] initWithFrame:Button2LabelFrame];
     if ([[self.GameHandler GetWeapon2Type] isEqualToString:@"W"] && [[[Button2Label componentsSeparatedByString:@"/"] objectAtIndex:0] intValue] == 0) {
