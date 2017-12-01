@@ -10,10 +10,9 @@
 #import "ObstacleClass.h"
 #define ENCOUNTER_OFFSET 100
 #define ENCOUNTER_RANGE 300
-#define ENCOUNTER_TOTAL ENCOUNTER_ENEMY_CHANCE+ENCOUNTER_CHEST_CHANCE+ENCOUNTER_DOOR_CHANCE
 #define ENCOUNTER_ENEMY_CHANCE 5
-#define ENCOUNTER_CHEST_CHANCE 5
-#define ENCOUNTER_DOOR_CHANCE 2
+#define ENCOUNTER_CHEST_CHANCE 2
+#define ENCOUNTER_DOOR_CHANCE 3
 #define ENCOUNTER_LEVEL_RANGE 3
 #define GET_CURRENT_OBSTACLE [self.ObstacleArray objectAtIndex:self.CurrentObstacle]
 
@@ -54,13 +53,14 @@
         ObstacleClass *Temp = [[ObstacleClass alloc] init];
         ObstacleClass *Temp2 = [[ObstacleClass alloc] init];
         
+        NSInteger ENCOUNTER_TOTAL = ENCOUNTER_ENEMY_CHANCE + ENCOUNTER_CHEST_CHANCE + ENCOUNTER_DOOR_CHANCE;
         // Picks a random number between 0 and ENCOUNTER_TOTAL
         RandomInt = arc4random() % ENCOUNTER_TOTAL;
         
         // Picks whether the obstacle is a chest, door or enemy
-        NSLog(@"Random roll was %ld out of %d:%d:%d", RandomInt, ENCOUNTER_CHEST_CHANCE, ENCOUNTER_DOOR_CHANCE, ENCOUNTER_ENEMY_CHANCE);
+        NSLog(@"Random roll was %ld out of %ld split into %d:%d:%d", RandomInt, ENCOUNTER_TOTAL, ENCOUNTER_CHEST_CHANCE, ENCOUNTER_DOOR_CHANCE, ENCOUNTER_ENEMY_CHANCE);
         NSLog(@"Chest possible %d", (0 <= ENCOUNTER_CHEST_CHANCE && Index != (Encounters - 1)));
-        NSLog(@"Door possible %d", ((0 <= (ENCOUNTER_CHEST_CHANCE + ENCOUNTER_DOOR_CHANCE)) || (Index == Encounters - 1)));
+        NSLog(@"Door possible %d", (((0 <= (ENCOUNTER_CHEST_CHANCE + ENCOUNTER_DOOR_CHANCE))) || (Index == Encounters - 1)));
         if (RandomInt <= ENCOUNTER_CHEST_CHANCE && Index != (Encounters - 1)) {
             NSLog(@"%@", [NSString stringWithFormat:@"Picked chest of level %ld", DesiredLevel]);
             [Temp2 GenerateChest:DesiredLevel];
