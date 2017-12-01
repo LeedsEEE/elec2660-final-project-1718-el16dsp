@@ -43,6 +43,7 @@
         self.StunDurationLabelOutlet.hidden = YES;
         self.AutoClickRateLabelOutlet.hidden = YES;
         self.WeaponNameLabelOutlet.hidden = YES;
+        self.CostLabel.hidden = YES;
         
         // Show game stuff
         self.CentralButtonOutlet.hidden = NO;
@@ -109,6 +110,7 @@
         self.StunDurationLabelOutlet.hidden = NO;
         self.AutoClickRateLabelOutlet.hidden = NO;
         self.WeaponNameLabelOutlet.hidden = NO;
+        self.CostLabel.hidden = NO;
         
         // Set labels and images
         self.ClassNameLabelOutlet.text = [NSString stringWithFormat:@"Class: %@", [self.GameHandler GetPlayerName]];
@@ -124,10 +126,11 @@
         }
         self.StunDurationLabelOutlet.text = [NSString stringWithFormat:@"Stun Duration: %ld", self.GameHandler.Player.Button1.StunDuration];
         self.AutoClickRateLabelOutlet.text = [NSString stringWithFormat:@"Auto Load Rate: %ld", self.GameHandler.Player.Button1.AutoClickLoadRate];
+        self.CostLabel.text = [NSString stringWithFormat:@"Next upgrade needs %ld coins", self.Cost];
         ImageName = self.GameHandler.Player.Button1.ImageName;
         [self.WeaponImageOutlet setImage:[UIImage imageNamed:ImageName]];
         self.WeaponNameLabelOutlet.text = self.GameHandler.Player.Button1.Name;
-        // TODO Add weapon images (pistol.png and blowtorch.png) and a cost label
+        // TODO Add weapon images (pistol.png and blowtorch.png)
     }
     else if (self.RowSelected == 2) {
         NSLog(@"Inspect button 2");
@@ -153,6 +156,7 @@
         self.StunDurationLabelOutlet.hidden = NO;
         self.AutoClickRateLabelOutlet.hidden = NO;
         self.WeaponNameLabelOutlet.hidden = NO;
+        self.CostLabel.hidden = NO;
         
         // Set labels and images
         self.ClassNameLabelOutlet.text = [NSString stringWithFormat:@"Class: %@", [self.GameHandler GetPlayerName]];
@@ -168,6 +172,7 @@
         }
         self.StunDurationLabelOutlet.text = [NSString stringWithFormat:@"Stun Duration: %ld", self.GameHandler.Player.Button2.StunDuration];
         self.AutoClickRateLabelOutlet.text = [NSString stringWithFormat:@"Auto Load Rate: %ld", self.GameHandler.Player.Button2.AutoClickLoadRate];
+        self.CostLabel.text = [NSString stringWithFormat:@"Next upgrade needs %ld coins", self.Cost];
         ImageName = self.GameHandler.Player.Button2.ImageName;
         [self.WeaponImageOutlet setImage:[UIImage imageNamed:ImageName]];
         self.WeaponNameLabelOutlet.text = self.GameHandler.Player.Button2.Name;
@@ -275,6 +280,7 @@
     CGFloat ScreenWidth = CGRectGetWidth(Screen);
     // Status bar information from https://stackoverflow.com/questions/3888517/get-iphone-status-bar-height on 30-NOV-2017
     CGRect StatusBar = [[UIApplication sharedApplication] statusBarFrame];
+    CGFloat BarOffset = self.navigationController.navigationBar.frame.size.height + StatusBar.size.height;
     NSLog(@"Update labels called with width %f", ScreenWidth);
     
     // Pull integers from the strings and find the ratio betwen them
@@ -296,7 +302,7 @@
     NSLog(@"New Health width %f", HealthLabelFrame.size.width);
     HealthLabelFrame.origin.x = ((1.0 - HealthLabelProportion) * ScreenWidth)/2.0;
     // Taken from https://stackoverflow.com/questions/20160933/what-is-the-height-of-navigation-bar-in-ios-7 on 30-NOV-2017
-    HealthLabelFrame.origin.y = self.navigationController.navigationBar.frame.size.height + StatusBar.size.height + 30;
+    HealthLabelFrame.origin.y = BarOffset + 30;
     
     // Draw box behind label
     // Taken from https://stackoverflow.com/questions/14785188/drawing-rectangles-in-ios on 30-NOV-2017
@@ -318,7 +324,7 @@
     Button1LabelFrame.size.width = 0.5 * Button1LabelProportion * ScreenWidth;
     Button1LabelFrame.size.height = 30;
     Button1LabelFrame.origin.x = self.Button1LabelOutlet.frame.origin.x;
-    Button1LabelFrame.origin.y = self.Button1LabelOutlet.frame.origin.y;
+    Button1LabelFrame.origin.y = self.Button1LabelOutlet.frame.origin.y; // TODO Fix this
     NSLog(@"New Button1 width %f", Button1LabelFrame.size.width);
     self.Button1Box = [[UIView alloc] initWithFrame:Button1LabelFrame];
     if ([[self.GameHandler GetWeapon1Type] isEqualToString:@"W"] && [[[Button1Label componentsSeparatedByString:@"/"] objectAtIndex:0] intValue] == 0) {
@@ -347,7 +353,7 @@
     Button2LabelFrame.size.width = 0.5 * Button2LabelProportion * ScreenWidth;
     Button2LabelFrame.size.height = 30;
     Button2LabelFrame.origin.x = ScreenWidth - 0.5 * Button2LabelProportion * ScreenWidth;
-    Button2LabelFrame.origin.y = self.Button2LabelOutlet.frame.origin.y;
+    Button2LabelFrame.origin.y = self.Button2LabelOutlet.frame.origin.y; // TODO Fix this
     NSLog(@"New Button2 width %f", Button2LabelFrame.size.width);
     self.Button2Box = [[UIView alloc] initWithFrame:Button2LabelFrame];
     if ([[self.GameHandler GetWeapon2Type] isEqualToString:@"W"] && [[[Button2Label componentsSeparatedByString:@"/"] objectAtIndex:0] intValue] == 0) {
@@ -398,7 +404,6 @@
     UIImage *ObstacleImage = [UIImage imageNamed:ObstacleImageTitle];
     [self.CentralButtonOutlet setImage:ObstacleImage forState:UIControlStateNormal];
     
-    //[self.view setNeedsDisplay];
 }
 
 -(void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {

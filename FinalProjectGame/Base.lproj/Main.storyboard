@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="ISa-PG-jK9">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="ISa-PG-jK9">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
@@ -175,6 +175,11 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cost" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4eI-Xd-Z6o">
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.78663374352331605" green="0.78663374352331605" blue="0.78663374352331605" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -222,6 +227,8 @@
                             <constraint firstAttribute="trailingMargin" secondItem="R9J-ut-iwX" secondAttribute="trailing" constant="-20" id="s8o-MR-eYU"/>
                             <constraint firstItem="HVr-Fa-LTs" firstAttribute="top" secondItem="fw8-hf-Xzs" secondAttribute="bottom" constant="15" id="wv6-eh-0W9"/>
                             <constraint firstAttribute="leadingMargin" secondItem="cxl-ZV-xhp" secondAttribute="leading" id="xV4-g0-unl"/>
+                            <constraint firstItem="4eI-Xd-Z6o" firstAttribute="top" secondItem="G9x-AL-qf2" secondAttribute="bottom" constant="15" id="z48-7b-oIY"/>
+                            <constraint firstItem="4eI-Xd-Z6o" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="z7W-Nj-RZU"/>
                         </constraints>
                     </view>
                     <connections>
@@ -235,6 +242,7 @@
                         <outlet property="ClassNameLabelOutlet" destination="oz4-jc-GLK" id="50x-jT-y1h"/>
                         <outlet property="ClicksPerClipLabelOutlet" destination="fw8-hf-Xzs" id="XfI-uj-xeQ"/>
                         <outlet property="CoinsLabelOutlet" destination="cxl-ZV-xhp" id="mWd-eM-s5o"/>
+                        <outlet property="CostLabel" destination="4eI-Xd-Z6o" id="NaI-mX-l37"/>
                         <outlet property="DamageLabelOutlet" destination="6ux-86-R42" id="Z0U-E2-s5w"/>
                         <outlet property="DescriptionLabelOutlet" destination="eWL-LP-FMR" id="4Jb-eg-PI6"/>
                         <outlet property="HealthLabelOutlet" destination="z74-L6-mG9" id="hh6-si-sdr"/>

@@ -12,8 +12,11 @@
 @interface ViewController : UIViewController
 
 @property (strong, nonatomic) GameController *GameHandler;
+
+// Segued stuff
 @property (nonatomic) NSInteger ClassSelected;
 @property (nonatomic) NSInteger RowSelected;
+@property (nonatomic) NSInteger Cost;
 
 // Game view stuff start
 @property (weak, nonatomic) IBOutlet UIButton *Button1Outlet;
@@ -62,5 +65,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *StunDurationLabelOutlet;
 @property (weak, nonatomic) IBOutlet UILabel *AutoClickRateLabelOutlet;
 @property (weak, nonatomic) IBOutlet UILabel *WeaponNameLabelOutlet;
+@property (weak, nonatomic) IBOutlet UILabel *CostLabel;
 // Inspection view end
 @end

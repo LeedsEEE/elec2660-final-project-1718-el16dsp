@@ -142,8 +142,14 @@
         
         // Get class integer and push it to the new view
         NSInteger TempClassIndex = indexPath.section;
+        NSInteger TempRowSelected = indexPath.row;
         destination.ClassSelected = TempClassIndex;
-        destination.RowSelected = indexPath.row;
+        destination.RowSelected = TempRowSelected;
+        if (TempRowSelected == 1) {
+            destination.Cost = [self.Data GetWeapon1Cost:TempClassIndex];
+        } else if (TempRowSelected == 2) {
+            destination.Cost = [self.Data GetWeapon2Cost:TempClassIndex];
+        }
     }
 }
 

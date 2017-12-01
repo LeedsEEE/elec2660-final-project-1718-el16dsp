@@ -86,6 +86,7 @@
         self.ClickAmount = self.AutoClickLoadRate + self.ClickAmount;
         NSLog(@"New ClickAmount = %ld", self.ClickAmount);
     } else {
+        self.ClickAmount = self.ClicksPerClip;
         NSLog(@"Max clip reached");
     }
     Label = [NSString stringWithFormat:@"%ld/%ld", self.ClickAmount, self.ClicksPerClip];
