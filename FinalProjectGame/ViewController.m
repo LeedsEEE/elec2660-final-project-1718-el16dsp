@@ -326,7 +326,7 @@
     Button1LabelFrame.size.height = 30;
     Button1LabelFrame.origin.x = self.Button1LabelOutlet.frame.origin.x;
     if (self.Button1LabelOutlet.frame.origin.y == 0) {
-        NSString *DeviceName = [[UIDevice currentDevice] model];
+        NSString *DeviceName = [[UIDevice currentDevice] model]; // Taken from https://stackoverflow.com/questions/11197509/how-to-get-device-make-and-model-on-ios on 1-DEC-2017
         NSLog(@"Device is %@", DeviceName);
         if ([DeviceName isEqualToString:@"iPhone"]) {
             Button1LabelFrame.origin.y = 606; // For iPhone 6s+ although the simulator seems to convert this for each device's aspect ratios

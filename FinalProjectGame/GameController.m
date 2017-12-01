@@ -263,16 +263,16 @@
     // For the graphics, show what the player has done in the last turn
     if (([[Damage1 objectAtIndex:0] integerValue] > 0 || [[Damage1 objectAtIndex:1] integerValue]) && ([[Damage2 objectAtIndex:0] integerValue] > 0 || [[Damage2 objectAtIndex:1] integerValue])) { // IF the player fired both button 1 and button 2
         // Handles case of some weapons not doing damage but stunning instead
-        [ReturnValues replaceObjectAtIndex:4 withObject:@"cutter_fire_12"];
+        [ReturnValues replaceObjectAtIndex:4 withObject:[NSString stringWithFormat:@"%@_fire_12", self.Player.ImageBasis]];
             
     } else if ([[Damage1 objectAtIndex:0] integerValue] > 0 || [[Damage1 objectAtIndex:1] integerValue]) { // IF the player fired button 1
-        [ReturnValues replaceObjectAtIndex:4 withObject:@"cutter_fire_1"];
+        [ReturnValues replaceObjectAtIndex:4 withObject:[NSString stringWithFormat:@"%@_fire_1", self.Player.ImageBasis]];
             
     } else if ([[Damage2 objectAtIndex:0] integerValue] > 0 || [[Damage2 objectAtIndex:1] integerValue]) { // IF the player fired button 2
-        [ReturnValues replaceObjectAtIndex:4 withObject:@"cutter_fire_2"];
+        [ReturnValues replaceObjectAtIndex:4 withObject:[NSString stringWithFormat:@"%@_fire_2", self.Player.ImageBasis]];
             
     } else { // Pick idle
-        [ReturnValues replaceObjectAtIndex:4 withObject:@"cutter_idle"];
+        [ReturnValues replaceObjectAtIndex:4 withObject:[NSString stringWithFormat:@"%@_idle", self.Player.ImageBasis]];
     } // Loading an individual weapon is done in the appropriate button press
     
     NSLog(@"HealthLabel %@ Button1Label %@", [ReturnValues objectAtIndex:0], [ReturnValues objectAtIndex:1]);
@@ -290,7 +290,7 @@
     ReturnValues = [self OnAnyTick];
     // Call weapon 1 manual increment method
     [ReturnValues replaceObjectAtIndex:1 withObject:[self.Player.Button1 ManualIncrement]];
-    [ReturnValues replaceObjectAtIndex:4 withObject:@"cutter_load_1"];
+    [ReturnValues replaceObjectAtIndex:4 withObject:[NSString stringWithFormat:@"%@_load_1", self.Player.ImageBasis]];
     NSLog(@"HealthLabel %@ Button1Label %@", [ReturnValues objectAtIndex:0], [ReturnValues objectAtIndex:1]);
     NSLog(@"Button2Label %@ CoinsLabel %@", [ReturnValues objectAtIndex:2], [ReturnValues objectAtIndex:3]);
     NSLog(@"PlayerImage %@ ObstacleImage %@", [ReturnValues objectAtIndex:4], [ReturnValues objectAtIndex:5]);
@@ -306,7 +306,7 @@
     ReturnValues = [self OnAnyTick];
     // Call weapon 2 manual increment method
     [ReturnValues replaceObjectAtIndex:2 withObject:[self.Player.Button2 ManualIncrement]];
-    [ReturnValues replaceObjectAtIndex:4 withObject:@"cutter_load_2"];
+    [ReturnValues replaceObjectAtIndex:4 withObject:[NSString stringWithFormat:@"%@_load_2", self.Player.ImageBasis]];
     NSLog(@"HealthLabel %@ Button1Label %@", [ReturnValues objectAtIndex:0], [ReturnValues objectAtIndex:1]);
     NSLog(@"Button2Label %@ CoinsLabel %@", [ReturnValues objectAtIndex:2], [ReturnValues objectAtIndex:3]);
     NSLog(@"PlayerImage %@ ObstacleImage %@", [ReturnValues objectAtIndex:4], [ReturnValues objectAtIndex:5]);
