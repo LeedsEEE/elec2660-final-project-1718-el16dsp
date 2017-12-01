@@ -56,6 +56,10 @@
         self.CoinsLabelOutlet.hidden = NO;
         self.BackgroundImageOutlet.hidden = NO;
         
+        self.Button1Outlet.enabled = YES;
+        self.Button2Outlet.enabled = YES;
+        self.CentralButtonOutlet.enabled = YES;
+        
         // Add button images/frames
         NSString *HealthProportion = [NSString stringWithFormat:@"%ld/%ld", self.GameHandler.Player.CurrentHealth, self.GameHandler.Player.MaxHealth];
         NSString *Button1Proportion = [NSString stringWithFormat:@"%ld/%ld", self.GameHandler.Player.Button1.ClickAmount, self.GameHandler.Player.Button1.ClicksPerClip];
@@ -433,6 +437,9 @@
         // Get class integer and push it to the new view
         destination.ClassSelected = self.ClassSelected;
         destination.Coins = self.GameHandler.Coins;
+        self.Button1Outlet.enabled = NO;
+        self.Button2Outlet.enabled = NO;
+        self.CentralButtonOutlet.enabled = NO;
     }
     
 }
