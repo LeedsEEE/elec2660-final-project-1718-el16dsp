@@ -42,6 +42,10 @@
 		53572C201FB2060400E11BDB /* FinalProjectGameUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 53572C1F1FB2060400E11BDB /* FinalProjectGameUITests.m */; };
 		5385983C1FB9D19C00DBA7CB /* class_levels_data.txt in Resources */ = {isa = PBXBuildFile; fileRef = 5385983B1FB9D19C00DBA7CB /* class_levels_data.txt */; };
 		5385983F1FB9D46800DBA7CB /* TableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5385983E1FB9D46800DBA7CB /* TableViewController.m */; };
+		53FA92101FD567860018E55A /* blowtorch.png in Resources */ = {isa = PBXBuildFile; fileRef = 53FA920F1FD567860018E55A /* blowtorch.png */; };
+		53FA92141FD567960018E55A /* ELEC2660 Inspection Background.png in Resources */ = {isa = PBXBuildFile; fileRef = 53FA92111FD567960018E55A /* ELEC2660 Inspection Background.png */; };
+		53FA92151FD567960018E55A /* ELEC2660 LaunchScreen.png in Resources */ = {isa = PBXBuildFile; fileRef = 53FA92121FD567960018E55A /* ELEC2660 LaunchScreen.png */; };
+		53FA92161FD567960018E55A /* pistol.png in Resources */ = {isa = PBXBuildFile; fileRef = 53FA92131FD567960018E55A /* pistol.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -112,6 +116,10 @@
 		5385983B1FB9D19C00DBA7CB /* class_levels_data.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = class_levels_data.txt; sourceTree = "<group>"; };
 		5385983D1FB9D46800DBA7CB /* TableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableViewController.h; sourceTree = "<group>"; };
 		5385983E1FB9D46800DBA7CB /* TableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableViewController.m; sourceTree = "<group>"; };
+		53FA920F1FD567860018E55A /* blowtorch.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = blowtorch.png; path = Assets/blowtorch.png; sourceTree = SOURCE_ROOT; };
+		53FA92111FD567960018E55A /* ELEC2660 Inspection Background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "ELEC2660 Inspection Background.png"; path = "../Assets/ELEC2660 Inspection Background.png"; sourceTree = "<group>"; };
+		53FA92121FD567960018E55A /* ELEC2660 LaunchScreen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "ELEC2660 LaunchScreen.png"; path = "../Assets/ELEC2660 LaunchScreen.png"; sourceTree = "<group>"; };
+		53FA92131FD567960018E55A /* pistol.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = pistol.png; path = ../Assets/pistol.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -193,6 +201,10 @@
 			isa = PBXGroup;
 			children = (
 				534AC89D1FCEEA1A00989660 /* ELEC2660 Button.png */,
+				53FA920F1FD567860018E55A /* blowtorch.png */,
+				53FA92111FD567960018E55A /* ELEC2660 Inspection Background.png */,
+				53FA92121FD567960018E55A /* ELEC2660 LaunchScreen.png */,
+				53FA92131FD567960018E55A /* pistol.png */,
 				534AC89F1FCEEA1A00989660 /* cutter_fire_2.png */,
 				534AC8A01FCEEA1A00989660 /* cutter_fire_12.png */,
 				534AC8A11FCEEA1A00989660 /* cutter_fire_1.png */,
@@ -345,9 +357,13 @@
 				534AC8B21FCEEA1A00989660 /* enemy_attack.png in Resources */,
 				531A76041FC47C4700C36330 /* door_dead.png in Resources */,
 				53572C0A1FB2060300E11BDB /* LaunchScreen.storyboard in Resources */,
+				53FA92101FD567860018E55A /* blowtorch.png in Resources */,
 				534AC8B11FCEEA1A00989660 /* cutter_load_1.png in Resources */,
+				53FA92151FD567960018E55A /* ELEC2660 LaunchScreen.png in Resources */,
 				534AC8AA1FCEEA1A00989660 /* ELEC2660 Button.png in Resources */,
 				534AC8B01FCEEA1A00989660 /* cutter_load_2.png in Resources */,
+				53FA92161FD567960018E55A /* pistol.png in Resources */,
+				53FA92141FD567960018E55A /* ELEC2660 Inspection Background.png in Resources */,
 				534AC8B41FCEEA1A00989660 /* enemy_pre_attack.png in Resources */,
 				534AC8B51FCEEA1A00989660 /* enemy_alt_stunned.png in Resources */,
 				534AC8AD1FCEEA1A00989660 /* cutter_fire_12.png in Resources */,

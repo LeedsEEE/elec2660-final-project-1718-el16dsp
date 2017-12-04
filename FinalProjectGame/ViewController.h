@@ -67,6 +67,7 @@
 // Inspection view start
 @property (weak, nonatomic) IBOutlet UILabel *ClassNameLabelOutlet;
 @property (weak, nonatomic) IBOutlet UIImageView *WeaponImageOutlet;
+@property (weak, nonatomic) IBOutlet UIImageView *ImageBackgroundOutlet;
 @property (weak, nonatomic) IBOutlet UILabel *DescriptionLabelOutlet;
 @property (weak, nonatomic) IBOutlet UILabel *LevelLabelOutlet;
 @property (weak, nonatomic) IBOutlet UILabel *DamageLabelOutlet;

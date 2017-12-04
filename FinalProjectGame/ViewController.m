@@ -43,6 +43,7 @@
         // Hide inspect stuff
         self.ClassNameLabelOutlet.hidden = YES;
         self.WeaponImageOutlet.hidden = YES;
+        self.ImageBackgroundOutlet.hidden = YES;
         self.DescriptionLabelOutlet.hidden = YES;
         self.LevelLabelOutlet.hidden = YES;
         self.DamageLabelOutlet.hidden = YES;
@@ -114,6 +115,7 @@
         // Show inspect stuff
         self.ClassNameLabelOutlet.hidden = NO;
         self.WeaponImageOutlet.hidden = NO;
+        self.ImageBackgroundOutlet.hidden = NO;
         self.DescriptionLabelOutlet.hidden = NO;
         self.LevelLabelOutlet.hidden = NO;
         self.DamageLabelOutlet.hidden = NO;
@@ -160,6 +162,7 @@
         // Show inspect stuff
         self.ClassNameLabelOutlet.hidden = NO;
         self.WeaponImageOutlet.hidden = NO;
+        self.ImageBackgroundOutlet.hidden = NO;
         self.DescriptionLabelOutlet.hidden = NO;
         self.LevelLabelOutlet.hidden = NO;
         self.DamageLabelOutlet.hidden = NO;
