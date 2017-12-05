@@ -132,13 +132,27 @@
     
     level = self.Level;
     
+    // Display old stats
+    NSLog(@"Old damage is %ld", self.DamagePerClick);
+    NSLog(@"Old click capacity is %ld", self.ClicksPerClip);
+    NSLog(@"Old stun duration is %ld", self.StunDuration);
+    NSLog(@"Old auto load rate is %ld", self.AutoClickLoadRate);
+    
     // Needs to be updated and overridden for each player class ability
     self.LevelsPerUpgrade = 1.2;
+    
     self.DamagePerClick = 1*level;
     self.ClicksPerClip = 10;
     self.StunDuration = 0;
     self.AutoClickLoadRate = 0+(level/5);
+    
     self.ClickAmount = self.ClicksPerClip;
+    
+    // Display new stats
+    NSLog(@"New damage is %ld", self.DamagePerClick);
+    NSLog(@"New click capacity is %ld", self.ClicksPerClip);
+    NSLog(@"New stun duration is %ld", self.StunDuration);
+    NSLog(@"New auto load rate is %ld", self.AutoClickLoadRate);
 }
 
 @end
@@ -154,6 +168,12 @@
     
     level = self.Level;
     
+    // Display old stats
+    NSLog(@"Old damage is %ld", self.DamagePerClick);
+    NSLog(@"Old click capacity is %ld", self.ClicksPerClip);
+    NSLog(@"Old stun duration is %ld", self.StunDuration);
+    NSLog(@"Old auto load rate is %ld", self.AutoClickLoadRate);
+    
     // Needs to be updated and overridden for each player class ability
     self.LevelsPerUpgrade = 2.0;
     self.DamagePerClick = 2 + level;
@@ -161,6 +181,12 @@
     self.StunDuration = 4 + level;
     self.AutoClickLoadRate = 0;
     self.ClickAmount = self.ClicksPerClip;
+    
+    // Display new stats
+    NSLog(@"New damage is %ld", self.DamagePerClick);
+    NSLog(@"New click capacity is %ld", self.ClicksPerClip);
+    NSLog(@"New stun duration is %ld", self.StunDuration);
+    NSLog(@"New auto load rate is %ld", self.AutoClickLoadRate);
 }
 
 @end
@@ -177,13 +203,25 @@
     
     level = self.Level;
     
+    // Display old stats
+    NSLog(@"Old damage is %ld", self.DamagePerClick);
+    NSLog(@"Old click capacity is %ld", self.ClicksPerClip);
+    NSLog(@"Old stun duration is %ld", self.StunDuration);
+    NSLog(@"Old auto load rate is %ld", self.AutoClickLoadRate);
+    
     // Needs to be updated and overridden for each player class ability
     self.LevelsPerUpgrade = 1.1;
     self.DamagePerClick = 0;
     self.ClicksPerClip = 5;
     self.StunDuration = level + 1;
-    self.AutoClickLoadRate = 0 + (level % 10);
+    self.AutoClickLoadRate = 0 + (level / 10);
     self.ClickAmount = self.ClicksPerClip;
+    
+    // Display new stats
+    NSLog(@"New damage is %ld", self.DamagePerClick);
+    NSLog(@"New click capacity is %ld", self.ClicksPerClip);
+    NSLog(@"New stun duration is %ld", self.StunDuration);
+    NSLog(@"New auto load rate is %ld", self.AutoClickLoadRate);
 }
 
 @end
@@ -200,13 +238,25 @@
     
     level = self.Level;
     
+    // Display old stats
+    NSLog(@"Old damage is %ld", self.DamagePerClick);
+    NSLog(@"Old click capacity is %ld", self.ClicksPerClip);
+    NSLog(@"Old stun duration is %ld", self.StunDuration);
+    NSLog(@"Old auto load rate is %ld", self.AutoClickLoadRate);
+    
     // Needs to be updated and overridden for each player class ability
     self.LevelsPerUpgrade = 3.2;
     self.DamagePerClick = 3 * (1 + level);
     self.ClicksPerClip = 9;
     self.StunDuration = 0;
-    self.AutoClickLoadRate = 0 + (level % 5);
+    self.AutoClickLoadRate = 0 + (level / 5);
     self.ClickAmount = self.ClicksPerClip;
+    
+    // Display new stats
+    NSLog(@"New damage is %ld", self.DamagePerClick);
+    NSLog(@"New click capacity is %ld", self.ClicksPerClip);
+    NSLog(@"New stun duration is %ld", self.StunDuration);
+    NSLog(@"New auto load rate is %ld", self.AutoClickLoadRate);
 }
 
 @end
