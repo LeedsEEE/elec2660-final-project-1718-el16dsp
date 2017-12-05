@@ -38,6 +38,8 @@
     if (self.RowSelected == 0 && self.ClassSelected >= 0) {
         NSLog(@"Game selected");
         NSLog(@"Class %ld %@ loaded with %@ and %@", self.ClassSelected, [self.GameHandler GetPlayerName], [self.GameHandler GetWeapon1Name], [self.GameHandler GetWeapon2Name]);
+        // Hide instructions
+        self.TextViewOutlet.hidden = YES;
         // Hide inspect stuff
         self.ClassNameLabelOutlet.hidden = YES;
         self.WeaponImageOutlet.hidden = YES;
@@ -104,6 +106,8 @@
     else if (self.RowSelected == 1 && self.ClassSelected >= 0) {
         NSLog(@"Inspect button 1");
         NSString *ImageName = @"placeholder.png";
+        // Hide instructions
+        self.TextViewOutlet.hidden = YES;
         // Hide game stuff
         self.CentralButtonOutlet.hidden = YES;
         self.Button1Outlet.hidden = YES;
@@ -151,6 +155,9 @@
     else if (self.RowSelected == 2 && self.ClassSelected >= 0) {
         NSLog(@"Inspect button 2");
         NSString *ImageName = @"placeholder.png";
+        // Hide instructions
+        self.TextViewOutlet.hidden = YES;
+        
         // Hide game stuff
         self.CentralButtonOutlet.hidden = YES;
         self.Button1Outlet.hidden = YES;
@@ -195,6 +202,7 @@
         self.WeaponNameLabelOutlet.text = self.GameHandler.Player.Button2.Name;
     } else if (self.ClassSelected == -1) {
         // Instructions selected
+        self.TextViewOutlet.hidden = NO;
         
         // Hide game stuff
         self.CentralButtonOutlet.hidden = YES;
@@ -221,16 +229,9 @@
         self.CostLabel.hidden = YES;
         
         // Need to get instruction text
-        NSString *InstructionText = @"Breach doors, break chests and defeat imperial\nsoldiers as you play as a pirate on a boarding\nmission. Play until your pirate is relieved of service,\nuse the coins gathered on the run to upgrade the\nclass weapons and pick another to continue the run\nwith the new levels.\n\nEach pirate class has a unique play style brought by\nunique weapons and abilities. View these in the\n'Inspect ...' and use them in the corresponding\n'Play as ...'\n\nWhen boarding a ship, you can load your weapons\nand abilities or attack the obstacle. Read your\n enemies and use the moment effectively by\npressing the button of your choice. Stun\nenemies to gain some peace in the midst of\ncombat and attack them in the right moments.";
+        NSString *InstructionText = @"Breach doors, break chests and defeat imperial soldiers as you play as a pirate on a boarding mission. Play until your pirate is relieved of service, use the coins gathered on the run to upgrade the class weapons and pick another to continue the run with the new levels.\n\nEach pirate class has a unique play style brought by unique weapons and abilities. View these in the 'Inspect ...' and use them in the corresponding 'Play as ...'\n\nWhen boarding a ship, you can load your weapons and abilities or attack the obstacle. Read your enemies and use the moment effectively by pressing the button of your choice. Stun enemies to gain some peace in the midst of combat and attack them in the right moments.";
         // Will use the inspection view for the labels
-        self.ClassNameLabelOutlet.text = InstructionText;
-        
-        // Taken from https://stackoverflow.com/questions/7996108/how-to-do-multiline-uilabel-in-ios on 5-DEC-2017
-        self.ClassNameLabelOutlet.numberOfLines = 0;
-        self.ClassNameLabelOutlet.adjustsFontSizeToFitWidth = NO;
-        
-        // Undo hiding of label
-        self.ClassNameLabelOutlet.hidden = NO;
+        self.TextViewOutlet.text = InstructionText;
     }
 }
 

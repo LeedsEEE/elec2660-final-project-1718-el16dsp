@@ -78,4 +78,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *CostLabel;
 // Inspection view end
 
+// Instruction stuff start
+@property (weak, nonatomic) IBOutlet UITextView *TextViewOutlet;
+// Instruction stuff end
+
 @end

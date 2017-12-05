@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="ISa-PG-jK9">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="ISa-PG-jK9">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
@@ -130,7 +130,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ClassName" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oz4-jc-GLK">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ClassName" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oz4-jc-GLK">
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -205,6 +205,10 @@
                                     <action selector="ShopButton2Action:" destination="BYZ-38-t0r" eventType="touchUpInside" id="uRu-r7-6Hm"/>
                                 </connections>
                             </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" editable="NO" text="Lorem ipsum" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rm2-mo-6Fe">
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" red="0.78663374352331605" green="0.78663374352331605" blue="0.78663374352331605" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -221,7 +225,9 @@
                             <constraint firstItem="eWL-LP-FMR" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="C62-VC-buC"/>
                             <constraint firstItem="G9x-AL-qf2" firstAttribute="top" secondItem="HVr-Fa-LTs" secondAttribute="bottom" constant="15" id="D7C-Bp-l3p"/>
                             <constraint firstItem="fw8-hf-Xzs" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="EWb-vi-wni"/>
+                            <constraint firstItem="Rm2-mo-6Fe" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="F3n-xF-OfH"/>
                             <constraint firstItem="z74-L6-mG9" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="HFr-bw-vp9"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Rm2-mo-6Fe" secondAttribute="bottom" constant="30" id="IEx-5P-eM5"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="oGp-9w-QV9" secondAttribute="bottom" id="ILe-5F-7Yq"/>
                             <constraint firstItem="oGp-9w-QV9" firstAttribute="height" secondItem="FL1-Ze-Hat" secondAttribute="height" id="J29-ri-On4"/>
                             <constraint firstItem="yLQ-8H-Qjs" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="15" id="KIh-hF-gcy"/>
@@ -234,6 +240,7 @@
                             <constraint firstAttribute="trailingMargin" secondItem="13T-SQ-6h8" secondAttribute="trailing" id="Pnm-ru-ihP"/>
                             <constraint firstItem="RIK-XF-2Dc" firstAttribute="top" secondItem="cxl-ZV-xhp" secondAttribute="bottom" constant="15" id="SAR-zO-FMc"/>
                             <constraint firstItem="6ux-86-R42" firstAttribute="top" secondItem="0pA-JY-hIU" secondAttribute="bottom" constant="15" id="SIX-be-jeo"/>
+                            <constraint firstItem="Rm2-mo-6Fe" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="30" id="Si2-Mo-118"/>
                             <constraint firstItem="FL1-Ze-Hat" firstAttribute="top" secondItem="DBa-NE-WZI" secondAttribute="bottom" id="TRM-1x-LUC"/>
                             <constraint firstAttribute="trailingMargin" secondItem="GbB-Gz-Sby" secondAttribute="trailing" constant="-20" id="TX8-gs-L5p"/>
                             <constraint firstItem="yYO-0E-Ray" firstAttribute="centerX" secondItem="13T-SQ-6h8" secondAttribute="centerX" id="U6O-8h-gyg"/>
@@ -241,6 +248,7 @@
                             <constraint firstItem="fw8-hf-Xzs" firstAttribute="top" secondItem="6ux-86-R42" secondAttribute="bottom" constant="15" id="Vqq-xq-rBI"/>
                             <constraint firstItem="gdB-9T-wPs" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="WHs-iv-aF9"/>
                             <constraint firstItem="DBa-NE-WZI" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-15" id="XCk-oI-VIr"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Rm2-mo-6Fe" secondAttribute="trailing" id="XFX-g2-xef"/>
                             <constraint firstItem="yDj-7P-VIC" firstAttribute="top" secondItem="cxl-ZV-xhp" secondAttribute="bottom" constant="15" id="ZKW-fe-U0V"/>
                             <constraint firstItem="eWL-LP-FMR" firstAttribute="top" secondItem="6Gx-kI-ADp" secondAttribute="bottom" constant="15" id="ZTE-IM-eTl"/>
                             <constraint firstItem="13T-SQ-6h8" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="aDJ-oa-98E"/>
@@ -287,6 +295,7 @@
                         <outlet property="ShopButton1Outlet" destination="RIK-XF-2Dc" id="iNQ-wZ-pq6"/>
                         <outlet property="ShopButton2Outlet" destination="yLQ-8H-Qjs" id="gSz-Em-ApH"/>
                         <outlet property="StunDurationLabelOutlet" destination="HVr-Fa-LTs" id="9Y4-zS-AMr"/>
+                        <outlet property="TextViewOutlet" destination="Rm2-mo-6Fe" id="3PS-Fl-uzN"/>
                         <outlet property="WeaponImageOutlet" destination="13T-SQ-6h8" id="OJH-40-17D"/>
                         <outlet property="WeaponNameLabelOutlet" destination="6Gx-kI-ADp" id="adM-es-GXX"/>
                         <segue destination="YTr-5E-ltN" kind="show" identifier="ShowShop" id="Cv0-vP-YUe"/>
