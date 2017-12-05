@@ -8,7 +8,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Table View Controller-->
+        <!--STAR PIRATES-->
         <scene sceneID="ugM-vU-UXw">
             <objects>
                 <tableViewController id="vSF-wn-imI" customClass="TableViewController" sceneMemberID="viewController">
@@ -36,7 +36,7 @@
                             <outlet property="delegate" destination="vSF-wn-imI" id="o5y-tI-KsZ"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="aFd-oZ-ocC"/>
+                    <navigationItem key="navigationItem" title="STAR PIRATES" id="aFd-oZ-ocC"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1Vw-RP-EOH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
