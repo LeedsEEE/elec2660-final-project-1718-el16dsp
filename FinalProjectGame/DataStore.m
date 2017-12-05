@@ -26,9 +26,13 @@
         
         // Make placeholder classes here
         PlayerClass *class_0 = [[PlayerClass alloc] init];
+        PlayerClass *class_1 = [[PlayerClass alloc] init];
         NSLog(@"Defining player classes");
         // Fill in classes here
         // As it turns out, each class will need it's own weapon subclasses to override them.
+        
+        NSInteger ClassNumber = 0;
+        
         class_0.Name = @"Cutter";
         class_0.ImageBasis = @"cutter";
         class_0.MaxHealth = 40;
@@ -36,26 +40,56 @@
         class_0.Armour = 0;
         
         class_0.Button1 = [[class_0_1 alloc] init];
-        class_0.Button1.Level = [[[self.StoredData componentsSeparatedByString:DATA_STORE_STRING_SPLITTER] objectAtIndex:0] intValue];
+        class_0.Button1.Level = [[[self.StoredData componentsSeparatedByString:DATA_STORE_STRING_SPLITTER] objectAtIndex:((ClassNumber * 2) + 0)] intValue];
         NSLog(@"Button1 level is %ld", class_0.Button1.Level);
         [class_0.Button1 UpdateStats];
         class_0.Button1.Type = @"W";
         class_0.Button1.Name = @"Pistol";
-        class_0.Button1.ImageName = @"pistol.png"; // TODO Add picture to supporting files
+        class_0.Button1.ImageName = @"pistol.png";
         class_0.Button1.Description = @"\'A basic weapon for a basic pirate\'";
         NSLog(@"Button1 new name is %@", class_0.Button1.Name);
         
         class_0.Button2 = [[class_0_2 alloc] init];
-        class_0.Button2.Level = [[[self.StoredData componentsSeparatedByString:DATA_STORE_STRING_SPLITTER] objectAtIndex:1] intValue];
+        class_0.Button2.Level = [[[self.StoredData componentsSeparatedByString:DATA_STORE_STRING_SPLITTER] objectAtIndex:((ClassNumber * 2) + 1)] intValue];
         NSLog(@"Button2 level is %ld", class_0.Button2.Level);
         [class_0.Button2 UpdateStats];
         class_0.Button2.Type = @"A";
         class_0.Button2.Name = @"Blowtorch";
-        class_0.Button2.ImageName = @"blowtorch.png"; // TODO Add picture to supporting files
+        class_0.Button2.ImageName = @"blowtorch.png";
         class_0.Button2.Description = @"\'A versatile tool for a versatile pirate\'";
         NSLog(@"Button2 new name is %@", class_0.Button2.Name);
         
         [self.PlayerClassArray addObject:class_0];
+        
+        ClassNumber = 1;
+        
+        class_1.Name = @"Master Gunner";
+        class_1.ImageBasis = @"master_gunner";
+        class_1.MaxHealth = 60;
+        class_1.CurrentHealth = class_1.MaxHealth;
+        class_1.Armour = 50;
+        
+        class_1.Button1 = [[class_1_1 alloc] init];
+        class_1.Button1.Level = [[[self.StoredData componentsSeparatedByString:DATA_STORE_STRING_SPLITTER] objectAtIndex:((ClassNumber * 2) + 0)] intValue];
+        NSLog(@"Button1 level is %ld", class_1.Button1.Level);
+        [class_1.Button1 UpdateStats];
+        class_1.Button1.Type = @"A";
+        class_1.Button1.Name = @"Stun rig";
+        class_1.Button1.ImageName = @"stun_rig.png"; // TODO Add picture to supporting files
+        class_1.Button1.Description = @"\'Lights up the big things\'";
+        NSLog(@"Button1 new name is %@", class_1.Button1.Name);
+        
+        class_1.Button2 = [[class_1_2 alloc] init];
+        class_1.Button2.Level = [[[self.StoredData componentsSeparatedByString:DATA_STORE_STRING_SPLITTER] objectAtIndex:((ClassNumber * 2) + 1)] intValue];
+        NSLog(@"Button2 level is %ld", class_1.Button2.Level);
+        [class_1.Button2 UpdateStats];
+        class_1.Button2.Type = @"A";
+        class_1.Button2.Name = @"Heavy Rifle";
+        class_1.Button2.ImageName = @"heavy_rifle.png"; // TODO Add picture to supporting files
+        class_1.Button2.Description = @"\'Clears the big things out of the way\'";
+        NSLog(@"Button2 new name is %@", class_1.Button2.Name);
+        
+        [self.PlayerClassArray addObject:class_1];
     }
     return self;
 }

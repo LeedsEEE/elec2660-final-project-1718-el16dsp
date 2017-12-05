@@ -53,7 +53,7 @@
     
     NSInteger NumberOfRows;
     NSLog(@"Making section %ld", section);
-    if (section == 0) {
+    if (section != self.Data.PlayerClassArray.count) {
         NumberOfRows = 3;
     }
     
@@ -64,7 +64,7 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"MenuButton" forIndexPath:indexPath];
     
     // Configure the cell...
-    if (indexPath.section == 0) {
+    if (indexPath.section != self.Data.PlayerClassArray.count) {
         PlayerClass *temp = [self.Data.PlayerClassArray objectAtIndex:indexPath.section];
         if (indexPath.row == 0) {
             cell.textLabel.text = [NSString stringWithFormat:@"Play as %@", temp.Name];

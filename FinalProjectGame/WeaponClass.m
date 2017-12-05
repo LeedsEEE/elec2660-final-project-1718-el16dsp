@@ -165,4 +165,49 @@
 
 @end
 
+#pragma mark Class 1 - Master Gunner - Ability 1 - Stun rig
+
+@implementation class_1_1
+
+-(void) UpdateStats {
+    // Class 1 is Master Gunner
+    // Slot 1 is the stun rig
+    // Short ability that only stuns the obstacle
+    NSInteger level;
+    
+    level = self.Level;
+    
+    // Needs to be updated and overridden for each player class ability
+    self.LevelsPerUpgrade = 1.1;
+    self.DamagePerClick = 0;
+    self.ClicksPerClip = 5;
+    self.StunDuration = level + 1;
+    self.AutoClickLoadRate = 0 + (level % 10);
+    self.ClickAmount = self.ClicksPerClip;
+}
+
+@end
+
+#pragma mark Class 2 - Master Gunner - Ability 2 - Heavy Rifle
+
+@implementation class_1_2
+
+-(void) UpdateStats {
+    // Class 1 is Master Gunner
+    // Slot 1 is the heavy rifle
+    // Short ability that does high damage
+    NSInteger level;
+    
+    level = self.Level;
+    
+    // Needs to be updated and overridden for each player class ability
+    self.LevelsPerUpgrade = 3.0;
+    self.DamagePerClick = 3 * (1 + level);
+    self.ClicksPerClip = 9;
+    self.StunDuration = 0;
+    self.AutoClickLoadRate = 0;
+    self.ClickAmount = self.ClicksPerClip;
+}
+
+@end
 

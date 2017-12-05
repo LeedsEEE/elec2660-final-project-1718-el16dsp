@@ -85,16 +85,21 @@
         if ([[self.GameHandler GetObstacleName] isEqualToString:@"Enemy"]) {
             // Could be idle or pre_attack or attack
             if ([GET_CURRENT_OBSTACLE GetClickAmount] == ([GET_CURRENT_OBSTACLE GetMaxClicks] - [GET_CURRENT_OBSTACLE GetAutoClicks])) {
-                [self UpdateImages:@"cutter_idle.png" :@"enemy_attack.png"];
+                [self UpdateImages:[NSString stringWithFormat:@"%@_idle.png", [self.GameHandler GetPlayerName]]
+                                  :@"enemy_attack.png"];
             } else if ([GET_CURRENT_OBSTACLE GetClickAmount] == ([GET_CURRENT_OBSTACLE GetMaxClicks] - (2 * [GET_CURRENT_OBSTACLE GetAutoClicks]))) {
-                [self UpdateImages:@"cutter_idle.png" :@"enemy_pre_attack.png"];
+                [self UpdateImages:[NSString stringWithFormat:@"%@_idle.png", [self.GameHandler GetPlayerName]]
+                                  :@"enemy_pre_attack.png"];
             } else {
-                [self UpdateImages:@"cutter_idle.png" :@"enemy_idle.png"];
+                [self UpdateImages:[NSString stringWithFormat:@"%@_idle.png", [self.GameHandler GetPlayerName]]
+                                  :@"enemy_idle.png"];
             }
         } else if ([[self.GameHandler GetObstacleName] isEqualToString:@"Chest"]){
-            [self UpdateImages:@"cutter_idle.png" :@"chest_idle.png"];
+            [self UpdateImages:[NSString stringWithFormat:@"%@_idle.png", [self.GameHandler GetPlayerName]]
+                              :@"chest_idle.png"];
         } else {
-            [self UpdateImages:@"cutter_idle.png" :@"door_idle.png"];
+            [self UpdateImages:[NSString stringWithFormat:@"%@_idle.png", [self.GameHandler GetPlayerName]]
+                              :@"door_idle.png"];
         }
         NSLog(@"/// GAME LOADED \\\\\\");
     }

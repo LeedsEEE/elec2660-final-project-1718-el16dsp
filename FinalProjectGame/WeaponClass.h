@@ -52,3 +52,19 @@
 -(void) UpdateStats;
 
 @end
+
+#pragma mark class_1_1
+
+@interface class_1_1 : WeaponClass
+
+-(void) UpdateStats;
+
+@end
+
+#pragma mark class_1_2
+
+@interface class_1_2 : WeaponClass
+
+-(void) UpdateStats;
+
+@end
