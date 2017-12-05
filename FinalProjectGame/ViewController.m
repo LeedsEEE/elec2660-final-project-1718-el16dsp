@@ -28,16 +28,14 @@
     NSLog(@"Class %ld selected in ViewController", self.ClassSelected);
     NSLog(@"GameHandler loaded");
     
-    self.GameHandler.Player = [[[DataStore alloc] init].PlayerClassArray objectAtIndex:self.ClassSelected];
-    
-    self.GameHandler.ClassSelected = self.ClassSelected;
-    [self.GameHandler AssignWeapon1Cost:self.ClassSelected];
-    [self.GameHandler AssignWeapon2Cost:self.ClassSelected];
+    if (self.ClassSelected >= 0) {
+        self.GameHandler.Player = [[[DataStore alloc] init].PlayerClassArray objectAtIndex:self.ClassSelected];
+    }
     
     self.ShopButton1Outlet.hidden = YES;
     self.ShopButton2Outlet.hidden = YES;
     
-    if (self.RowSelected == 0) {
+    if (self.RowSelected == 0 && self.ClassSelected >= 0) {
         NSLog(@"Game selected");
         NSLog(@"Class %ld %@ loaded with %@ and %@", self.ClassSelected, [self.GameHandler GetPlayerName], [self.GameHandler GetWeapon1Name], [self.GameHandler GetWeapon2Name]);
         // Hide inspect stuff
@@ -103,7 +101,7 @@
         }
         NSLog(@"/// GAME LOADED \\\\\\");
     }
-    else if (self.RowSelected == 1) {
+    else if (self.RowSelected == 1 && self.ClassSelected >= 0) {
         NSLog(@"Inspect button 1");
         NSString *ImageName = @"placeholder.png";
         // Hide game stuff
@@ -150,7 +148,7 @@
         self.WeaponNameLabelOutlet.text = self.GameHandler.Player.Button1.Name;
         // TODO Add weapon images (pistol.png and blowtorch.png)
     }
-    else if (self.RowSelected == 2) {
+    else if (self.RowSelected == 2 && self.ClassSelected >= 0) {
         NSLog(@"Inspect button 2");
         NSString *ImageName = @"placeholder.png";
         // Hide game stuff
@@ -195,8 +193,45 @@
         ImageName = self.GameHandler.Player.Button2.ImageName;
         [self.WeaponImageOutlet setImage:[UIImage imageNamed:ImageName]];
         self.WeaponNameLabelOutlet.text = self.GameHandler.Player.Button2.Name;
+    } else if (self.ClassSelected == -1) {
+        // Instructions selected
+        
+        // Hide game stuff
+        self.CentralButtonOutlet.hidden = YES;
+        self.Button1Outlet.hidden = YES;
+        self.Button2Outlet.hidden = YES;
+        self.HealthLabelOutlet.hidden = YES;
+        self.Button1LabelOutlet.hidden = YES;
+        self.Button2LabelOutlet.hidden = YES;
+        self.PlayerImageOutlet.hidden = YES;
+        self.CoinsLabelOutlet.hidden = YES;
+        self.BackgroundImageOutlet.hidden = YES;
+        
+        // Hide inspect stuff
+        self.ClassNameLabelOutlet.hidden = YES;
+        self.WeaponImageOutlet.hidden = YES;
+        self.ImageBackgroundOutlet.hidden = YES;
+        self.DescriptionLabelOutlet.hidden = YES;
+        self.LevelLabelOutlet.hidden = YES;
+        self.DamageLabelOutlet.hidden = YES;
+        self.ClicksPerClipLabelOutlet.hidden = YES;
+        self.StunDurationLabelOutlet.hidden = YES;
+        self.AutoClickRateLabelOutlet.hidden = YES;
+        self.WeaponNameLabelOutlet.hidden = YES;
+        self.CostLabel.hidden = YES;
+        
+        // Need to get instruction text
+        NSString *InstructionText = @"Breach doors, break chests and defeat imperial\nsoldiers as you play as a pirate on a boarding\nmission. Play until your pirate is relieved of service,\nuse the coins gathered on the run to upgrade the\nclass weapons and pick another to continue the run\nwith the new levels.\n\nEach pirate class has a unique play style brought by\nunique weapons and abilities. View these in the\n'Inspect ...' and use them in the corresponding\n'Play as ...'\n\nWhen boarding a ship, you can load your weapons\nand abilities or attack the obstacle. Read your\n enemies and use the moment effectively by\npressing the button of your choice. Stun\nenemies to gain some peace in the midst of\ncombat and attack them in the right moments.";
+        // Will use the inspection view for the labels
+        self.ClassNameLabelOutlet.text = InstructionText;
+        
+        // Taken from https://stackoverflow.com/questions/7996108/how-to-do-multiline-uilabel-in-ios on 5-DEC-2017
+        self.ClassNameLabelOutlet.numberOfLines = 0;
+        self.ClassNameLabelOutlet.adjustsFontSizeToFitWidth = NO;
+        
+        // Undo hiding of label
+        self.ClassNameLabelOutlet.hidden = NO;
     }
-    // Do any additional setup after loading the view, typically from a nib.
 }
 
 
@@ -452,6 +487,11 @@
         [self UpdateImages:[ReturnValues objectAtIndex:4] :[ReturnValues objectAtIndex:5]];
     } else {
         // Player is dead
+        
+        self.GameHandler.ClassSelected = self.ClassSelected;
+        [self.GameHandler AssignWeapon1Cost:self.ClassSelected];
+        [self.GameHandler AssignWeapon2Cost:self.ClassSelected];
+        
         self.Button1Outlet.enabled = NO;
         self.Button2Outlet.enabled = NO;
         self.CentralButtonOutlet.enabled = NO;

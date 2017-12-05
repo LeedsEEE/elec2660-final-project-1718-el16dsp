@@ -44,9 +44,10 @@
     
     PlayerClasses = self.Data.PlayerClassArray.count;
     
-    NSLog(@"%@", [NSString stringWithFormat:@"%ld PlayerClasses loaded", PlayerClasses]);
+    NSLog(@"%ld PlayerClasses loaded", PlayerClasses);
+    NSLog(@"%ld sections will be made", PlayerClasses + 1);
     
-    return PlayerClasses;
+    return PlayerClasses + 1; // The extra one is needed for the instructions page
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -55,6 +56,8 @@
     NSLog(@"Making section %ld", section);
     if (section != self.Data.PlayerClassArray.count) {
         NumberOfRows = 3;
+    } else if (section == self.Data.PlayerClassArray.count) {
+        NumberOfRows = 1;
     }
     
     return NumberOfRows;
@@ -73,6 +76,8 @@
         } else if (indexPath.row == 2) {
             cell.textLabel.text = [NSString stringWithFormat:@"Inspect %@", temp.Button2.Name];
         }
+    } else if (indexPath.section == self.Data.PlayerClassArray.count) {
+        cell.textLabel.text = @"Instructions";
     }
     
     return cell;
@@ -81,8 +86,13 @@
 -(NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
     NSString *cell;
     
-    PlayerClass *temp = [self.Data.PlayerClassArray objectAtIndex:section];
-    cell = temp.Name;
+    NSLog(@"Setting section headers");
+    if (section != self.Data.PlayerClassArray.count) {
+        PlayerClass *temp = [self.Data.PlayerClassArray objectAtIndex:section];
+        cell = temp.Name;
+    } else if (section == self.Data.PlayerClassArray.count) {
+        cell = @"Help and Settings";
+    }
     
     return cell;
 }
@@ -137,18 +147,24 @@
         // Get destination
         ViewController *destination = [segue destinationViewController];
         
-        // Show which class was selected
-        NSLog(@"%@", [NSString stringWithFormat:@"Class %ld selected", indexPath.section]);
-        
-        // Get class integer and push it to the new view
-        NSInteger TempClassIndex = indexPath.section;
-        NSInteger TempRowSelected = indexPath.row;
-        destination.ClassSelected = TempClassIndex;
-        destination.RowSelected = TempRowSelected;
-        if (TempRowSelected == 1) {
-            destination.Cost = [self.Data GetWeapon1Cost:TempClassIndex];
-        } else if (TempRowSelected == 2) {
-            destination.Cost = [self.Data GetWeapon2Cost:TempClassIndex];
+        if (indexPath.section != self.Data.PlayerClassArray.count) {
+            
+            // Show which class was selected
+            NSLog(@"%@", [NSString stringWithFormat:@"Class %ld selected", indexPath.section]);
+            
+            // Get class integer and push it to the new view
+            NSInteger TempClassIndex = indexPath.section;
+            NSInteger TempRowSelected = indexPath.row;
+            destination.ClassSelected = TempClassIndex;
+            destination.RowSelected = TempRowSelected;
+            if (TempRowSelected == 1) {
+                destination.Cost = [self.Data GetWeapon1Cost:TempClassIndex];
+            } else if (TempRowSelected == 2) {
+                destination.Cost = [self.Data GetWeapon2Cost:TempClassIndex];
+            }
+        } else if (indexPath.section == self.Data.PlayerClassArray.count) {
+            NSLog(@"Instruction button pressed");
+            destination.ClassSelected = -1; // Flag for indicating instructions
         }
     }
 }

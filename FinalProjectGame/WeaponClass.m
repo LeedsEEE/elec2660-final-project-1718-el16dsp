@@ -201,11 +201,11 @@
     level = self.Level;
     
     // Needs to be updated and overridden for each player class ability
-    self.LevelsPerUpgrade = 3.0;
+    self.LevelsPerUpgrade = 3.2;
     self.DamagePerClick = 3 * (1 + level);
     self.ClicksPerClip = 9;
     self.StunDuration = 0;
-    self.AutoClickLoadRate = 0;
+    self.AutoClickLoadRate = 0 + (level % 5);
     self.ClickAmount = self.ClicksPerClip;
 }
 

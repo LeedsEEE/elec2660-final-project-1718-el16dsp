@@ -74,7 +74,7 @@
         NSLog(@"Button1 level is %ld", class_1.Button1.Level);
         [class_1.Button1 UpdateStats];
         class_1.Button1.Type = @"A";
-        class_1.Button1.Name = @"Stun rig";
+        class_1.Button1.Name = @"Stun Rig";
         class_1.Button1.ImageName = @"stun_rig.png"; // TODO Add picture to supporting files
         class_1.Button1.Description = @"\'Lights up the big things\'";
         NSLog(@"Button1 new name is %@", class_1.Button1.Name);
