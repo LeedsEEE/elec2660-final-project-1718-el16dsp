@@ -16,6 +16,8 @@
 		531A75FC1FC47C4700C36330 /* chest_dead.png in Resources */ = {isa = PBXBuildFile; fileRef = 531A75EB1FC47C4700C36330 /* chest_dead.png */; };
 		531A76031FC47C4700C36330 /* door_idle.png in Resources */ = {isa = PBXBuildFile; fileRef = 531A75F21FC47C4700C36330 /* door_idle.png */; };
 		531A76041FC47C4700C36330 /* door_dead.png in Resources */ = {isa = PBXBuildFile; fileRef = 531A75F31FC47C4700C36330 /* door_dead.png */; };
+		5339F0561FD8708200098552 /* heavy_rifle.png in Resources */ = {isa = PBXBuildFile; fileRef = 5339F0541FD8708200098552 /* heavy_rifle.png */; };
+		5339F0571FD8708200098552 /* stun_rig.png in Resources */ = {isa = PBXBuildFile; fileRef = 5339F0551FD8708200098552 /* stun_rig.png */; };
 		533C8CBA1FCDA5BD001E939C /* placeholder.png in Resources */ = {isa = PBXBuildFile; fileRef = 533C8CB91FCDA5BD001E939C /* placeholder.png */; };
 		533C8CC01FCDB9CA001E939C /* ShopController.m in Sources */ = {isa = PBXBuildFile; fileRef = 533C8CBF1FCDB9CA001E939C /* ShopController.m */; };
 		534863471FBB481000C482B7 /* GameController.m in Sources */ = {isa = PBXBuildFile; fileRef = 534863461FBB481000C482B7 /* GameController.m */; };
@@ -86,6 +88,8 @@
 		531A75EB1FC47C4700C36330 /* chest_dead.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = chest_dead.png; path = Assets/chest_dead.png; sourceTree = SOURCE_ROOT; };
 		531A75F21FC47C4700C36330 /* door_idle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = door_idle.png; path = Assets/door_idle.png; sourceTree = SOURCE_ROOT; };
 		531A75F31FC47C4700C36330 /* door_dead.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = door_dead.png; path = Assets/door_dead.png; sourceTree = SOURCE_ROOT; };
+		5339F0541FD8708200098552 /* heavy_rifle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = heavy_rifle.png; path = ../Assets/heavy_rifle.png; sourceTree = "<group>"; };
+		5339F0551FD8708200098552 /* stun_rig.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = stun_rig.png; path = ../Assets/stun_rig.png; sourceTree = "<group>"; };
 		533C8CB91FCDA5BD001E939C /* placeholder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = placeholder.png; path = Assets/placeholder.png; sourceTree = SOURCE_ROOT; };
 		533C8CBE1FCDB9CA001E939C /* ShopController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShopController.h; sourceTree = "<group>"; };
 		533C8CBF1FCDB9CA001E939C /* ShopController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShopController.m; sourceTree = "<group>"; };
@@ -215,6 +219,8 @@
 			isa = PBXGroup;
 			children = (
 				53DB17DC1FD8227100C9B864 /* master_gunner_fire_1.png */,
+				5339F0541FD8708200098552 /* heavy_rifle.png */,
+				5339F0551FD8708200098552 /* stun_rig.png */,
 				53DB17DD1FD8227100C9B864 /* master_gunner_fire_2.png */,
 				53DB17DE1FD8227100C9B864 /* master_gunner_fire_12.png */,
 				53DB17DF1FD8227100C9B864 /* master_gunner_idle.png */,
@@ -380,6 +386,7 @@
 				531A76041FC47C4700C36330 /* door_dead.png in Resources */,
 				53572C0A1FB2060300E11BDB /* LaunchScreen.storyboard in Resources */,
 				53DB17E41FD8227100C9B864 /* master_gunner_fire_12.png in Resources */,
+				5339F0571FD8708200098552 /* stun_rig.png in Resources */,
 				53FA92101FD567860018E55A /* blowtorch.png in Resources */,
 				534AC8B11FCEEA1A00989660 /* cutter_load_1.png in Resources */,
 				53FA92151FD567960018E55A /* ELEC2660 LaunchScreen.png in Resources */,
@@ -395,6 +402,7 @@
 				534AC8AF1FCEEA1A00989660 /* cutter_idle.png in Resources */,
 				53572C071FB2060300E11BDB /* Assets.xcassets in Resources */,
 				534AC8AC1FCEEA1A00989660 /* cutter_fire_2.png in Resources */,
+				5339F0561FD8708200098552 /* heavy_rifle.png in Resources */,
 				531A75F91FC47C4700C36330 /* ELEC2660 Background Dark.png in Resources */,
 				53DB17E31FD8227100C9B864 /* master_gunner_fire_2.png in Resources */,
 				53DB17E21FD8227100C9B864 /* master_gunner_fire_1.png in Resources */,
