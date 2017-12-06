@@ -84,6 +84,9 @@
     NSLog(@"Old ClickAmount = %ld", self.ClickAmount);
     if (self.ClickAmount < self.ClicksPerClip) {
         self.ClickAmount = self.AutoClickLoadRate + self.ClickAmount;
+        if (self.ClickAmount > self.ClicksPerClip) {
+            self.ClickAmount = self.ClicksPerClip;
+        }
         NSLog(@"New ClickAmount = %ld", self.ClickAmount);
     } else {
         self.ClickAmount = self.ClicksPerClip;

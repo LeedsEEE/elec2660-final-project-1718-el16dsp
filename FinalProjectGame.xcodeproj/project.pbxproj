@@ -43,6 +43,12 @@
 		5385983C1FB9D19C00DBA7CB /* class_levels_data.txt in Resources */ = {isa = PBXBuildFile; fileRef = 5385983B1FB9D19C00DBA7CB /* class_levels_data.txt */; };
 		5385983F1FB9D46800DBA7CB /* TableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5385983E1FB9D46800DBA7CB /* TableViewController.m */; };
 		53908F611FD6AFB80024918A /* Instructions.txt in Resources */ = {isa = PBXBuildFile; fileRef = 53908F601FD6AFB80024918A /* Instructions.txt */; };
+		53DB17E21FD8227100C9B864 /* master_gunner_fire_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 53DB17DC1FD8227100C9B864 /* master_gunner_fire_1.png */; };
+		53DB17E31FD8227100C9B864 /* master_gunner_fire_2.png in Resources */ = {isa = PBXBuildFile; fileRef = 53DB17DD1FD8227100C9B864 /* master_gunner_fire_2.png */; };
+		53DB17E41FD8227100C9B864 /* master_gunner_fire_12.png in Resources */ = {isa = PBXBuildFile; fileRef = 53DB17DE1FD8227100C9B864 /* master_gunner_fire_12.png */; };
+		53DB17E51FD8227100C9B864 /* master_gunner_idle.png in Resources */ = {isa = PBXBuildFile; fileRef = 53DB17DF1FD8227100C9B864 /* master_gunner_idle.png */; };
+		53DB17E61FD8227100C9B864 /* master_gunner_load_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 53DB17E01FD8227100C9B864 /* master_gunner_load_1.png */; };
+		53DB17E71FD8227100C9B864 /* master_gunner_load_2.png in Resources */ = {isa = PBXBuildFile; fileRef = 53DB17E11FD8227100C9B864 /* master_gunner_load_2.png */; };
 		53FA92101FD567860018E55A /* blowtorch.png in Resources */ = {isa = PBXBuildFile; fileRef = 53FA920F1FD567860018E55A /* blowtorch.png */; };
 		53FA92141FD567960018E55A /* ELEC2660 Inspection Background.png in Resources */ = {isa = PBXBuildFile; fileRef = 53FA92111FD567960018E55A /* ELEC2660 Inspection Background.png */; };
 		53FA92151FD567960018E55A /* ELEC2660 LaunchScreen.png in Resources */ = {isa = PBXBuildFile; fileRef = 53FA92121FD567960018E55A /* ELEC2660 LaunchScreen.png */; };
@@ -118,6 +124,12 @@
 		5385983D1FB9D46800DBA7CB /* TableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableViewController.h; sourceTree = "<group>"; };
 		5385983E1FB9D46800DBA7CB /* TableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableViewController.m; sourceTree = "<group>"; };
 		53908F601FD6AFB80024918A /* Instructions.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Instructions.txt; path = ../Assets/Instructions.txt; sourceTree = "<group>"; };
+		53DB17DC1FD8227100C9B864 /* master_gunner_fire_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = master_gunner_fire_1.png; path = ../Assets/master_gunner_fire_1.png; sourceTree = "<group>"; };
+		53DB17DD1FD8227100C9B864 /* master_gunner_fire_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = master_gunner_fire_2.png; path = ../Assets/master_gunner_fire_2.png; sourceTree = "<group>"; };
+		53DB17DE1FD8227100C9B864 /* master_gunner_fire_12.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = master_gunner_fire_12.png; path = ../Assets/master_gunner_fire_12.png; sourceTree = "<group>"; };
+		53DB17DF1FD8227100C9B864 /* master_gunner_idle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = master_gunner_idle.png; path = ../Assets/master_gunner_idle.png; sourceTree = "<group>"; };
+		53DB17E01FD8227100C9B864 /* master_gunner_load_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = master_gunner_load_1.png; path = ../Assets/master_gunner_load_1.png; sourceTree = "<group>"; };
+		53DB17E11FD8227100C9B864 /* master_gunner_load_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = master_gunner_load_2.png; path = ../Assets/master_gunner_load_2.png; sourceTree = "<group>"; };
 		53FA920F1FD567860018E55A /* blowtorch.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = blowtorch.png; path = Assets/blowtorch.png; sourceTree = SOURCE_ROOT; };
 		53FA92111FD567960018E55A /* ELEC2660 Inspection Background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "ELEC2660 Inspection Background.png"; path = "../Assets/ELEC2660 Inspection Background.png"; sourceTree = "<group>"; };
 		53FA92121FD567960018E55A /* ELEC2660 LaunchScreen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "ELEC2660 LaunchScreen.png"; path = "../Assets/ELEC2660 LaunchScreen.png"; sourceTree = "<group>"; };
@@ -202,6 +214,12 @@
 		53572BFA1FB2060300E11BDB /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				53DB17DC1FD8227100C9B864 /* master_gunner_fire_1.png */,
+				53DB17DD1FD8227100C9B864 /* master_gunner_fire_2.png */,
+				53DB17DE1FD8227100C9B864 /* master_gunner_fire_12.png */,
+				53DB17DF1FD8227100C9B864 /* master_gunner_idle.png */,
+				53DB17E01FD8227100C9B864 /* master_gunner_load_1.png */,
+				53DB17E11FD8227100C9B864 /* master_gunner_load_2.png */,
 				53908F601FD6AFB80024918A /* Instructions.txt */,
 				534AC89D1FCEEA1A00989660 /* ELEC2660 Button.png */,
 				53FA920F1FD567860018E55A /* blowtorch.png */,
@@ -356,10 +374,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				53DB17E51FD8227100C9B864 /* master_gunner_idle.png in Resources */,
 				5385983C1FB9D19C00DBA7CB /* class_levels_data.txt in Resources */,
 				534AC8B21FCEEA1A00989660 /* enemy_attack.png in Resources */,
 				531A76041FC47C4700C36330 /* door_dead.png in Resources */,
 				53572C0A1FB2060300E11BDB /* LaunchScreen.storyboard in Resources */,
+				53DB17E41FD8227100C9B864 /* master_gunner_fire_12.png in Resources */,
 				53FA92101FD567860018E55A /* blowtorch.png in Resources */,
 				534AC8B11FCEEA1A00989660 /* cutter_load_1.png in Resources */,
 				53FA92151FD567960018E55A /* ELEC2660 LaunchScreen.png in Resources */,
@@ -369,18 +389,22 @@
 				53FA92141FD567960018E55A /* ELEC2660 Inspection Background.png in Resources */,
 				53908F611FD6AFB80024918A /* Instructions.txt in Resources */,
 				534AC8B41FCEEA1A00989660 /* enemy_pre_attack.png in Resources */,
+				53DB17E71FD8227100C9B864 /* master_gunner_load_2.png in Resources */,
 				534AC8B51FCEEA1A00989660 /* enemy_alt_stunned.png in Resources */,
 				534AC8AD1FCEEA1A00989660 /* cutter_fire_12.png in Resources */,
 				534AC8AF1FCEEA1A00989660 /* cutter_idle.png in Resources */,
 				53572C071FB2060300E11BDB /* Assets.xcassets in Resources */,
 				534AC8AC1FCEEA1A00989660 /* cutter_fire_2.png in Resources */,
 				531A75F91FC47C4700C36330 /* ELEC2660 Background Dark.png in Resources */,
+				53DB17E31FD8227100C9B864 /* master_gunner_fire_2.png in Resources */,
+				53DB17E21FD8227100C9B864 /* master_gunner_fire_1.png in Resources */,
 				534AC8AB1FCEEA1A00989660 /* chest_idle.png in Resources */,
 				534AC8B31FCEEA1A00989660 /* enemy_idle.png in Resources */,
 				531A76031FC47C4700C36330 /* door_idle.png in Resources */,
 				531A75FC1FC47C4700C36330 /* chest_dead.png in Resources */,
 				533C8CBA1FCDA5BD001E939C /* placeholder.png in Resources */,
 				534AC8B61FCEEA1A00989660 /* enemy_stunned.png in Resources */,
+				53DB17E61FD8227100C9B864 /* master_gunner_load_1.png in Resources */,
 				534AC8AE1FCEEA1A00989660 /* cutter_fire_1.png in Resources */,
 				53572C051FB2060300E11BDB /* Main.storyboard in Resources */,
 				531A75FA1FC47C4700C36330 /* ELEC2660 Background.png in Resources */,
